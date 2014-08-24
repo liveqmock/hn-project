@@ -9,7 +9,6 @@ import hn.travel.cms.generic.web.GenericController;
 import hn.travel.persist.entity.User;
 import hn.travel.persist.service.account.AccountService;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
