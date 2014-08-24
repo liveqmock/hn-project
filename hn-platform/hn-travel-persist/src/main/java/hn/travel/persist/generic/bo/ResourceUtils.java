@@ -13,7 +13,7 @@ import java.util.List;
 public class ResourceUtils {
 
 	private static List<Resource> rs;
-	/** 根节点ID[我还原了]*/
+	/** 根节点ID[我还原*/
 	public static final Long ROOT_ID = 0L;
 
 	static {
