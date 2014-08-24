@@ -1,0 +1,22 @@
+BODY {
+	FONT-SIZE: 9pt;
+	FONT-FAMILY: ËÎÌו;
+	MARGIN: 0px 0px 0px 0px;
+	background-color: #FFFFFF;	
+}
+
+DIV#navmenu LI {
+		float:left;PADDING-BOTTOM: -1px;
+}
+
+DIV#navmenu A {
+	FLOAT: left;  COLOR: #12428c; font-size:13px; PADDING-TOP: 1px;border:1px solid #4582d3;border-width:0 1px 0 0;padding:0px 16px 0px 16px;line-height:28px;
+}
+
+DIV#navmenu A:hover {
+	background:#ccc url(images/bgON.gif) top left repeat-x; color:#FFFFFF;text-decoration:none;
+}
+
+DIV#navmenu A:active {
+	background:#ccc url(images/bgON.gif) top left repeat-x; color:#FFFFFF;text-decoration:none;
+}

@@ -1,0 +1,350 @@
+package com.capitalbio.soft.service.account;  
+  
+import java.io.Serializable;  
+import java.util.ArrayList;  
+import java.util.Arrays;  
+import java.util.List;  
+import java.util.Map;  
+import java.util.Map.Entry;  
+import java.util.Set;  
+  
+import javax.annotation.PostConstruct;  
+import javax.servlet.Filter;  
+  
+import org.apache.commons.lang3.StringUtils;  
+import org.apache.shiro.SecurityUtils;  
+import org.apache.shiro.authc.AuthenticationException;  
+import org.apache.shiro.authc.AuthenticationInfo;  
+import org.apache.shiro.authc.AuthenticationToken;  
+import org.apache.shiro.authc.DisabledAccountException;  
+import org.apache.shiro.authc.SimpleAuthenticationInfo;  
+import org.apache.shiro.authc.UsernamePasswordToken;  
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;  
+import org.apache.shiro.authz.AuthorizationInfo;  
+import org.apache.shiro.authz.SimpleAuthorizationInfo;  
+import org.apache.shiro.cache.Cache;  
+import org.apache.shiro.realm.AuthorizingRealm;  
+import org.apache.shiro.subject.PrincipalCollection;  
+import org.apache.shiro.subject.SimplePrincipalCollection;  
+import org.apache.shiro.util.ByteSource;  
+import org.apache.shiro.web.filter.PathMatchingFilter;  
+import org.apache.shiro.web.filter.mgt.DefaultFilterChainManager;  
+import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver;  
+import org.apache.shiro.web.servlet.AbstractShiroFilter;  
+import org.slf4j.Logger;  
+import org.slf4j.LoggerFactory;  
+import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.stereotype.Component;  
+  
+import com.capitalbio.soft.core.cache.SysCache;  
+import com.capitalbio.soft.core.shiro.FilterChainDefinitionsLoader;  
+import com.capitalbio.soft.core.utils.encoding.EncodeUtils;  
+import com.capitalbio.soft.core.utils.exception.ExceptionUtils;  
+import com.capitalbio.soft.core.utils.reflection.ReflectionUtils;  
+import com.capitalbio.soft.core.utils.security.Digests;  
+import com.capitalbio.soft.core.utils.spring.SpringContextHolder;  
+import com.capitalbio.soft.entity.account.Authority;  
+import com.capitalbio.soft.entity.account.Role;  
+import com.capitalbio.soft.entity.account.User;  
+import com.google.common.base.Objects;  
+import com.google.common.collect.Lists;  
+import com.google.common.collect.Maps;  
+import com.google.common.collect.Sets;  
+  
+@Component("shiroDbRealm")  
+public class ShiroDbRealm extends AuthorizingRealm {  
+      
+    private static Logger logger = LoggerFactory.getLogger(ShiroDbRealm.class);  
+    @Autowired private UserService userService;  
+  
+    /** 
+     * 认证回调函数,登录时调用. 
+     */  
+    @Override  
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {  
+        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;  
+        User user = userService.getByLoginName(token.getUsername(),false);  
+        if (user != null) {  
+            if(user.isUserDisabled()) { // DisabledAccountException || AuthenticationInfo org.apache.shiro.realm.SimpleAccountRealm.doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException  
+                throw new DisabledAccountException(); // throw new LockedAccountException("Account [" + user.getLoginName() + "] is locked.");  
+            }  
+            byte[] salt = EncodeUtils.decodeHex(user.getSalt());  
+            return new SimpleAuthenticationInfo(new ShiroUser(user), user.getPassword(), ByteSource.Util.bytes(salt), getName());  
+        } else {  
+            return null;  
+        }  
+    }  
+  
+    /** 
+     * 授权查询回调函数, 进行鉴权但缓存中无用户的授权信息时调用.在配有缓存的情况下，只加载一次. 
+     */  
+    @Override  
+    public AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {  
+        ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();  
+        User user = userService.getByLoginName(shiroUser.getLoginName(),true);  
+          
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();  
+  
+        Set<String> roleSet = Sets.newLinkedHashSet(); // 角色集合  
+        Set<String> authoritySet = Sets.newLinkedHashSet(); // 权限集合  
+        Set<Authority> menuSet = Sets.newLinkedHashSet(); // 菜单集合  
+        Map<String, List<Authority>> toolbars = Maps.newLinkedHashMap(); // 按钮集合  
+        Set<Authority> authFilters = Sets.newLinkedHashSet();  
+          
+        if(null!=user && !user.isUserDisabled()) { // 判断是否用户是否禁用  
+            for(Role r : user.getRoleList()) {  
+                if(!r.isRoleDisabled()) { // 判断角色是否禁用  
+                    if(StringUtils.isNotBlank(r.getCode())) roleSet.add(r.getCode());  
+                    for(Authority a : r.getAuthorityList()) { // 判断权限是否禁用  
+                        if(authFilters.add(a)) { // 过滤已经处理过的权限  
+                            if(!a.isAuthorityDisabled()) {  
+                                if(StringUtils.isNotBlank(a.getCode())) authoritySet.add(a.getCode()); // 增加权限编码  
+                                if(1==a.getAuthorityType()) {  
+                                    menuSet.add(a); // 增加菜单  
+                                }else if(2==a.getAuthorityType() && null!=a.getParent()) { // 遍历增加按钮权限  
+                                    String purl = a.getParent().getUrl();  
+                                    if(StringUtils.isNotBlank(purl)) {  
+                                        if(!toolbars.containsKey(purl)) {  
+                                            toolbars.put(purl, new ArrayList<Authority>());   
+                                        }  
+                                        toolbars.get(purl).add(a);   
+                                    }  
+                                }  
+                            }  
+                        }  
+                    }  
+                }  
+            }  
+        }  
+          
+        info.setRoles(roleSet); // 设置角色  
+        info.setStringPermissions(authoritySet); // 设置权限  
+        shiroUser.setAuthorities(buildSubMenu(null,Lists.newArrayList(menuSet.toArray(new Authority[]{})))); // 设置菜单  
+        shiroUser.setToolbars(toolbars); // 设置工具栏  
+          
+        logger.debug("{}当前用户权限:{}{}",SysCache.newline,SysCache.newline,authoritySet.toString().substring(1).replace(", ", SysCache.newline));  
+          
+        return info;  
+    }  
+      
+      
+    /** 
+     * 更新用户授权信息缓存. 
+     */  
+    public void clearCachedAuthorizationInfo(Object principal) {  
+        SimplePrincipalCollection principals = new SimplePrincipalCollection(principal, getName());  
+        clearCachedAuthorizationInfo(principals);  
+    }  
+  
+    /** 
+     * 清除所有用户授权信息缓存. 
+     */  
+    public void clearAllCachedAuthorizationInfo() {  
+        Cache<Object, AuthorizationInfo> cache = getAuthorizationCache();  
+        if (cache != null) {  
+            for (Object key : cache.keys()) {  
+                cache.remove(key);  
+            }  
+        }  
+    }  
+      
+      
+    /** 
+     * 设定Password校验的Hash算法与迭代次数. 
+     */  
+    @PostConstruct  
+    public void initCredentialsMatcher() {  
+        HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(HASH_ALGORITHM);  
+        matcher.setHashIterations(HASH_INTERATIONS);  
+  
+        setCredentialsMatcher(matcher);  
+    }  
+   
+    /** 
+     * 自定义Authentication对象，使得Subject除了携带用户的登录名外还可以携带更多信息. 
+     */  
+    public static class ShiroUser extends User implements Serializable {  
+        private static final long serialVersionUID = 1778589964992915025L;  
+  
+        public ShiroUser() { }  
+          
+        public ShiroUser(String loginName) {  
+            super(loginName);  
+        }  
+          
+        public ShiroUser(User user) {  
+            super(user.getId(),user.getLoginName(), user.getName(), user.getEmail(), user.getNickname(), user.getPhone(), user.getDisabled(), user.getSex(), user.getCreateDate());  
+        }  
+          
+  
+        /** 
+         * 本函数输出将作为默认的<shiro:principal/>输出. 
+         */  
+        @Override  
+        public String toString() {  
+            return loginName;  
+        }  
+  
+        /** 
+         * 重载hashCode,只计算loginName; 
+         */  
+        @Override  
+        public int hashCode() {  
+            return Objects.hashCode(loginName);  
+        }  
+  
+        /** 
+         * 重载equals,只计算loginName; 
+         */  
+        @Override  
+        public boolean equals(Object obj) {  
+            if (this == obj)  
+                return true;  
+            if (obj == null)  
+                return false;  
+            if (getClass() != obj.getClass())  
+                return false;  
+            ShiroUser other = (ShiroUser) obj;  
+            if (loginName == null) {  
+                if (other.loginName != null)  
+                    return false;  
+            } else if (!loginName.equals(other.loginName))  
+                return false;  
+            return true;  
+        }  
+    }  
+      
+    public static final String HASH_ALGORITHM = "SHA-1"; // 使用的加密算法  
+    public static final int HASH_INTERATIONS = 1024; // 加密迭代次数  
+    private static final int SALT_SIZE = 8; // 加密盐的大小  
+      
+    /** 
+     * 设定安全的密码，生成随机的salt并经过1024次 sha-1 hash 
+     */  
+    public static User entryptUserPassword(User user) {  
+        byte[] salt = Digests.generateSalt(SALT_SIZE);  
+        user.setSalt(EncodeUtils.encodeHex(salt));  
+  
+        byte[] hashPassword = Digests.sha1(user.getPassword().getBytes(), salt, HASH_INTERATIONS);  
+        user.setPassword(EncodeUtils.encodeHex(hashPassword));  
+        return user;  
+    }  
+      
+    /** 
+     * 得到当前登录用户 
+     * @return 
+     */  
+    public static ShiroUser getLoginUser() {  
+        return (ShiroUser)SecurityUtils.getSubject().getPrincipal();  
+    }  
+      
+    /**   
+     * 通过登录名移除权限缓存 
+     * @param loginId 
+     * @return boolean  
+     */  
+    public static boolean removeAuthCacheByLoginName(String loginName) {  
+        try {  
+            SpringContextHolder.getBean(ShiroDbRealm.class).clearCachedAuthorizationInfo(new ShiroUser(loginName));  
+            return true;  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+            logger.error(ExceptionUtils.getStackTraceAsString(e));  
+            return false;  
+        }  
+    }  
+      
+    /** 
+     * 重新载入过滤器url 
+     * @param chains eg:keys:/static/**, value:authc,user,roles[admin] 
+     */  
+    @SuppressWarnings("unchecked")  
+    public static void reloadShiroFilterChains(Map<String, String> chains) throws Exception  {  
+        DefaultFilterChainManager filterManager = getFilterChainManager();  
+          
+//      logger.debug(getFiltersDescription(filterManager)); // 此句可注释掉...  
+        for(Entry<String, Filter> filterEntry : filterManager.getFilters().entrySet()) {  
+            if(PathMatchingFilter.class.isInstance(filterEntry.getValue())) {  
+                PathMatchingFilter filter = PathMatchingFilter.class.cast(filterEntry.getValue());  
+                Map<String, Object> appliedPaths = (Map<String, Object>)ReflectionUtils.getFieldValue(filter, "appliedPaths");  
+                synchronized (appliedPaths) {   
+                    appliedPaths.clear();  
+                }  
+            }  
+        }  
+        synchronized (filterManager.getFilterChains()) {  
+//              filterManager.getFilters().clear();  
+            logger.debug(""+filterManager.getFilterConfig());  
+            filterManager.getFilterChains().clear();  
+            for(Entry<String,String> chain : chains.entrySet()){  
+                filterManager.createChain(chain.getKey(), chain.getValue());  
+//              logger.debug("{} = {}",chain.getKey(),chain.getValue());  
+            }  
+        }  
+        logger.debug(getFiltersDescription(filterManager)); // 此句可注释掉...  
+    }  
+  
+    /** 
+     * 描述当前过滤器 
+     */  
+    @SuppressWarnings("unchecked")  
+    public static String getFiltersDescription(DefaultFilterChainManager filterManager) {  
+        StringBuilder filtersDesc = new StringBuilder();  
+        for(Entry<String, Filter> filterEntryDesc : filterManager.getFilters().entrySet()) {  
+            filtersDesc.append(SysCache.newline).append(filterEntryDesc.getKey()).append(":").append(SysCache.newline);  
+            if(PathMatchingFilter.class.isInstance(filterEntryDesc.getValue())) {  
+                PathMatchingFilter filter = PathMatchingFilter.class.cast(filterEntryDesc.getValue());  
+                Map<String, Object> appliedPaths = (Map<String, Object>)ReflectionUtils.getFieldValue(filter, "appliedPaths");  
+                for(Entry<String, Object> paths : appliedPaths.entrySet()) {  
+                    filtersDesc.append(paths.getKey()).append(" = ").append(Arrays.toString((String[])paths.getValue())).append(SysCache.newline);  
+                }  
+            }  
+        }  
+        return filtersDesc.toString();  
+    }  
+      
+    /** 
+     * 重新载入过滤器url 
+     */  
+    public static void reloadShiroFilterChains() throws Exception {  
+        Map<String, String> allDefinitionMap = SpringContextHolder.getBean(FilterChainDefinitionsLoader.class).loadAllDefinitionMap();  
+        reloadShiroFilterChains(allDefinitionMap);  
+    }  
+      
+    /** 
+     * 将菜单组织为树形的结构 
+     * 级联取出下级菜单(递归算法)  
+     */  
+    public static List<Authority> buildSubMenu(Authority parent,List<Authority> list) {  
+        List<Authority> subNodes = Lists.newLinkedList();  
+        for(Authority s : list) {  
+            if((null==parent && null==s.getParent()) || (null!=parent && null!=s.getParent() && parent.getId().equals(s.getParent().getId()))) {  
+                s.setSubnodes(buildSubMenu(s, list));  
+                subNodes.add(s); // logger.debug((null!=parent? parent.getName() : "") + " > " + s.getName());  
+            }  
+        }  
+        Authority.sort(subNodes,false);  
+        return subNodes;  
+    }  
+      
+    /** 
+     * @return 得到过滤器链 
+     */  
+    public static DefaultFilterChainManager getFilterChainManager() {  
+        return ((DefaultFilterChainManager)((PathMatchingFilterChainResolver)SpringContextHolder.getBean(AbstractShiroFilter.class).getFilterChainResolver()).getFilterChainManager());  
+    }  
+      
+    /** 
+     *  解决在登录时无法加载菜单项的问题,即在每次登录时重新加载用户权限缓存 
+     */  
+    public static void forceShiroToReloadUserAuthorityCache(String username) {  
+        // SpringContextHolder.getBean(ShiroDbRealm.class).doGetAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());  
+        ShiroDbRealm shiroDbRealm = SpringContextHolder.getBean(ShiroDbRealm.class);  
+          
+        shiroDbRealm.clearCachedAuthorizationInfo(new ShiroUser(username)); // 清除权限缓存  
+        shiroDbRealm.isPermitted(SecurityUtils.getSubject().getPrincipals(), "强制shiro检查加载用户权限缓存,避免懒加载!" + System.currentTimeMillis());  
+    }  
+      
+}  
+
+ 
