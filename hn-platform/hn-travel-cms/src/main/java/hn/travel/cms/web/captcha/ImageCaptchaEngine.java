@@ -38,7 +38,7 @@ public class ImageCaptchaEngine extends ListImageCaptchaEngine {
     //随机生成的字符集
     private static String keyWord = "0123456789";
 
-    //字体大小
+    //字体大小 asd
     private static int fontSize = 9;
 
     //文字显示的个数
