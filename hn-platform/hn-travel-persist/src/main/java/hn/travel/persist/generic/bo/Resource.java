@@ -6,7 +6,7 @@ package hn.travel.persist.generic.bo;
 import java.util.Set;
 
 /**
- * @author chenbing ssss
+ * @author chenbing
  * 
  */
 public class Resource {
