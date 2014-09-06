@@ -20,6 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class CommonController {
 
+	/**
+	 * 测试
+	 * @return
+	 */
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "index";
