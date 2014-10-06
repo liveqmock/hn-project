@@ -33,8 +33,6 @@ import com.google.common.collect.Maps;
 
 
 
-@Controller
-@RequestMapping(value = "/addressBook")
 public class AddressBookController extends GenericController{
 	private static final String PAGE_SIZE = "3";
 	
