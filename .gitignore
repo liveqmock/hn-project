@@ -1,1 +1,8 @@
 hn-platform/hn-travel-cms/.classpath
+hn-platform/hn-travel-persist/.project
+hn-platform/hn-travel-portal/.settings/org.eclipse.wst.common.project.facet.core.xml
+hn-platform/hn-travel-portal/.classpath
+hn-platform/hn-travel-portal/.settings/.jsdtscope
+*.prefs
+*.project
+hn-platform/hn-travel-portal/.settings/
