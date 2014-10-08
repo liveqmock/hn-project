@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @version V1.0.0
  */
 @Controller
-@RequestMapping(value = "/res")
+@RequestMapping(value = "/admin/res")
 public class ResController {
 
 	@Autowired
