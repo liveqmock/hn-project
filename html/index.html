@@ -4,37 +4,70 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>海南旅游网</title>
 <link href="res/theme/main.css" rel="stylesheet" type="text/css" />
+<script src="res/js/lib/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="res/js/head-foot.js" type="text/javascript"></script>
+<script src="res/js/slide-page.js" type="text/javascript"></script>
+<script src="res/js/index.js" type="text/javascript"></script>
 </head>
 
 <body class="body-bg">
 <!-- 通用页头 开始 -->
-<div class="headtop">
+<div id="HeadBox" class="headbox">
+<div id="HeadTop" class="headtop">
  <div class="con">
-  <span>欢迎进入海南旅游网！</span>
-  <a href="#" class="login"><i></i><span>登录</span>[注册]</a>
-  <a href="#" class="logo">logo</a>
-  <a href="#" class="s">海岛之恋</a>
-  <a href="#">热门景点</a>
-  <a href="#">热门酒店</a>
-  <a href="#">旅游攻略</a>
-  <a href="#">海南手礼</a>
-  <a href="#">海岛社区</a>
-  <a href="#" class="e">小岛故事</a>
-  <a href="#" class="index"><i></i>首页</a>
-  <a href="#" class="i"><i></i></a>
+  <div class="wel">欢迎进入海南旅游网！</div>
+  <!--<div class="login">
+   <a href="#" class="unlogin"><i></i><span>登录</span>[注册]</a>
+  </div>-->
+  <div class="login">
+   <a href="#" class="name"><img src="p/slide1.jpg" />账号登录哈哈111</a>
+   <ul class="lm">
+    <li class="f"><a href="#"><i></i>购物车<b>10</b></a></li>
+    <li><a href="#"><i class="i1"></i>收藏夹<b>0</b></a></li>
+    <li><a href="#"><i class="i2"></i>退&nbsp;&nbsp;出</a></li>
+   </ul>
+  </div>
+  <div class="logo"><a href="#">海南旅游网</a></div>
+  <ul class="menu">
+   <li class="s"><a href="#">海岛之恋<i></i></a></li>
+   <li><a href="#">热门景点<i></i></a></li>
+   <li><a href="#">热门酒店<i></i></a></li>
+   <li><a href="#">旅游攻略<i></i></a></li>
+   <li><a href="#">海南手礼<i></i></a></li>
+   <li><a href="#">海岛社区<i></i></a></li>
+   <li class="e"><a href="#">小岛故事<i></i></a></li>
+  </ul>
+  <div class="index"><a href="#"><i></i>首页</a></div>
+  <div class="search">
+   <a href="#" class="si"><i></i></a>
+   <form class="ss">
+    <div class="ssl">
+     <a href="javascript:void(0)" class="sslt"><span>门票</span><i></i></a>
+     <ul>
+      <li style="display:none"><a href="javascript:void(0)">门票</a></li>
+      <li><a href="javascript:void(0)">景点</a></li>
+      <li><a href="javascript:void(0)">酒店</a></li>
+      <li><a href="javascript:void(0)">故事</a></li>
+     </ul>
+    </div>
+    <input class="ssr" type="text" value="三亚水上乐园" />
+   </form>
+  </div>
  </div>
 </div>
 
-<div class="headlogo"></div>
+<div class="headlogo">
+ <a href="#">海南旅游网</a>
+</div>
 
 <div class="headnav">
  <a href="#">海岛之恋</a>
- <a href="#">热门景点</a>
- <a href="#">热门酒店</a>
- <a href="#">旅游攻略</a>
- <a href="#">海南手礼</a>
- <a href="#">海岛社区</a>
- <a href="#">小岛故事</a>
+ <a href="#" class="n2">热门景点</a>
+ <a href="#" class="n3">热门酒店</a>
+ <a href="#" class="n4">旅游攻略</a>
+ <a href="#" class="n5">海南手礼</a>
+ <a href="#" class="n6">海岛社区</a>
+ <a href="#" class="n7">小岛故事</a>
 </div>
 
 <div class="headsearch">
@@ -52,73 +85,389 @@
   </div>
  </form>
 </div>
+</div>
 <!-- 通用页头 结束 -->
 
 
 <!-- 幻灯片通栏 开始 -->
-<div class="slide-bar">
+<div id="SlideDiv" class="slide-bar">
  <div class="shade"><p><i></i></p></div>
  <div class="mainbox">
   <div class="sl">
    <ul>
     <li class="s">
-     <p>旅行线路</p>
-     <a href="#">恐龙园</a>
-     <a href="#">三亚天域</a>
-     <a href="#">出海游</a>
+     <div class="mp"><div class="mpt">
+      <p>旅行线路</p>
+      <a href="#">恐龙园</a>
+      <a href="#">三亚天域</a>
+      <a href="#">出海游</a>
+     </div></div>
      <i></i>
+     <div class="mc">
+      <div class="item f">
+       <h1><a href="#">跟团游</a></h1>
+       <dl>
+        <dd><a href="#">珠海长隆</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">自助游</a></h1>
+       <dl>
+        <dd><a href="#">自助游</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#" class="over">从化碧水湾温泉</a></dd>
+        <dd><a href="#">放鸡岛</a></dd>
+        <dd><a href="#">森波拉火山温泉</a></dd>
+        <dd><a href="#" class="over">海泉湾</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">深圳茵特拉根温泉</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">尝美食</a></h1>
+       <dl>
+        <dd><a href="#" class="over">尝美食</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">水上乐园</a></h1>
+       <dl>
+        <dd><a href="#">水上乐园</a></dd>
+       </dl>
+      </div>
+     </div>
     </li>
-    <li>
-     <p class="p2">景点门票</p>
-     <a href="#">恐龙园</a>
-     <a href="#">三亚大海滩</a>
-     <a href="#">椰子树</a>
+    <li class="m2">
+     <div class="mp"><div class="mpt">
+      <p>景点门票</p>
+      <a href="#">恐龙园</a>
+      <a href="#">三亚大海滩</a>
+      <a href="#">椰子树</a>
+     </div></div>
      <i></i>
+     <div class="mc">
+      <div class="item f">
+       <h1><a href="#">跟团游</a></h1>
+       <dl>
+        <dd><a href="#">珠海长隆</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">自助游</a></h1>
+       <dl>
+        <dd><a href="#">自助游</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#" class="over">从化碧水湾温泉</a></dd>
+        <dd><a href="#">放鸡岛</a></dd>
+        <dd><a href="#">森波拉火山温泉</a></dd>
+        <dd><a href="#" class="over">海泉湾</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">深圳茵特拉根温泉</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">尝美食</a></h1>
+       <dl>
+        <dd><a href="#" class="over">尝美食</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">水上乐园</a></h1>
+       <dl>
+        <dd><a href="#">水上乐园</a></dd>
+       </dl>
+      </div>
+     </div>
     </li>
-    <li>
-     <p class="p3">酒店预订</p>
-     <a href="#">帆船酒店</a>
-     <a href="#">路边夜店</a>
+    <li class="m3">
+     <div class="mp"><div class="mpt">
+      <p>酒店预订</p>
+      <a href="#">帆船酒店</a>
+      <a href="#">路边夜店</a>
+     </div></div>
      <i></i>
+     <div class="mc">
+      <div class="item f">
+       <h1><a href="#">跟团游</a></h1>
+       <dl>
+        <dd><a href="#">珠海长隆</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">自助游</a></h1>
+       <dl>
+        <dd><a href="#">自助游</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#" class="over">从化碧水湾温泉</a></dd>
+        <dd><a href="#">放鸡岛</a></dd>
+        <dd><a href="#">森波拉火山温泉</a></dd>
+        <dd><a href="#" class="over">海泉湾</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">深圳茵特拉根温泉</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">尝美食</a></h1>
+       <dl>
+        <dd><a href="#" class="over">尝美食</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">水上乐园</a></h1>
+       <dl>
+        <dd><a href="#">水上乐园</a></dd>
+       </dl>
+      </div>
+     </div>
     </li>
-    <li>
-     <p class="p4">游轮垂钓</p>
-     <a href="#">美神马</a>
-     <a href="#">哈哈野</a>
-     <a href="#">布吉岛</a>
+    <li class="m4">
+     <div class="mp"><div class="mpt">
+      <p>游轮垂钓</p>
+      <a href="#">美神马</a>
+      <a href="#">哈哈野</a>
+      <a href="#">布吉岛</a>
+     </div></div>
      <i></i>
+     <div class="mc">
+      <div class="item f">
+       <h1><a href="#">跟团游</a></h1>
+       <dl>
+        <dd><a href="#">珠海长隆</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">自助游</a></h1>
+       <dl>
+        <dd><a href="#">自助游</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#" class="over">从化碧水湾温泉</a></dd>
+        <dd><a href="#">放鸡岛</a></dd>
+        <dd><a href="#">森波拉火山温泉</a></dd>
+        <dd><a href="#" class="over">海泉湾</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">深圳茵特拉根温泉</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">尝美食</a></h1>
+       <dl>
+        <dd><a href="#" class="over">尝美食</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">水上乐园</a></h1>
+       <dl>
+        <dd><a href="#">水上乐园</a></dd>
+       </dl>
+      </div>
+     </div>
     </li>
-    <li>
-     <p class="p5">开心驴行</p>
-     <a href="#">我说你骂</a>
-     <a href="#">三亚天域</a>
-     <a href="#">出海游</a>
+    <li class="m5">
+     <div class="mp"><div class="mpt">
+      <p>开心驴行</p>
+      <a href="#">我说你骂</a>
+      <a href="#">三亚天域</a>
+      <a href="#">出海游</a>
+     </div></div>
      <i></i>
+     <div class="mc">
+      <div class="item f">
+       <h1><a href="#">跟团游</a></h1>
+       <dl>
+        <dd><a href="#">珠海长隆</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">自助游</a></h1>
+       <dl>
+        <dd><a href="#">自助游</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#" class="over">从化碧水湾温泉</a></dd>
+        <dd><a href="#">放鸡岛</a></dd>
+        <dd><a href="#">森波拉火山温泉</a></dd>
+        <dd><a href="#" class="over">海泉湾</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">深圳茵特拉根温泉</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">尝美食</a></h1>
+       <dl>
+        <dd><a href="#" class="over">尝美食</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">水上乐园</a></h1>
+       <dl>
+        <dd><a href="#">水上乐园</a></dd>
+       </dl>
+      </div>
+     </div>
     </li>
-    <li>
-     <p class="p6">定制游</p>
-     <a href="#">野战</a>
-     <a href="#">家庭游</a>
-     <a href="#">团体游</a>
+    <li class="m6">
+     <div class="mp"><div class="mpt">
+      <p>定制游</p>
+      <a href="#">野战</a>
+      <a href="#">家庭游</a>
+      <a href="#">团体游</a>
+     </div></div>
      <i></i>
+     <div class="mc">
+      <div class="item f">
+       <h1><a href="#">跟团游</a></h1>
+       <dl>
+        <dd><a href="#">珠海长隆</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">自助游</a></h1>
+       <dl>
+        <dd><a href="#">自助游</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#" class="over">从化碧水湾温泉</a></dd>
+        <dd><a href="#">放鸡岛</a></dd>
+        <dd><a href="#">森波拉火山温泉</a></dd>
+        <dd><a href="#" class="over">海泉湾</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">深圳茵特拉根温泉</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">尝美食</a></h1>
+       <dl>
+        <dd><a href="#" class="over">尝美食</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">水上乐园</a></h1>
+       <dl>
+        <dd><a href="#">水上乐园</a></dd>
+       </dl>
+      </div>
+     </div>
     </li>
-    <li class="e">
-     <p class="p7">特卖会</p>
-     <a href="#">母猪会上树</a>
-     <a href="#">小火子</a>
-     <a href="#">草篱嘛</a>
+    <li class="e m7">
+     <div class="mp"><div class="mpt">
+      <p>特卖会</p>
+      <a href="#">母猪会上树</a>
+      <a href="#">小火子</a>
+      <a href="#">草篱嘛</a>
+     </div></div>
      <i></i>
+     <div class="mc">
+      <div class="item f">
+       <h1><a href="#">跟团游</a></h1>
+       <dl>
+        <dd><a href="#">珠海长隆</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#">茶溪谷</a></dd>
+        <dd><a href="#">东部华侨城</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">自助游</a></h1>
+       <dl>
+        <dd><a href="#">自助游</a></dd>
+        <dd><a href="#">广州塔</a></dd>
+        <dd><a href="#" class="over">从化碧水湾温泉</a></dd>
+        <dd><a href="#">放鸡岛</a></dd>
+        <dd><a href="#">森波拉火山温泉</a></dd>
+        <dd><a href="#" class="over">海泉湾</a></dd>
+        <dd><a href="#">世界之窗</a></dd>
+        <dd><a href="#">深圳欢乐谷</a></dd>
+        <dd><a href="#">深圳茵特拉根温泉</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">尝美食</a></h1>
+       <dl>
+        <dd><a href="#" class="over">尝美食</a></dd>
+       </dl>
+      </div>
+      <div class="item">
+       <h1><a href="#">水上乐园</a></h1>
+       <dl>
+        <dd><a href="#">水上乐园</a></dd>
+       </dl>
+      </div>
+     </div>
     </li>
    </ul>
   </div>
   
   <div class="sc">
    <ul class="list">
-    <li><img src="p/slide1.jpg" /></li>
-    <li><img src="p/slide2.jpg" /></li>
-    <li><img src="p/slide3.jpg" /></li>
-    <li><img src="p/slide1.jpg" /></li>
-    <li><img src="p/slide2.jpg" /></li>
+    <li><a href="#"><img src="p/slide1.jpg" /></a></li>
+    <li><a href="#"><img src="p/slide2.jpg" /></a></li>
+    <li><a href="#"><img src="p/slide3.jpg" /></a></li>
+    <li><a href="#"><img src="p/slide1.jpg" /></a></li>
+    <li><a href="#"><img src="p/slide2.jpg" /></a></li>
    </ul>
    <ul class="tab">
     <li class="f"><a href="#" class="over">三亚风情等你来！</a></li>
@@ -176,9 +525,9 @@
     <dd><a href="#">南山寺</a></dd>
     <dd><a href="#">西岛</a></dd>
    </dl>
-   <a href="#" class="ai"><img src="p/hl2.jpg" /></a>
-   <a href="#" class="ai"><img src="p/hl3.jpg" /></a>
-   <a href="#" class="ai"><img src="p/hl4.jpg" /></a>
+   <a href="#" class="ai"><img src="p/hl2.jpg" hoverOpacity="1" /></a>
+   <a href="#" class="ai"><img src="p/hl3.jpg" hoverOpacity="1" /></a>
+   <a href="#" class="ai"><img src="p/hl4.jpg" hoverOpacity="1" /></a>
   </div>
   
   <dl class="m">
@@ -194,7 +543,7 @@
     <a href="#" class="more">更多三亚景点&gt;&gt;</a>
    </dt>
    <dd>
-    <a href="#" class="at"><img src="p/hl11.jpg" /></a>
+    <a href="#" class="at"><img src="p/hl11.jpg" hoverAmp="1" /></a>
     <div>
      <p><a href="#">【自由行】凤凰岛6天5晚爽歪歪</a></p>
      <p>十一特惠全家一起感受海滩风情</p>
@@ -202,7 +551,7 @@
     </div>
    </dd>
    <dd>
-    <a href="#" class="at"><img src="p/hl12.jpg" /></a>
+    <a href="#" class="at"><img src="p/hl12.jpg" hoverAmp="1" /></a>
     <div>
      <p><a href="#">【自由行】凤凰岛6天5晚爽歪歪</a></p>
      <p>十一特惠全家一起感受海滩风情</p>
@@ -210,7 +559,7 @@
     </div>
    </dd>
    <dd>
-    <a href="#" class="at"><img src="p/hl13.jpg" /></a>
+    <a href="#" class="at"><img src="p/hl13.jpg" hoverAmp="1" /></a>
     <div>
      <p><a href="#">【自由行】凤凰岛6天5晚爽歪歪</a></p>
      <p>十一特惠全家一起感受海滩风情</p>
@@ -218,7 +567,7 @@
     </div>
    </dd>
    <dd>
-    <a href="#" class="at"><img src="p/hl14.jpg" /></a>
+    <a href="#" class="at"><img src="p/hl14.jpg" hoverAmp="1" /></a>
     <div>
      <p><a href="#">【自由行】凤凰岛6天5晚爽歪歪</a></p>
      <p>十一特惠全家一起感受海滩风情</p>
@@ -226,7 +575,7 @@
     </div>
    </dd>
    <dd>
-    <a href="#" class="at"><img src="p/hl15.jpg" /></a>
+    <a href="#" class="at"><img src="p/hl15.jpg" hoverAmp="1" /></a>
     <div>
      <p><a href="#">【自由行】凤凰岛6天5晚爽歪歪</a></p>
      <p>十一特惠全家一起感受海滩风情</p>
@@ -234,7 +583,7 @@
     </div>
    </dd>
    <dd>
-    <a href="#" class="at"><img src="p/hl16.jpg" /></a>
+    <a href="#" class="at"><img src="p/hl16.jpg" hoverAmp="1" /></a>
     <div>
      <p><a href="#">【自由行】凤凰岛6天5晚爽歪歪</a></p>
      <p>十一特惠全家一起感受海滩风情</p>
@@ -244,7 +593,7 @@
   </dl>
  </div>
  
- <div class="hotright">
+ <div id="HotlineSale" class="hotright">
   <dl class="rt">
    <dt>热销排行榜</dt>
    <dd><a href="javascript:void(0)" class="over">门票</a></dd>
@@ -256,42 +605,128 @@
   <div class="rb">
    <ul>
     <li class="f">
-     <a href="#">
-      <img src="p/hl21.jpg" />
+     <a href="#" class="aimg">
+      <img src="p/hl21.jpg" hoverOpacity="2" />
      </a>
      <a href="#" class="at">亚龙湾两天自由行</a>
      <span><strong>4506</strong>份已售</span>
      <p>¥1999<del>¥2600</del></p>
     </li>
     <li>
-     <a href="#">
-      <img src="p/hl22.jpg" />
+     <a href="#" class="aimg">
+      <img src="p/hl22.jpg" hoverOpacity="2" />
      </a>
-     <a href="#" class="at">亚龙湾两天自由行</a>
+     <a href="#">亚龙湾两天自由行</a>
      <span><b>4506</b>份已售</span>
      <p>¥1999</p>
     </li>
     <li>
-     <a href="#">
-      <img src="p/hl23.jpg" />
+     <a href="#" class="aimg">
+      <img src="p/hl23.jpg" hoverOpacity="2" />
      </a>
-     <a href="#" class="at">亚龙湾两天自由行</a>
+     <a href="#">亚龙湾两天自由行</a>
      <span><b>4506</b>份已售</span>
      <p>¥1999</p>
     </li>
     <li>
-     <a href="#">
-      <img src="p/hl24.jpg" />
+     <a href="#" class="aimg">
+      <img src="p/hl24.jpg" hoverOpacity="2" />
      </a>
-     <a href="#" class="at">亚龙湾两天自由行</a>
+     <a href="#">亚龙湾两天自由行</a>
      <span><b>4506</b>份已售</span>
      <p>¥1999</p>
     </li>
     <li>
-     <a href="#">
-      <img src="p/hl25.jpg" />
+     <a href="#" class="aimg">
+      <img src="p/hl25.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+   </ul>
+   
+   <ul style="display:none">
+    <li class="f">
+     <a href="#" class="aimg">
+      <img src="p/hl11.jpg" hoverOpacity="2" />
      </a>
      <a href="#" class="at">亚龙湾两天自由行</a>
+     <span><strong>4506</strong>份已售</span>
+     <p>¥1999<del>¥2600</del></p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl23.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl25.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl22.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl24.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+   </ul>
+   
+   <ul style="display:none">
+    <li class="f">
+     <a href="#" class="aimg">
+      <img src="p/hl12.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#" class="at">亚龙湾两天自由行</a>
+     <span><strong>4506</strong>份已售</span>
+     <p>¥1999<del>¥2600</del></p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl25.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl24.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl23.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
+     <span><b>4506</b>份已售</span>
+     <p>¥1999</p>
+    </li>
+    <li>
+     <a href="#" class="aimg">
+      <img src="p/hl22.jpg" hoverOpacity="2" />
+     </a>
+     <a href="#">亚龙湾两天自由行</a>
      <span><b>4506</b>份已售</span>
      <p>¥1999</p>
     </li>
@@ -303,11 +738,58 @@
 
 <!-- 热门景点 开始 -->
 <div class="mainbox mainhot hotspot-bar">
- <div class="hotleft">
+ <div class="hotleft" id="HotspotPage">
   <div class="h"><p><i>热门景点</i>看我所看，想我所享！</p></div>
   <div class="page"><i></i></div>
   <div class="con">
    <ul>
+    <li>
+     <div class="cc">
+      <div class="item">
+       <a href="#">
+        <img src="p/hs1.jpg" width="418" height="216" />
+       </a>
+      </div>
+      <div class="item">
+       <a href="#">
+        <img src="p/hs3.jpg" width="207" height="216" />
+        <span>蜈支洲岛周末旅游好去处</span>
+       </a>
+      </div>
+      <div class="item">
+       <a href="#">
+        <img src="p/hs6.jpg" width="207" height="216" />
+        <span>蜈支洲岛周末旅游好去处</span>
+       </a>
+      </div>
+     </div>
+     
+     <div class="item">
+      <a href="#">
+       <img src="p/hs2.jpg" width="417" height="150" />
+       <span>蜈支洲岛周末旅游好去处</span>
+      </a>
+     </div>
+     <div class="item">
+      <a href="#">
+       <img src="p/hs4.jpg" width="207" height="128" />
+       <span>蜈支洲岛周末旅游好去处</span>
+      </a>
+     </div>
+     <div class="item">
+      <a href="#">
+       <img src="p/hs5.jpg" width="206" height="128" />
+       <span>蜈支洲岛周末旅游好去处</span>
+      </a>
+     </div>
+     <div class="item">
+      <a href="#">
+       <img src="p/hs7.jpg" width="417" height="150" />
+       <span>蜈支洲岛周末旅游好去处</span>
+      </a>
+     </div>
+    </li>
+    
     <li>
      <div class="cc">
       <div class="item">
@@ -361,24 +843,28 @@
  
  <div class="hotright">
   <div class="rt">促销特卖</div>
-  <ul class="rb">
+  <ul id="HotspotSale" class="rb">
    <li class="f">
     <a href="#"><img src="p/hs11.jpg" /></a>
     <i></i>
    </li>
    <li>
+    <div></div>
     <a href="#"><img src="p/hs12.jpg" /></a>
     <i class="bc2"></i>
    </li>
    <li>
+    <div></div>
     <a href="#"><img src="p/hs13.jpg" /></a>
     <i class="bc3"></i>
    </li>
    <li>
+    <div></div>
     <a href="#"><img src="p/hs14.jpg" /></a>
     <i class="bc4"></i>
    </li>
    <li>
+    <div></div>
     <a href="#"><img src="p/hs15.jpg" /></a>
     <i class="bc5"></i>
    </li>
@@ -402,52 +888,66 @@
   </ul>
  </div>
  
- <div class="ad"><a href="#"><img src="p/hr2.jpg" /></a></div>
+ <div class="ad">
+  <a href="#"><img src="p/hr2.jpg" /></a>
+  <div class="adc">
+   <p>享受独家宽广</p>
+   <a href="#">海滩阳光嗨享</a>
+   <div>￥566起</div>
+  </div>
+ </div>
  <ul class="hm">
   <li>
-   <a href="#"><img src="p/hr11.jpg" /></a>
+   <a href="#" class="aimg"><img src="p/hr11.jpg" hoverAmp="1" /></a>
    <p>
     <a href="#">三亚湾假日酒店</a>
     <span>￥566起</span>
    </p>
   </li>
   <li>
-   <a href="#"><img src="p/hr12.jpg" /></a>
+   <a href="#" class="aimg"><img src="p/hr12.jpg" hoverAmp="1" /></a>
    <p>
     <a href="#">三亚湾假日酒店</a>
     <span>￥566起</span>
    </p>
   </li>
   <li>
-   <a href="#"><img src="p/hr13.jpg" /></a>
+   <a href="#" class="aimg"><img src="p/hr13.jpg" hoverAmp="1" /></a>
    <p>
     <a href="#">三亚湾假日酒店</a>
     <span>￥566起</span>
    </p>
   </li>
   <li>
-   <a href="#"><img src="p/hr14.jpg" /></a>
+   <a href="#" class="aimg"><img src="p/hr14.jpg" hoverAmp="1" /></a>
    <p>
     <a href="#">三亚湾假日酒店</a>
     <span>￥566起</span>
    </p>
   </li>
   <li>
-   <a href="#"><img src="p/hr15.jpg" /></a>
+   <a href="#" class="aimg"><img src="p/hr15.jpg" hoverAmp="1" /></a>
    <p>
     <a href="#">三亚湾假日酒店</a>
     <span>￥566起</span>
    </p>
   </li>
   <li>
-   <a href="#"><img src="p/hr16.jpg" /></a>
+   <a href="#" class="aimg"><img src="p/hr16.jpg" hoverAmp="1" /></a>
    <p>
     <a href="#">三亚湾假日酒店</a>
     <span>￥566起</span>
    </p>
   </li>
  </ul>
- <div class="ad"><a href="#"><img src="p/hr1.jpg" /></a></div>
+ <div class="ad">
+  <a href="#"><img src="p/hr1.jpg" /></a>
+  <div class="adc">
+   <p>享受独家宽广</p>
+   <a href="#">海滩阳光嗨享</a>
+   <div>￥566起</div>
+  </div>
+ </div>
 </div>
 <!-- 酒店推荐 结束 -->
 
@@ -478,10 +978,10 @@
  
  <div class="cityright">
   <div class="rt">旅游推荐<a href="#">更多</a></div>
-  <a href="#" class="rm">
-   <img src="p/ce4.jpg" />
-   <span>一年一度泼水节</span>
-  </a>
+  <div class="rm">
+   <a href="#"><img src="p/ce4.jpg" /></a>
+   <a href="#" class="rmt">一年一度泼水节</a>
+  </div>
   <ul>
    <li>NO.1<a href="#">陵水海南菜</a></li>
    <li>NO.2<a href="#">双鱼座海景度假公寓</a></li>
@@ -496,8 +996,72 @@
 <!-- 城市印象 结束 -->
 
 <!-- 聚合内容 开始 -->
-<div class="mainbox polymer-bar">
- <a href="#"><img src="p/polymer.jpg" /></a>
+<div id="PolymerBar" class="mainbox polymer-bar">
+ <ul class="f" style="width:188px">
+  <li><a href="#">
+   <img src="p/po1.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+  <li><a href="#">
+   <img src="p/po2.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+  <li><a href="#">
+   <img src="p/po3.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+ </ul>
+ <ul style="width:238px">
+  <li><a href="#">
+   <img src="p/po4.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+  <li><a href="#">
+   <img src="p/po5.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+ </ul>
+ <ul style="width:478px">
+  <li><a href="#">
+   <img src="p/po6.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+  <li class="nom"><ul style="width:200px">
+   <li><a href="#">
+    <img src="p/po7.jpg" />
+    <div class="mk"></div>
+    <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+   </a></li>
+   <li><a href="#">
+    <img src="p/po8.jpg" />
+    <div class="mk"></div>
+    <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+   </a></li>
+  </ul></li>
+  <li><a href="#">
+   <img src="p/po9.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+ </ul>
+ <ul style="width:297px">
+  <li><a href="#">
+   <img src="p/po10.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+  <li><a href="#">
+   <img src="p/po11.jpg" />
+   <div class="mk"></div>
+   <div class="mt"><p>最爱恋爱季，拍婚纱啦！</p></div>
+  </a></li>
+ </ul>
 </div>
 <!-- 聚合内容 结束 -->
 
@@ -509,25 +1073,37 @@
 
 
 <!-- 通用页脚 开始 -->
-<ul class="footservice">
- <li class="f1">
-  <p>价格保证</p>
-  <span>同类产品，保证低价</span>
- </li>
- <li class="f2">
-  <p>退订保障</p>
-  <span>因特殊情况影响出行，保证退订</span>
- </li>
- <li class="f3">
-  <p>救援保障</p>
-  <span>旅途中遇意外情况，保证援助</span>
- </li>
- <li class="f4">
-  <p>7x24小时服务</p>
-  <span>快速响应，全年无休</span>
- </li>
-</ul>
-<div class="footsafety"></div>
+<div class="footservice">
+ <ul>
+  <li class="f1">
+   <i></i>
+   <p>价格保证</p>
+   <span>同类产品，保证低价</span>
+  </li>
+  <li class="f2">
+   <i></i>
+   <p>退订保障</p>
+   <span>因特殊情况影响出行，保证退订</span>
+  </li>
+  <li class="f3">
+   <i></i>
+   <p>救援保障</p>
+   <span>旅途中遇意外情况，保证援助</span>
+  </li>
+  <li class="f4">
+   <i></i>
+   <p>7x24小时服务</p>
+   <span>快速响应，全年无休</span>
+  </li>
+ </ul>
+</div>
+
+<div class="footsafety"><div></div></div>
+
+<div id="FootTip" class="foottip">
+ <a href="javascript:void(0)" class="gotop" title="返回顶部"></a>
+ <a href="javascript:void(0)" class="msg" title="问题反馈"></a>
+</div>
 <!-- 通用页脚 结束 -->
 </body>
 </html>

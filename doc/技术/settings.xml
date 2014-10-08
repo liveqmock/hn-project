@@ -1,0 +1,64 @@
+<settings>
+<profiles>
+   <profile>
+     <id>nexus</id>
+     <repositories>
+       <repository>
+           <id>nexus</id>
+           <name>local private nexus</name>
+           <url>http://repo.wofs.com.cn/nexus/content/groups/public</url>
+       </repository>
+       <repository>  
+	      <id>spy</id>  
+	      <name>Spy Repository</name>  
+	      <layout>default</layout>  
+	      <url>http://files.couchbase.com/maven2</url>  
+	      <snapshots>  
+	        <enabled>false</enabled>  
+	      </snapshots>  
+	    </repository>
+     </repositories>
+   </profile>
+</profiles>
+
+<activeProfiles>
+    <activeProfile>nexus</activeProfile>
+    <activeProfile>spy</activeProfile>
+</activeProfiles> 
+  <servers>
+    <server>
+      <id>releases</id>
+      <username>admin</username>
+      <password>wcDma@nexus</password>
+      <filePermissions>777</filePermissions>
+      <directoryPermissions>777</directoryPermissions>
+      <configuration></configuration>
+    </server>
+    <server>
+      <id>nexus</id>
+      <username>admin</username>
+      <password>wcDma@nexus</password>
+      <filePermissions>777</filePermissions>
+      <directoryPermissions>777</directoryPermissions>
+      <configuration></configuration>
+    </server>
+    <server>
+      <id>snapshots</id>
+      <username>admin</username>
+      <password>wcDma@nexus</password>
+      <filePermissions>777</filePermissions>
+      <directoryPermissions>777</directoryPermissions>
+      <configuration></configuration>
+    </server>
+    <server>
+      <id>thirdparty</id>
+      <username>admin</username>
+      <password>wcDma@nexus</password>
+      <filePermissions>777</filePermissions>
+      <directoryPermissions>777</directoryPermissions>
+      <configuration></configuration>
+    </server>
+  </servers> 	
+</settings>
+
+

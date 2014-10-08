@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>海南旅游网 - 用户中心 - 我的订单</title>
+<link href="../res/theme/main.css" rel="stylesheet" type="text/css" />
+<link href="../res/theme/busr.css" rel="stylesheet" type="text/css" />
+<script src="../res/js/lib/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="../res/js/head-foot.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	headShow();
+	
+	var bf = $('#BusrOrder');
+	var selDl = bf.find('.type>.tr>dl');
+	selDl.hover(function(){
+		selDl.addClass('over');
+	}, function(){
+		selDl.removeClass('over');
+	});
+	var dd = selDl.find('dd>a'), dt = selDl.find('dt');
+	dd.click(function(){
+		dd.show();
+		var tx = $(this).hide().text();
+		dt.text(tx);
+	});
+});
+function checkedAll(name, checked){
+	$('input[name=' + name + ']').prop('checked', checked);
+}
+</script>
+</head>
+
+<body class="body-bg busr-body">
+<!-- 通用页头 开始 -->
+<div id="HeadTop" class="headtop busr-headtop">
+ <div class="con">
+  <div class="wel">欢迎进入海南旅游网！</div>
+  <div class="login">
+   <a href="#" class="name"><img src="../p/slide1.jpg" />账号登录哈哈111</a>
+   <ul class="lm">
+    <li class="f"><a href="#"><i></i>购物车<b>10</b></a></li>
+    <li><a href="#"><i class="i1"></i>收藏夹<b>0</b></a></li>
+    <li><a href="#"><i class="i2"></i>退&nbsp;&nbsp;出</a></li>
+   </ul>
+  </div>
+  <div class="logo"><a href="#">海南旅游网</a></div>
+  <ul class="menu">
+   <li class="s"><a href="#">海岛之恋<i></i></a></li>
+   <li><a href="#">热门景点<i></i></a></li>
+   <li><a href="#">热门酒店<i></i></a></li>
+   <li><a href="#">旅游攻略<i></i></a></li>
+   <li><a href="#">海南手礼<i></i></a></li>
+   <li><a href="#">海岛社区<i></i></a></li>
+   <li class="e"><a href="#">小岛故事<i></i></a></li>
+  </ul>
+  <div class="index"><a href="#"><i></i>首页</a></div>
+  <div class="search">
+   <a href="#" class="si"><i></i></a>
+   <form class="ss">
+    <div class="ssl">
+     <a href="javascript:void(0)" class="sslt"><span>门票</span><i></i></a>
+     <ul>
+      <li style="display:none"><a href="javascript:void(0)">门票</a></li>
+      <li><a href="javascript:void(0)">景点</a></li>
+      <li><a href="javascript:void(0)">酒店</a></li>
+      <li><a href="javascript:void(0)">故事</a></li>
+     </ul>
+    </div>
+    <input class="ssr" type="text" value="三亚水上乐园" />
+   </form>
+  </div>
+ </div>
+</div>
+<!-- 通用页头 结束 -->
+
+<div class="busr-head">
+ <h1><b>thorn</b>的旅游中心</h1>
+</div>
+
+<div class="busr-mainbox">
+ <div class="busr-left">
+  <div class="con">
+   <div class="photo"><a href="#"><img src="../p/no-photo.jpg" /></a></div>
+   <ul>
+    <li><a href="#">个人信息编辑</a></li>
+    <li><a href="#" class="i2">我的订单</a></li>
+    <li><a href="#" class="i3">我的购物车</a></li>
+    <li><a href="#" class="i4">我的收藏</a></li>
+   </ul>
+  </div>
+ </div>
+ 
+ <div class="busr-right">
+  <div class="bread">
+   <a href="#">我的XX</a>&nbsp;&gt;
+   <a href="#">个人资料</a>
+  </div>
+  
+  <!-- 下面的内容可以放到一个新页面中，这里用Iframe嵌入 -->
+  <div id="BusrOrder" class="busr-order">
+   <div class="type">
+    <div class="tl">
+     <a href="#" class="over">未使用订单</a>
+     <span>|</span>
+     <a href="#">已使用订单</a>
+    </div>
+    <div class="tr">
+     <dl>
+      <dt>全部</dt>
+      <dd><a href="javascript:void(0)" style="display:none">全部</a></dd>
+      <dd><a href="javascript:void(0)">酒店</a></dd>
+      <dd><a href="javascript:void(0)">门票</a></dd>
+      <dd><a href="javascript:void(0)">婚纱</a></dd>
+      <dd><a href="javascript:void(0)">特卖</a></dd>
+     </dl>
+     <div class="search">
+      <a href="javascript:void(0)" class="ss"></a>
+      <form>
+       <input type="text" />
+       <a href="javascript:void(0)"></a>
+      </form>
+     </div>
+     <div class="spage"><a href="#">&nbsp;</a><a href="#" class="n">下一页</a></div>
+    </div>
+   </div>
+   <div class="opt">
+    <label><input type="checkbox" onclick="checkedAll('orderCb', this.checked)" /> 全选</label>
+    <a href="#"><del>删除</del></a>
+    <span>|</span>
+    <a href="#">合并订单</a>
+   </div>
+    
+   <ul class="box">
+    <li>
+     <div class="t"><label><input name="orderCb" type="checkbox" />订单号：2356411256</label></div>
+     <div class="con">
+      <table><tr>
+       <td class="aimg"><a href="#"><img src="../p/hl21.jpg" /></a></td>
+       <td class="tt">
+        <a href="#" class="ellipsis">森林冰川水谷</a>
+        <p>冰川水谷全新开放， 30多种以"冰"命名水上项目，川水川水川水</p>
+       </td>
+       <td width="115">￥399</td>
+       <td width="150">2014-09-15 20:05:02</td>
+       <td width="150" class="red">(过期时间：2014-12-01)</td>
+       <td>
+        <a href="#">查看</a>&nbsp;| 
+        <a href="#">退订</a>
+       </td>
+       <td width="100">&nbsp;
+       </td>
+      </tr></table>
+     </div>
+    </li>
+    <li>
+     <div class="t"><label><input name="orderCb" type="checkbox" />订单号：2356411256</label></div>
+     <div class="con">
+      <table><tr>
+       <td class="aimg"><a href="#"><img src="../p/hl13.jpg" /></a></td>
+       <td class="tt">
+        <a href="#" class="ellipsis">森林冰川水谷</a>
+        <p>冰川水谷全新开放， 30多种以"冰"命名水上项目，川水川水川水</p>
+       </td>
+       <td width="115">￥399</td>
+       <td width="150">2014-09-15 20:05:02</td>
+       <td width="150">(过期时间：2014-12-01)</td>
+       <td>
+        <a href="#">查看</a>&nbsp;| 
+        <a href="#">退订</a>
+       </td>
+       <td width="100">&nbsp;
+       </td>
+      </tr></table>
+     </div>
+    </li>
+    <li>
+     <div class="t"><label><input name="orderCb" type="checkbox" />订单号：2356411256</label></div>
+     <div class="con">
+      <table><tr>
+       <td class="aimg"><a href="#"><img src="../p/hl15.jpg" /></a></td>
+       <td class="tt">
+        <a href="#" class="ellipsis">森林冰川水谷</a>
+        <p>冰川水谷全新开放， 30多种以"冰"命名水上项目，川水川水川水</p>
+       </td>
+       <td width="115">￥399</td>
+       <td width="150">2014-09-15 20:05:02</td>
+       <td width="150">(过期时间：2014-12-01)</td>
+       <td>
+        <a href="#">查看</a>&nbsp;| 
+        <a href="#">退订</a>
+       </td>
+       <td width="100">&nbsp;
+       </td>
+      </tr></table>
+     </div>
+    </li>
+    <li>
+     <div class="t"><label><input name="orderCb" type="checkbox" />订单号：2356411256</label></div>
+     <div class="con">
+      <table><tr>
+       <td class="aimg"><a href="#"><img src="../p/hl16.jpg" /></a></td>
+       <td class="tt">
+        <a href="#" class="ellipsis">森林冰川水谷</a>
+        <p>冰川水谷全新开放， 30多种以"冰"命名水上项目，川水川水川水</p>
+       </td>
+       <td width="115">￥399</td>
+       <td width="150">2014-09-15 20:05:02</td>
+       <td width="150">(过期时间：2014-12-01)</td>
+       <td>
+        <a href="#">查看</a>&nbsp;| 
+        <a href="#">退订</a>
+       </td>
+       <td width="100">&nbsp;
+       </td>
+      </tr></table>
+     </div>
+    </li>
+   </ul>
+   
+   <div class="page">
+    <a href="#" class="jump">跳转</a>
+    <p>共 4 页， 到第<input type="number" value="4" /></p>
+    <div class="tag">
+     <div class="prev"><a href="#">&lt;</a></div>
+     <ul>
+      <li><a href="#" class="over">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+     </ul>
+     <div class="next"><a href="#">&gt;</a></div>
+    </div>
+   </div>
+  </div>
+  <!-- Iframe嵌入内容结束 -->
+  
+ </div>
+</div>
+
+<!-- 通用页脚 开始 -->
+<div class="footservice busr-foot">
+ <ul>
+  <li class="f1">
+   <i></i>
+   <p>价格保证</p>
+   <span>同类产品，保证低价</span>
+  </li>
+  <li class="f2">
+   <i></i>
+   <p>退订保障</p>
+   <span>因特殊情况影响出行，保证退订</span>
+  </li>
+  <li class="f3">
+   <i></i>
+   <p>救援保障</p>
+   <span>旅途中遇意外情况，保证援助</span>
+  </li>
+  <li class="f4">
+   <i></i>
+   <p>7x24小时服务</p>
+   <span>快速响应，全年无休</span>
+  </li>
+ </ul>
+</div>
+
+<p class="footabout busr-foot">
+ <a href="#">关于我们</a> | 
+ <a href="#">网站地图</a> | 
+ <a href="#">酒店品牌</a> | 
+ <a href="#">酒店查询</a> | 
+ <a href="#">帮助中心</a> | 
+ <a href="#">友情链接</a> | 
+ <a href="#">诚聘英才</a> | 
+ <a href="#">旅游度假资质</a> | 
+ <a href="#">意见反馈</a> | 
+ <a href="#">广告业务</a> | 
+ <a href="#">用户体验平台</a>
+</p>
+
+<div class="footsafety busr-foot"><div></div></div>
+<!-- 通用页脚 结束 -->
+</body>
+</html>
