@@ -156,7 +156,10 @@
 			<artifactId>jmagick</artifactId>
 			<version>6.3.9-Q8</version>
 		</dependency>
-
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>

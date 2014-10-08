@@ -14,6 +14,8 @@ import hn.travel.persist.service.account.ShiroDbRealm.ShiroUser;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
@@ -46,6 +48,8 @@ public class AccountService {
 	private UserDao userDao;
 	private TaskDao taskDao;
 	private Clock clock = Clock.DEFAULT;
+	@Autowired
+	private EntityManager em;
 
 	public List<User> getAllUser() {
 		return (List<User>) userDao.findAll();
