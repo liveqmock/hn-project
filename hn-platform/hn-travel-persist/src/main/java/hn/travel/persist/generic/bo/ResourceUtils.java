@@ -29,6 +29,9 @@ public class ResourceUtils {
 		rs.add(new Resource(9L, "会员管理_我的订单", "/mem/orders", 1, 1, 2L));
 		rs.add(new Resource(10L, "会员管理_我的收藏", "/mem/favorites", 1, 1, 2L));
 		rs.add(new Resource(11L, "会员管理_我的购物车", "/mem/shopping", 1, 1, 2L));
+		rs.add(new Resource(100L, "景点管理", "", 1, 1, ROOT_ID));
+		rs.add(new Resource(101L, "景点管理_景点列表", "/scenic", 1, 1, 100L));
+		rs.add(new Resource(102L, "景点管理_景点新增", "/scenic/create", 1, 1, 100L));
 	}
 
 	public static List<Resource> getByParentId(Long pid) {

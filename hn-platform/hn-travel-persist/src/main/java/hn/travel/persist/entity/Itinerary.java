@@ -10,13 +10,12 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Itinerary.findAll", query="SELECT i FROM Itinerary i")
 public class Itinerary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 
 	@Column(name="end_place")
 	private String endPlace;
@@ -86,11 +85,11 @@ public class Itinerary implements Serializable {
 	public Itinerary() {
 	}
 
-	public String getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

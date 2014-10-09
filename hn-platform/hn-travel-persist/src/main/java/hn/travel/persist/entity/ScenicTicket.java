@@ -10,13 +10,12 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="scenic_ticket")
-@NamedQuery(name="ScenicTicket.findAll", query="SELECT s FROM ScenicTicket s")
 public class ScenicTicket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 
 	private String name;
 
@@ -42,11 +41,11 @@ public class ScenicTicket implements Serializable {
 	public ScenicTicket() {
 	}
 
-	public String getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

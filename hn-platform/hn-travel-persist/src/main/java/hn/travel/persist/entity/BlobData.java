@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -16,13 +15,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "blob_data")
-@NamedQuery(name = "BlobData.findAll", query = "SELECT b FROM BlobData b")
 public class BlobData implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 
 	@Lob
 	private String data;
@@ -30,11 +28,15 @@ public class BlobData implements Serializable {
 	public BlobData() {
 	}
 
-	public String getId() {
+	public BlobData(String data) {
+		this.data = data;
+	}
+
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

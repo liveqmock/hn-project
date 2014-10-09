@@ -11,13 +11,12 @@ import java.util.Date;
  * 
  */
 @Entity
-@NamedQuery(name="Picture.findAll", query="SELECT p FROM Picture p")
 public class Picture implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 
 	@Column(name="arge_uri")
 	private String argeUri;
@@ -54,11 +53,11 @@ public class Picture implements Serializable {
 	public Picture() {
 	}
 
-	public String getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

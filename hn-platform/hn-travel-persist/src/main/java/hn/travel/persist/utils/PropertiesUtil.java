@@ -12,7 +12,7 @@ public class PropertiesUtil {
 	private static Logger logger = LoggerFactory
 			.getLogger(PropertiesUtil.class);
 
-	private static final String SYS_PROP_PATH = "application.local.properties";
+	private static final String SYS_PROP_PATH = "application.properties";
 
 	private static Properties props;
 

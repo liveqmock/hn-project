@@ -1,48 +1,52 @@
 package hn.travel.persist.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the scenic database table.
  * 
  */
 @Entity
-@NamedQuery(name="Scenic.findAll", query="SELECT s FROM Scenic s")
 public class Scenic implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String address;
 
-	@Column(name="area_code")
+	@Column(name = "area_code")
 	private String areaCode;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_time")
+	@Column(name = "create_time")
 	private Date createTime;
 
-	@Column(name="good_rate")
+	@Column(name = "good_rate")
 	private BigDecimal goodRate;
 
-	@Column(name="img_uri")
+	@Column(name = "img_uri")
 	private String imgUri;
 
-	@Column(name="in_time")
+	@Column(name = "in_time")
 	private String inTime;
 
 	private double latitude;
 
 	private double longitude;
 
-	@Column(name="low_price")
+	@Column(name = "low_price")
 	private double lowPrice;
 
 	private String name;
@@ -54,40 +58,26 @@ public class Scenic implements Serializable {
 	private String title;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_time")
+	@Column(name = "update_time")
 	private Date updateTime;
 
-	//bi-directional many-to-many association to Itinerary
-	@ManyToMany(mappedBy="scenics")
-	private List<Itinerary> itineraries;
+	@Column(name = "traffic_id")
+	private Long trafficId;
 
-	//bi-directional many-to-one association to BlobData
-	@ManyToOne
-	@JoinColumn(name="traffic_id")
-	private BlobData blobData1;
+	@Column(name = "notice_id")
+	private Long noticeId;
 
-	//bi-directional many-to-one association to BlobData
-	@ManyToOne
-	@JoinColumn(name="notice_id")
-	private BlobData blobData2;
-
-	//bi-directional many-to-one association to BlobData
-	@ManyToOne
-	@JoinColumn(name="introduce_id")
-	private BlobData blobData3;
-
-	//bi-directional many-to-one association to ScenicTicket
-	@OneToMany(mappedBy="scenic")
-	private List<ScenicTicket> scenicTickets;
+	@Column(name = "introduce_id")
+	private Long introduceId;
 
 	public Scenic() {
 	}
 
-	public String getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -203,58 +193,28 @@ public class Scenic implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	public List<Itinerary> getItineraries() {
-		return this.itineraries;
+	public Long getTrafficId() {
+		return trafficId;
 	}
 
-	public void setItineraries(List<Itinerary> itineraries) {
-		this.itineraries = itineraries;
+	public void setTrafficId(Long trafficId) {
+		this.trafficId = trafficId;
 	}
 
-	public BlobData getBlobData1() {
-		return this.blobData1;
+	public Long getNoticeId() {
+		return noticeId;
 	}
 
-	public void setBlobData1(BlobData blobData1) {
-		this.blobData1 = blobData1;
+	public void setNoticeId(Long noticeId) {
+		this.noticeId = noticeId;
 	}
 
-	public BlobData getBlobData2() {
-		return this.blobData2;
+	public Long getIntroduceId() {
+		return introduceId;
 	}
 
-	public void setBlobData2(BlobData blobData2) {
-		this.blobData2 = blobData2;
-	}
-
-	public BlobData getBlobData3() {
-		return this.blobData3;
-	}
-
-	public void setBlobData3(BlobData blobData3) {
-		this.blobData3 = blobData3;
-	}
-
-	public List<ScenicTicket> getScenicTickets() {
-		return this.scenicTickets;
-	}
-
-	public void setScenicTickets(List<ScenicTicket> scenicTickets) {
-		this.scenicTickets = scenicTickets;
-	}
-
-	public ScenicTicket addScenicTicket(ScenicTicket scenicTicket) {
-		getScenicTickets().add(scenicTicket);
-		scenicTicket.setScenic(this);
-
-		return scenicTicket;
-	}
-
-	public ScenicTicket removeScenicTicket(ScenicTicket scenicTicket) {
-		getScenicTickets().remove(scenicTicket);
-		scenicTicket.setScenic(null);
-
-		return scenicTicket;
+	public void setIntroduceId(Long introduceId) {
+		this.introduceId = introduceId;
 	}
 
 }

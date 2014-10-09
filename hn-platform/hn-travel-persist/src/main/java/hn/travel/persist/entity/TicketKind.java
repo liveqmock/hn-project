@@ -12,13 +12,12 @@ import java.util.List;
  */
 @Entity
 @Table(name="ticket_kind")
-@NamedQuery(name="TicketKind.findAll", query="SELECT t FROM TicketKind t")
 public class TicketKind implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String id;
+	private Long id;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="create_time")
@@ -51,11 +50,11 @@ public class TicketKind implements Serializable {
 	public TicketKind() {
 	}
 
-	public String getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
