@@ -7,7 +7,7 @@
 <title>海南本地旅游网-后台内容管理系统</title>
 </head>
 <frameset rows="88,*,25" cols="*" frameborder="NO" border="0" framespacing="0" name="main">
-	<frame src="/res" name="topFrame" scrolling="NO" noresize>
+	<frame src="/admin/res" name="topFrame" scrolling="NO" noresize>
 	<frameset cols="1,*" frameborder="no" border="0" framespacing="0" name="mainFrameset" id="mainFrameset">
 		<frame src="/layouts/menu.jsp" name="leftFrame" scrolling="NO" noresize>
 		<frame src="/layouts/main.jsp" name="mainFrame" noresize>

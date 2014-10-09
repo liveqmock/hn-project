@@ -39,7 +39,7 @@ if(!userQuit){
 				<TD>
 					<div id="navmenu" style="left:0;">
 					<c:forEach var="m" items="${menus}">
-						<a href="/res/list/${m.id }" target="leftFrame">${m.name}</a>
+						<a href="/admin/res/list/${m.id }" target="leftFrame">${m.name}</a>
 					</c:forEach>
 					</div>
 				</TD>	
