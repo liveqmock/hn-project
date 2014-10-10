@@ -15,7 +15,7 @@
 
 <div class="result_div" id="result_div"></div>
 <script type="text/javascript">
-	alert('${message}');
+	//alert('${message}');
 	var dd = document.getElementById("result_div");
 		//var dd=document.getElementsByTagName('DIV');
 		var msgdiv=undefined;

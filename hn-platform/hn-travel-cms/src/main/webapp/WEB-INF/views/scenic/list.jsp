@@ -8,7 +8,8 @@
 <link href="${ctx}/static/scripts/widgets/extremecomponents/extremecomponents.css" type="text/css" rel="stylesheet">
 <title>景点管理 - 列表</title>
 </head>
-<body onload="clearHiddenCheckBox()">
+
+<body>
 <div class="pageTitle">您所在的位置：景点管理 - 景点列表</div>	
 
 <div style="text-align: left;" class="queryForm">
@@ -18,7 +19,7 @@
   <input type="image" src="<c:url value="/static/images/icon/16x16/search.gif"/>"  class="nullBorder" onclick="searchForm.submit();" align="middle" />
   
   <a href="<c:url value="${ctx}/scenic/create"/>"><img src="<c:url value="/static/images/icon/16x16/new.gif"/>" align="middle"></a>
-  <a href="javascript:batch_do('删除资源','<c:url value="${ctx}/scenic/delete/" />');"><img src="<c:url value="/static/images/icon/16x16/delete.gif"/>" align="middle"></a>
+  <a href="javascript:void(0)" onclick="batch_do('删除资源','<c:url value="${ctx}/scenic/delete/" />');"><img src="<c:url value="/static/images/icon/16x16/delete.gif"/>" align="middle"></a>
  </form>
 </div>
 
@@ -50,10 +51,13 @@
      <c:otherwise>其它</c:otherwise>
     </c:choose>
    </ec:column>
-   <ec:column property="edit" title="修改" sortable="false" resizeColWidth="false" viewsAllowed="html" width="40px">
-    <A href="<c:url value="/scenic/update/${scenic.id}"/>">
+   <ec:column property="edit" title="操作" sortable="false" resizeColWidth="false" viewsAllowed="html" width="60px">
+    <a href="<c:url value="/scenic/update/${scenic.id}"/>">
      <img src="<c:url value="/static/images/icon/16x16/modify.gif"/>" border="0"/>
-    </A>
+    </a>
+    <a href="javascript:void(0)" onclick="cfm_do('删除资源','<c:url value="/scenic/delete/${scenic.id}"/>')">
+     <img src="<c:url value="/static/images/icon/16x16/del.gif"/>" border="0"/>
+    </a>
    </ec:column>
   </ec:row>
  </ec:table>

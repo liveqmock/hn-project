@@ -10,8 +10,8 @@ import hn.travel.persist.utils.PropertiesUtil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,17 +49,28 @@ public class ScenicController extends GenericController {
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
-	public String createForm() {
+	public String createForm(Model model) {
+		model.addAttribute("vo", new Scenic());
+		return "scenic/form";
+	}
+
+	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
+	public String updateForm(@PathVariable("id") Long id, Model model) {
+		Scenic scenic = scenicService.get(id);
+		if (scenic == null)
+			scenic = new Scenic();
+		model.addAttribute("vo", scenic);
 		return "scenic/form";
 	}
 
 	private List<String> imgExt = Arrays.<String> asList(new String[] { "gif",
 			"jpg", "jpeg", "png", "bmp" });
 
-	@RequestMapping(value = "create", method = RequestMethod.POST)
-	public String create(@Valid Scenic scenic, MultipartFile imgUriFile,
+	@RequestMapping(value = "save", method = RequestMethod.POST)
+	public String save(@Valid Scenic scenic, MultipartFile imgUriFile,
 			HttpServletRequest request, RedirectAttributes redirectAttributes) {
-		if (imgUriFile == null || imgUriFile.isEmpty()) {
+		if (scenic.getId() == null
+				&& (imgUriFile == null || imgUriFile.isEmpty())) {
 			redirectAttributes.addFlashAttribute("message", "主图不能为空");
 			return "redirect:/scenic/create";
 		}
@@ -81,34 +92,34 @@ public class ScenicController extends GenericController {
 			redirectAttributes.addFlashAttribute("message", "主图上传错误");
 			return "redirect:/scenic/create";
 		}
-		String notice = getParam(request, "notice", "");
-		String introduce = getParam(request, "introduce", "");
-		String traffic = getParam(request, "traffic", "");
 
-		scenic.setCreateTime(new Date());
-		scenic.setUpdateTime(new Date());
-		scenicService.save(scenic, notice, introduce, traffic);
+		scenicService.save(scenic);
 		redirectAttributes.addFlashAttribute("message", "创建景点成功");
-		return "redirect:/scenic/";
-	}
-
-	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
-	public String updateForm(@PathVariable("id") Long id, Model model) {
-
-		return "scenic/form";
-	}
-
-	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public String update(@Valid Scenic scenic,
-			RedirectAttributes redirectAttributes) {
-
-		redirectAttributes.addFlashAttribute("message", "更新景点成功");
 		return "redirect:/scenic/";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable("id") Long id,
 			RedirectAttributes redirectAttributes) {
+		scenicService.delete(id);
+
+		redirectAttributes.addFlashAttribute("message", "删除任务成功");
+		return "redirect:/scenic/";
+	}
+
+	@RequestMapping(value = "delete")
+	public String delete(HttpServletRequest request,
+			RedirectAttributes redirectAttributes) {
+		String[] itemlist = request.getParameterValues("itemlist");
+		List<Long> ids = new ArrayList<Long>(itemlist.length);
+		for (String id : itemlist) {
+			try {
+				ids.add(Long.parseLong(id));
+			} catch (NumberFormatException e) {
+			}
+		}
+		if(ids.size() > 0)
+			scenicService.delete(ids.toArray(new Long[ids.size()]));
 
 		redirectAttributes.addFlashAttribute("message", "删除任务成功");
 		return "redirect:/scenic/";

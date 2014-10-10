@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * The persistent class for the scenic database table.
@@ -42,18 +43,18 @@ public class Scenic implements Serializable {
 	@Column(name = "in_time")
 	private String inTime;
 
-	private double latitude;
+	private Double latitude;
 
-	private double longitude;
+	private Double longitude;
 
 	@Column(name = "low_price")
-	private double lowPrice;
+	private Double lowPrice;
 
 	private String name;
 
 	private String services;
 
-	private int status;
+	private Integer status;
 
 	private String title;
 
@@ -69,6 +70,16 @@ public class Scenic implements Serializable {
 
 	@Column(name = "introduce_id")
 	private Long introduceId;
+	
+	/**
+	 * 非表字段
+	 */
+	@Transient
+	private String traffic;
+	@Transient
+	private String notice;
+	@Transient
+	private String introduce;
 
 	public Scenic() {
 	}
@@ -129,27 +140,27 @@ public class Scenic implements Serializable {
 		this.inTime = inTime;
 	}
 
-	public double getLatitude() {
+	public Double getLatitude() {
 		return this.latitude;
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 
-	public double getLongitude() {
+	public Double getLongitude() {
 		return this.longitude;
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
-	public double getLowPrice() {
+	public Double getLowPrice() {
 		return this.lowPrice;
 	}
 
-	public void setLowPrice(double lowPrice) {
+	public void setLowPrice(Double lowPrice) {
 		this.lowPrice = lowPrice;
 	}
 
@@ -169,11 +180,11 @@ public class Scenic implements Serializable {
 		this.services = services;
 	}
 
-	public int getStatus() {
+	public Integer getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
@@ -215,6 +226,30 @@ public class Scenic implements Serializable {
 
 	public void setIntroduceId(Long introduceId) {
 		this.introduceId = introduceId;
+	}
+
+	public String getTraffic() {
+		return traffic;
+	}
+
+	public void setTraffic(String traffic) {
+		this.traffic = traffic;
+	}
+
+	public String getNotice() {
+		return notice;
+	}
+
+	public void setNotice(String notice) {
+		this.notice = notice;
+	}
+
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
 	}
 
 }

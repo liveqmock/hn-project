@@ -8,12 +8,14 @@
 <link href="${ctx}/static/scripts/widgets/extremecomponents/extremecomponents.css" type="text/css" rel="stylesheet" />
 <script src="${ctx}/static/scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 <%@ include file="/common/kindeditorMeta.jsp" %>
-<link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet" />
-<script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
-<script src="${ctx}/static/jquery-validation/1.11.1/messages_bs_zh.js" type="text/javascript"></script>
+<script src="${ctx}/static/jquery-validation/1.13.0/jquery.validate.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/jquery-validation/1.13.0/messages_zh.js" type="text/javascript"></script>
 <title>景点管理 - 新增</title>
 <style type="text/css">
 th{width:80px; text-align:right;}
+input.error { border: 1px dotted red; }
+label.error { color: red }
+.red{color:red}
 </style>
 <script type="text/javascript">
 KindEditor.ready(function(K) {
@@ -25,68 +27,81 @@ KindEditor.ready(function(K) {
 	});
 	prettyPrint();
 });
+$(function(){
+	$('form[name="postForm"]').validate();
+});
 </script>
 </head>
 
 <body>
 <div class="pageTitle">您所在的位置：景点管理 - 景点新增</div>	
 
-<form name="postForm" action="${ctx}/scenic/create" method="post" style="padding:5px" enctype="multipart/form-data">
+<form name="postForm" action="${ctx}/scenic/save" method="post" style="padding:5px" enctype="multipart/form-data">
  <table>
   <tr>
-   <th>名称:</th>
-   <td><input type="text" name="name" style="width:300px" /></td>
+   <th><span class="red">*</span>名称:</th>
+   <td><input type="text" name="name" style="width:300px" required value="${vo.name}" /></td>
    <th>小标题:</th>
-   <td><input type="text" name="title" style="width:300px" /></td>
+   <td><input type="text" name="title" style="width:300px" value="${vo.title}" /></td>
   </tr>
   <tr>
-   <th>主图:</th>
-   <td><input type="file" name="imgUriFile"/></td>
+   <th><span class="red">*</span>主图:</th>
+   <td>
+   <c:if test="${vo.imgUri != null && vo.imgUri != ''}">
+   	<a href="${vo.imgUri}" target="_blank"><img src="${vo.imgUri}" width="30" height="20"/></a>
+   </c:if>
+   <input type="file" name="imgUriFile" required/></td>
    <th>支持的服务:</th>
-   <td><input type="text" name="services" /></td>
+   <td><input type="text" name="services" value="${vo.services}" /></td>
   </tr>
   <tr>
-   <th>区县编码:</th>
-   <td><input type="text" name="areaCode" /></td>
-   <th>地址:</th>
-   <td><input type="text" name="address" style="width:300px" /></td>
+   <th><span class="red">*</span>区县编码:</th>
+   <td><input type="text" name="areaCode" required value="${vo.areaCode}" /></td>
+   <th><span class="red">*</span>地址:</th>
+   <td><input type="text" name="address" style="width:300px" required value="${vo.address}" /></td>
   </tr>
   <tr>
-   <th>经度:</th>
-   <td><input type="text" name="longitude" /></td>
-   <th>纬度:</th>
-   <td><input type="text" name="latitude" /></td>
+   <th><span class="red">*</span>经度:</th>
+   <td><input type="number" name="longitude" required value="${vo.longitude}" /></td>
+   <th><span class="red">*</span>纬度:</th>
+   <td><input type="number" name="latitude" required value="${vo.latitude}" /></td>
   </tr>
   <tr>
    <th>起价:</th>
-   <td><input type="text" name="lowPrice" /></td>
+   <td><input type="text" name="lowPrice" value="${vo.lowPrice}" /></td>
    <th>入园时间:</th>
-   <td><input type="text" name="inTime" /></td>
+   <td><input type="text" name="inTime" value="${vo.inTime}" /></td>
   </tr>
   <tr>
    <th>状态:</th>
    <td><select name="status">
-    <option value="0">上架</option>
-    <option value="1">下架</option>
+    <option value="0" <c:if test="${vo.status == 0}">selected="selected"</c:if>>上架</option>
+    <option value="1" <c:if test="${vo.status == 1}">selected="selected"</c:if>>下架</option>
    </select></td>
    <th>好评率:</th>
-   <td><input type="text" name="goodRate" /></td>
+   <td><input type="number" name="goodRate" value="${vo.goodRate}" /></td>
   </tr>
   <tr>
    <th>预订须知:</th>
-   <td colspan="3"><textarea name="notice" style="width:680px;height:200px;visibility:hidden;"></textarea></td>
+   <td colspan="3"><textarea name="notice" style="width:680px;height:200px;visibility:hidden;">${vo.notice}</textarea></td>
   </tr>
   <tr>
    <th>景点介绍:</th>
-   <td colspan="3"><textarea name="introduce" style="width:680px;height:200px;visibility:hidden;"></textarea></td>
+   <td colspan="3"><textarea name="introduce" style="width:680px;height:200px;visibility:hidden;">${vo.introduce}</textarea></td>
   </tr>
   <tr>
    <th>交通指南:</th>
-   <td colspan="3"><textarea name="traffic" style="width:680px;height:200px;visibility:hidden;"></textarea></td>
+   <td colspan="3"><textarea name="traffic" style="width:680px;height:200px;visibility:hidden;">${vo.traffic}</textarea></td>
   </tr>
   <tr><td colspan="4" align="center">
-   <input id="submit_btn" class="btn btn-primary" type="submit" value="提交"/>&nbsp;	
-   <input id="cancel_btn" class="btn" type="button" value="返回" onclick="history.back()"/>
+   <input type="hidden" name="id" value="${vo.id}" />
+   <input type="hidden" name="imgUri" value="${vo.imgUri}" />
+   <input type="hidden" name="trafficId" value="${vo.trafficId}" />
+   <input type="hidden" name="noticeId" value="${vo.noticeId}" />
+   <input type="hidden" name="introduceId" value="${vo.introduceId}" />
+   <input type="hidden" name="createTime" value="<fmt:formatDate value='${vo.createTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" />
+   <input class="btn btn-primary" type="submit" value="提交"/>&nbsp;	
+   <input class="btn" type="button" value="返回" onclick="history.back()"/>
   </td></tr>
  </table>
 </form>
