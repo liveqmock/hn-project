@@ -17,6 +17,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.ecside.util.RequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -40,8 +41,13 @@ public class ScenicController extends GenericController {
 	private ScenicService scenicService;
 
 	@RequestMapping
-	public String list(HttpServletRequest request, Model model) {
-		Page<Scenic> page = scenicService.page(new PageRequest(0, 15));
+	public String list(String keyword, HttpServletRequest request, Model model) {
+		int pageNo = RequestUtil.getPageNo(request) - 1;
+		pageNo = pageNo < 0 ? 0 : pageNo;
+		int size = RequestUtil.getCurrentRowsDisplayed(request);
+		size = size < 1 ? 15 : size;
+		Page<Scenic> page = scenicService.page(keyword, new PageRequest(pageNo, size));
+
 		model.addAttribute("list", page.getContent());
 		model.addAttribute("totalRows", Long.valueOf(page.getTotalElements())
 				.intValue());
@@ -103,7 +109,7 @@ public class ScenicController extends GenericController {
 			RedirectAttributes redirectAttributes) {
 		scenicService.delete(id);
 
-		redirectAttributes.addFlashAttribute("message", "删除任务成功");
+		redirectAttributes.addFlashAttribute("message", "删除景点成功");
 		return "redirect:/scenic/";
 	}
 
@@ -118,10 +124,10 @@ public class ScenicController extends GenericController {
 			} catch (NumberFormatException e) {
 			}
 		}
-		if(ids.size() > 0)
+		if (ids.size() > 0)
 			scenicService.delete(ids.toArray(new Long[ids.size()]));
 
-		redirectAttributes.addFlashAttribute("message", "删除任务成功");
+		redirectAttributes.addFlashAttribute("message", "删除景点成功");
 		return "redirect:/scenic/";
 	}
 

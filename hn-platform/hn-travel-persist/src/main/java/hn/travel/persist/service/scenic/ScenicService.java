@@ -33,7 +33,12 @@ public class ScenicService {
 	@Autowired
 	private BlobDataDao blobDataDao;
 
-	public Page<Scenic> page(Pageable pageable) {
+	public Page<Scenic> page(String keyword, Pageable pageable) {
+		if (StringUtils.hasText(keyword)) {
+			keyword = "%" + keyword + "%";
+			return scenicDao.findByNameLikeOrTitleLike(keyword, keyword,
+					pageable);
+		}
 		return scenicDao.findAll(pageable);
 	}
 
@@ -94,6 +99,7 @@ public class ScenicService {
 		return scenicDao.save(scenic);
 	}
 
+	@Transactional
 	public void delete(Long... ids) {
 		for (Long id : ids)
 			scenicDao.delete(id);

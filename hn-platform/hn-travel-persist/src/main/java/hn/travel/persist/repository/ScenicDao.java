@@ -5,6 +5,8 @@ package hn.travel.persist.repository;
 
 import hn.travel.persist.entity.Scenic;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -15,4 +17,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 public interface ScenicDao extends PagingAndSortingRepository<Scenic, Long>,
 		JpaSpecificationExecutor<Scenic> {
 
+	Page<Scenic> findByNameLikeOrTitleLike(String name, String title, Pageable pageable);
 }

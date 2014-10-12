@@ -9,6 +9,7 @@
 <script src="${ctx}/static/scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 <%@ include file="/common/kindeditorMeta.jsp" %>
 <script src="${ctx}/static/jquery-validation/1.13.0/jquery.validate.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/scripts/validate.ext.js" type="text/javascript"></script>
 <script src="${ctx}/static/jquery-validation/1.13.0/messages_zh.js" type="text/javascript"></script>
 <title>景点管理 - 新增</title>
 <style type="text/css">
@@ -28,7 +29,11 @@ KindEditor.ready(function(K) {
 	prettyPrint();
 });
 $(function(){
-	$('form[name="postForm"]').validate();
+	$('form[name="postForm"]').validate({
+		rules: {
+			goodRate: {numeric: [3,2]}
+		}
+	});
 });
 </script>
 </head>
@@ -40,9 +45,9 @@ $(function(){
  <table>
   <tr>
    <th><span class="red">*</span>名称:</th>
-   <td><input type="text" name="name" style="width:300px" required value="${vo.name}" /></td>
+   <td><input type="text" name="name" style="width:300px" required value="${vo.name}" maxlength="50" /></td>
    <th>小标题:</th>
-   <td><input type="text" name="title" style="width:300px" value="${vo.title}" /></td>
+   <td><input type="text" name="title" style="width:300px" value="${vo.title}" maxlength="100" /></td>
   </tr>
   <tr>
    <th><span class="red">*</span>主图:</th>
@@ -52,13 +57,13 @@ $(function(){
    </c:if>
    <input type="file" name="imgUriFile" required/></td>
    <th>支持的服务:</th>
-   <td><input type="text" name="services" value="${vo.services}" /></td>
+   <td><input type="text" name="services" value="${vo.services}" maxlength="20" /></td>
   </tr>
   <tr>
    <th><span class="red">*</span>区县编码:</th>
-   <td><input type="text" name="areaCode" required value="${vo.areaCode}" /></td>
+   <td><input type="text" name="areaCode" required value="${vo.areaCode}" maxlength="50" /></td>
    <th><span class="red">*</span>地址:</th>
-   <td><input type="text" name="address" style="width:300px" required value="${vo.address}" /></td>
+   <td><input type="text" name="address" style="width:300px" required value="${vo.address}" maxlength="200" /></td>
   </tr>
   <tr>
    <th><span class="red">*</span>经度:</th>
@@ -68,9 +73,9 @@ $(function(){
   </tr>
   <tr>
    <th>起价:</th>
-   <td><input type="text" name="lowPrice" value="${vo.lowPrice}" /></td>
+   <td><input type="number" name="lowPrice" value="${vo.lowPrice}" /></td>
    <th>入园时间:</th>
-   <td><input type="text" name="inTime" value="${vo.inTime}" /></td>
+   <td><input type="text" name="inTime" value="${vo.inTime}" maxlength="20" /></td>
   </tr>
   <tr>
    <th>状态:</th>
@@ -79,7 +84,7 @@ $(function(){
     <option value="1" <c:if test="${vo.status == 1}">selected="selected"</c:if>>下架</option>
    </select></td>
    <th>好评率:</th>
-   <td><input type="number" name="goodRate" value="${vo.goodRate}" /></td>
+   <td><input type="text" name="goodRate" value="${vo.goodRate}" range="[0,100]" /></td>
   </tr>
   <tr>
    <th>预订须知:</th>

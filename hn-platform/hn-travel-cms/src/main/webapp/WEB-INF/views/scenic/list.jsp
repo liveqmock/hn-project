@@ -15,7 +15,7 @@
 <div style="text-align: left;" class="queryForm">
 <%@ include file="/common/messages.jsp"%>
  <form action="/scenic" class="form" method="post" name="searchForm">
-  id: <input type="text" name="id" value="${scenic.id }" size="10"/>
+  景点名称: <input type="text" name="keyword" value="${param.keyword }"/>
   <input type="image" src="<c:url value="/static/images/icon/16x16/search.gif"/>"  class="nullBorder" onclick="searchForm.submit();" align="middle" />
   
   <a href="<c:url value="${ctx}/scenic/create"/>"><img src="<c:url value="/static/images/icon/16x16/new.gif"/>" align="middle"></a>
@@ -26,7 +26,7 @@
 <div id="tableDiv">
  <ec:table items="list" var="scenic" action="${ctx}/scenic" useAjax="true" minColWidth="80"
    doPreload="false" pageSizeList="15,20,50,100" rowsDisplayed="15" retrieveRowsCallback="limit" 
-   sortRowsCallback="limit" sortable="true" generateScript="true" resizeColWidth="true" 		
+   sortRowsCallback="limit" sortable="false" generateScript="true" resizeColWidth="true" 		
    classic="true" filterable="flase" width="100%" height="420px" minHeight="360"
    toolbarContent="navigation|pagejump|pagesize|refresh |extend|status" >
   <ec:row>
