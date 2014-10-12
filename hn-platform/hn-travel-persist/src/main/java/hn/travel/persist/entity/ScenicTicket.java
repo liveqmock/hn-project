@@ -1,42 +1,43 @@
 package hn.travel.persist.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 
+import javax.persistence.*;
 
 /**
  * The persistent class for the scenic_ticket database table.
  * 
  */
 @Entity
-@Table(name="scenic_ticket")
+@Table(name = "scenic_ticket")
 public class ScenicTicket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	private String name;
 
-	@Column(name="pay_type")
-	private int payType;
+	@Column(name = "pay_type")
+	private Integer payType;
 
-	private int type;
+	private Integer type;
 
-	//bi-directional many-to-one association to BlobData
-	@ManyToOne
-	@JoinColumn(name="agreement_id")
-	private BlobData blobData;
+	@Column(name = "agreement_id")
+	private Long agreementId;
 
-	//bi-directional one-to-one association to Ticket
-	@OneToOne
-	@JoinColumn(name="id")
+	@Column(name = "scenic_id")
+	private Long scenicId;
+
+	private Integer status;
+
+	/**
+	 * 非表字段
+	 */
+	@Transient
+	private String agreement;
+	@Transient
 	private Ticket ticket;
-
-	//bi-directional many-to-one association to Scenic
-	@ManyToOne
-	private Scenic scenic;
 
 	public ScenicTicket() {
 	}
@@ -57,28 +58,52 @@ public class ScenicTicket implements Serializable {
 		this.name = name;
 	}
 
-	public int getPayType() {
+	public Integer getPayType() {
 		return this.payType;
 	}
 
-	public void setPayType(int payType) {
+	public void setPayType(Integer payType) {
 		this.payType = payType;
 	}
 
-	public int getType() {
+	public Integer getType() {
 		return this.type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 
-	public BlobData getBlobData() {
-		return this.blobData;
+	public Long getAgreementId() {
+		return agreementId;
 	}
 
-	public void setBlobData(BlobData blobData) {
-		this.blobData = blobData;
+	public void setAgreementId(Long agreementId) {
+		this.agreementId = agreementId;
+	}
+
+	public Long getScenicId() {
+		return scenicId;
+	}
+
+	public void setScenicId(Long scenicId) {
+		this.scenicId = scenicId;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public String getAgreement() {
+		return agreement;
+	}
+
+	public void setAgreement(String agreement) {
+		this.agreement = agreement;
 	}
 
 	public Ticket getTicket() {
@@ -88,13 +113,4 @@ public class ScenicTicket implements Serializable {
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
 	}
-
-	public Scenic getScenic() {
-		return this.scenic;
-	}
-
-	public void setScenic(Scenic scenic) {
-		this.scenic = scenic;
-	}
-
 }

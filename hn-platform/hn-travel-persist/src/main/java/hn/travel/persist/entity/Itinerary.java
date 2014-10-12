@@ -1,7 +1,9 @@
 package hn.travel.persist.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -35,14 +37,16 @@ public class Itinerary implements Serializable {
 	private double nowPrice;
 
 	@Column(name="pay_type")
-	private int payType;
+	private Integer payType;
 
 	@Column(name="price_instructio")
 	private String priceInstructio;
 
 	private String title;
 
-	private int type;
+	private Integer type;
+
+	private Integer status;
 
 	//bi-directional one-to-one association to Ticket
 	@OneToOne
@@ -141,11 +145,11 @@ public class Itinerary implements Serializable {
 		this.nowPrice = nowPrice;
 	}
 
-	public int getPayType() {
+	public Integer getPayType() {
 		return this.payType;
 	}
 
-	public void setPayType(int payType) {
+	public void setPayType(Integer payType) {
 		this.payType = payType;
 	}
 
@@ -165,11 +169,11 @@ public class Itinerary implements Serializable {
 		this.title = title;
 	}
 
-	public int getType() {
+	public Integer getType() {
 		return this.type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 
@@ -219,6 +223,14 @@ public class Itinerary implements Serializable {
 
 	public void setScenics(List<Scenic> scenics) {
 		this.scenics = scenics;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 }

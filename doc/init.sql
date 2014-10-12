@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2014/10/8 17:22:59                           */
+/* Created on:     2014/10/12 20:28:26                          */
 /*==============================================================*/
 
 
@@ -69,6 +69,7 @@ create table itinerary
    explain_id           bigint comment '行程说明',
    prompt_id            bigint comment '重要提示',
    traffic_id           bigint comment '交通信息',
+   status               int not null default 0 comment '状态。0，正常；1，下架',
    primary key (id)
 );
 
@@ -125,7 +126,7 @@ create table scenic
    introduce_id         bigint comment '景点介绍',
    traffic_id           bigint comment '交通指南',
    low_price            double comment '最低价格',
-   good_rate            numeric(3,2) default '100.00' comment '好评率(%)',
+   good_rate            numeric(5,2) default '100.00' comment '好评率(%)',
    create_time          datetime not null comment '创建时间',
    update_time          datetime not null comment '更新时间',
    status               int not null default 0 comment '状态。0，正常；1，下架',
@@ -142,9 +143,10 @@ create table scenic_ticket
    id                   bigint not null comment '主键',
    scenic_id            bigint not null comment '景点ID',
    name                 varchar(50) not null comment '名称',
-   pay_type             int not null comment '支付方式。1，在线支付；2，线下支付',
+   pay_type             int comment '支付方式。1，在线支付；2，线下支付',
    type                 int not null comment '类型。1，单门票；2，组合套餐',
-   agreement_id         bigint not null comment '预订协议',
+   agreement_id         bigint comment '预订协议',
+   status               int not null default 0 comment '状态。0，正常；1，下架',
    primary key (id)
 );
 
@@ -159,7 +161,6 @@ create table ticket
    refund_id            bigint comment '退款说明',
    create_time          datetime not null comment '创建时间',
    update_time          datetime not null comment '更新时间',
-   status               int not null default 0 comment '状态。0，正常；1，下架',
    primary key (id)
 );
 

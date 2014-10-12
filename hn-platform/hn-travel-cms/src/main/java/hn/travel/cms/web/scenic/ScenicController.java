@@ -10,9 +10,10 @@ import hn.travel.persist.utils.PropertiesUtil;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -26,6 +27,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -46,7 +49,8 @@ public class ScenicController extends GenericController {
 		pageNo = pageNo < 0 ? 0 : pageNo;
 		int size = RequestUtil.getCurrentRowsDisplayed(request);
 		size = size < 1 ? 15 : size;
-		Page<Scenic> page = scenicService.page(keyword, new PageRequest(pageNo, size));
+		Page<Scenic> page = scenicService.page(keyword, new PageRequest(pageNo,
+				size));
 
 		model.addAttribute("list", page.getContent());
 		model.addAttribute("totalRows", Long.valueOf(page.getTotalElements())
@@ -75,60 +79,49 @@ public class ScenicController extends GenericController {
 	@RequestMapping(value = "save", method = RequestMethod.POST)
 	public String save(@Valid Scenic scenic, MultipartFile imgUriFile,
 			HttpServletRequest request, RedirectAttributes redirectAttributes) {
-		if (scenic.getId() == null
-				&& (imgUriFile == null || imgUriFile.isEmpty())) {
-			redirectAttributes.addFlashAttribute("message", "主图不能为空");
-			return "redirect:/scenic/create";
-		}
-		String fileName = imgUriFile.getOriginalFilename();
-		String fileExt = fileName.substring(fileName.lastIndexOf(".") + 1)
-				.toLowerCase();
-		if (!imgExt.contains(fileExt)) {
-			redirectAttributes.addFlashAttribute("message",
-					"只允许上传图片类型（gif,jpg,jpeg,png,bmp）");
-			return "redirect:/scenic/create";
-		}
+		if (imgUriFile == null || imgUriFile.isEmpty()) {
+			if (scenic.getId() == null) {
+				redirectAttributes.addFlashAttribute("message", "主图不能为空");
+				return "redirect:/scenic/create";
+			}
+		} else {
+			String fileName = imgUriFile.getOriginalFilename();
+			String fileExt = fileName.substring(fileName.lastIndexOf(".") + 1)
+					.toLowerCase();
+			if (!imgExt.contains(fileExt)) {
+				redirectAttributes.addFlashAttribute("message",
+						"只允许上传图片类型（gif,jpg,jpeg,png,bmp）");
+				return "redirect:/scenic/create";
+			}
 
-		String realPath = PropertiesUtil.getProp("scenic.imgPath");
-		scenic.setImgUri(realPath + getUuid() + "." + fileExt);
-		realPath = request.getServletContext().getRealPath(scenic.getImgUri());
-		try {
-			imgUriFile.transferTo(new File(realPath));
-		} catch (IllegalStateException | IOException e) {
-			redirectAttributes.addFlashAttribute("message", "主图上传错误");
-			return "redirect:/scenic/create";
+			String realPath = PropertiesUtil.getProp("scenic.imgPath");
+			scenic.setImgUri(realPath + getUuid() + "." + fileExt);
+			realPath = request.getServletContext().getRealPath(
+					scenic.getImgUri());
+			try {
+				imgUriFile.transferTo(new File(realPath));
+			} catch (IllegalStateException | IOException e) {
+				redirectAttributes.addFlashAttribute("message", "主图上传错误");
+				return "redirect:/scenic/create";
+			}
 		}
 
 		scenicService.save(scenic);
-		redirectAttributes.addFlashAttribute("message", "创建景点成功");
-		return "redirect:/scenic/";
-	}
-
-	@RequestMapping(value = "delete/{id}")
-	public String delete(@PathVariable("id") Long id,
-			RedirectAttributes redirectAttributes) {
-		scenicService.delete(id);
-
-		redirectAttributes.addFlashAttribute("message", "删除景点成功");
+		redirectAttributes.addFlashAttribute("message", "保存景点成功");
 		return "redirect:/scenic/";
 	}
 
 	@RequestMapping(value = "delete")
-	public String delete(HttpServletRequest request,
-			RedirectAttributes redirectAttributes) {
-		String[] itemlist = request.getParameterValues("itemlist");
-		List<Long> ids = new ArrayList<Long>(itemlist.length);
-		for (String id : itemlist) {
-			try {
-				ids.add(Long.parseLong(id));
-			} catch (NumberFormatException e) {
-			}
+	@ResponseBody
+	public Map<String, ?> delete(@RequestParam Long[] ids) {
+		Map<String, Object> re = new HashMap<String, Object>();
+		if (ids == null || ids.length == 0) {
+			re.put("error", "请至少选择一个门票");
+			return re;
 		}
-		if (ids.size() > 0)
-			scenicService.delete(ids.toArray(new Long[ids.size()]));
-
-		redirectAttributes.addFlashAttribute("message", "删除景点成功");
-		return "redirect:/scenic/";
+		scenicService.delete(ids);
+		re.put("success", true);
+		return re;
 	}
 
 	private int uuidIndex = 0;

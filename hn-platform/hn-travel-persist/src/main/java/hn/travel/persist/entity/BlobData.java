@@ -32,6 +32,12 @@ public class BlobData implements Serializable {
 		this.data = data;
 	}
 
+	public BlobData(Long id, String data) {
+		super();
+		this.id = id;
+		this.data = data;
+	}
+
 	public Long getId() {
 		return this.id;
 	}

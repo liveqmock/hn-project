@@ -1,10 +1,17 @@
 package hn.travel.persist.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the ticket database table.
@@ -15,45 +22,28 @@ public class Ticket implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_time")
+	@Column(name = "create_time")
 	private Date createTime;
 
-	private int status;
-
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_time")
+	@Column(name = "update_time")
 	private Date updateTime;
 
-	//bi-directional one-to-one association to Itinerary
-	@OneToOne(mappedBy="ticket")
-	private Itinerary itinerary;
-
-	//bi-directional one-to-one association to ScenicTicket
-	@OneToOne(mappedBy="ticket")
-	private ScenicTicket scenicTicket;
-
-	//bi-directional many-to-one association to BlobData
 	@ManyToOne
-	@JoinColumn(name="refund_id")
-	private BlobData blobData1;
+	@JoinColumn(name = "refund_id")
+	private BlobData refund;
 
-	//bi-directional many-to-one association to BlobData
 	@ManyToOne
-	@JoinColumn(name="cost_id")
-	private BlobData blobData2;
+	@JoinColumn(name = "cost_id")
+	private BlobData cost;
 
-	//bi-directional many-to-one association to BlobData
 	@ManyToOne
-	@JoinColumn(name="notice_id")
-	private BlobData blobData3;
-
-	//bi-directional many-to-one association to TicketKind
-	@OneToMany(mappedBy="ticket")
-	private List<TicketKind> ticketKinds;
+	@JoinColumn(name = "notice_id")
+	private BlobData notice;
 
 	public Ticket() {
 	}
@@ -74,14 +64,6 @@ public class Ticket implements Serializable {
 		this.createTime = createTime;
 	}
 
-	public int getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
 	public Date getUpdateTime() {
 		return this.updateTime;
 	}
@@ -90,66 +72,27 @@ public class Ticket implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	public Itinerary getItinerary() {
-		return this.itinerary;
+	public BlobData getRefund() {
+		return refund;
 	}
 
-	public void setItinerary(Itinerary itinerary) {
-		this.itinerary = itinerary;
+	public void setRefund(BlobData refund) {
+		this.refund = refund;
 	}
 
-	public ScenicTicket getScenicTicket() {
-		return this.scenicTicket;
+	public BlobData getCost() {
+		return cost;
 	}
 
-	public void setScenicTicket(ScenicTicket scenicTicket) {
-		this.scenicTicket = scenicTicket;
+	public void setCost(BlobData cost) {
+		this.cost = cost;
 	}
 
-	public BlobData getBlobData1() {
-		return this.blobData1;
+	public BlobData getNotice() {
+		return notice;
 	}
 
-	public void setBlobData1(BlobData blobData1) {
-		this.blobData1 = blobData1;
+	public void setNotice(BlobData notice) {
+		this.notice = notice;
 	}
-
-	public BlobData getBlobData2() {
-		return this.blobData2;
-	}
-
-	public void setBlobData2(BlobData blobData2) {
-		this.blobData2 = blobData2;
-	}
-
-	public BlobData getBlobData3() {
-		return this.blobData3;
-	}
-
-	public void setBlobData3(BlobData blobData3) {
-		this.blobData3 = blobData3;
-	}
-
-	public List<TicketKind> getTicketKinds() {
-		return this.ticketKinds;
-	}
-
-	public void setTicketKinds(List<TicketKind> ticketKinds) {
-		this.ticketKinds = ticketKinds;
-	}
-
-	public TicketKind addTicketKind(TicketKind ticketKind) {
-		getTicketKinds().add(ticketKind);
-		ticketKind.setTicket(this);
-
-		return ticketKind;
-	}
-
-	public TicketKind removeTicketKind(TicketKind ticketKind) {
-		getTicketKinds().remove(ticketKind);
-		ticketKind.setTicket(null);
-
-		return ticketKind;
-	}
-
 }

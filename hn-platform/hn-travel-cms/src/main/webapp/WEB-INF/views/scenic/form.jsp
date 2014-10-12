@@ -21,9 +21,9 @@ label.error { color: red }
 <script type="text/javascript">
 KindEditor.ready(function(K) {
 	var editor1 = K.create('textarea[name="notice"],textarea[name="introduce"],textarea[name="traffic"]', {
-		cssPath : '/static/scripts/kindeditor/plugins/code/prettify.css',
-		uploadJson : '/file/uploadJson',
-		fileManagerJson : '/file/manager',
+		cssPath : '${ctx }/static/scripts/kindeditor/plugins/code/prettify.css',
+		uploadJson : '${ctx }/file/uploadJson',
+		fileManagerJson : '${ctx }/file/manager',
 		allowFileManager : true
 	});
 	prettyPrint();
@@ -41,6 +41,8 @@ $(function(){
 <body>
 <div class="pageTitle">您所在的位置：景点管理 - 景点新增</div>	
 
+<%@ include file="/common/messages.jsp"%>
+
 <form name="postForm" action="${ctx}/scenic/save" method="post" style="padding:5px" enctype="multipart/form-data">
  <table>
   <tr>
@@ -51,11 +53,13 @@ $(function(){
   </tr>
   <tr>
    <th><span class="red">*</span>主图:</th>
-   <td>
-   <c:if test="${vo.imgUri != null && vo.imgUri != ''}">
-   	<a href="${vo.imgUri}" target="_blank"><img src="${vo.imgUri}" width="30" height="20"/></a>
-   </c:if>
-   <input type="file" name="imgUriFile" required/></td>
+   <td><c:choose>
+    <c:when test="${vo.imgUri != null && vo.imgUri != ''}">
+     <a href="${vo.imgUri}" target="_blank"><img src="${vo.imgUri}" width="30" height="20"/></a>
+     <input type="file" name="imgUriFile"/>
+    </c:when>
+    <c:otherwise><input type="file" name="imgUriFile" required/></c:otherwise>
+   </c:choose></td>
    <th>支持的服务:</th>
    <td><input type="text" name="services" value="${vo.services}" maxlength="20" /></td>
   </tr>
@@ -106,7 +110,7 @@ $(function(){
    <input type="hidden" name="introduceId" value="${vo.introduceId}" />
    <input type="hidden" name="createTime" value="<fmt:formatDate value='${vo.createTime}' pattern='yyyy-MM-dd HH:mm:ss'/>" />
    <input class="btn btn-primary" type="submit" value="提交"/>&nbsp;	
-   <input class="btn" type="button" value="返回" onclick="history.back()"/>
+   <input class="btn" type="button" value="返回" onclick="location.href='<c:url value="/scenic"/>'"/>
   </td></tr>
  </table>
 </form>
