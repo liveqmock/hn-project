@@ -5,5 +5,6 @@
 <link rel="stylesheet" href="/static/scripts/kindeditor/themes/default/default.css" />
 <link rel="stylesheet" href="/static/scripts/kindeditor/plugins/code/prettify.css" />
 <script charset="utf-8" src="/static/scripts/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/static/scripts/kindeditor/kindeditor.ext.js"></script>
 <script charset="utf-8" src="/static/scripts/kindeditor/lang/zh_CN.js"></script>
 <script charset="utf-8" src="/static/scripts/kindeditor/plugins/code/prettify.js"></script>

@@ -27,7 +27,8 @@ function timeCount(){
 </head>
 
 <body>
-<div>景点不存在或已被删除！</div>
-<div> <span id="TimeSp">5</span>秒后<a href="${ctx}/scenic">返回景点列表</a> </div>
+<br/><br/><br/><br/>
+<div>景点不存在或已被删除！</div><br/><br/>
+<div> <span id="TimeSp">5</span>秒后 <a href="${ctx}/scenic">返回景点列表</a> </div>
 </body>
 </html>

@@ -20,9 +20,9 @@ label.error { color: red }
 .red{color:red}
 </style>
 <script type="text/javascript">
-var editor1;
+var editors;
 KindEditor.ready(function(K) {
-	editor1 = K.create('textarea', {
+	editors = K.createMult('textarea', {
 		cssPath : '${ctx }/static/scripts/kindeditor/plugins/code/prettify.css',
 		uploadJson : '${ctx }/file/uploadJson',
 		fileManagerJson : '${ctx }/file/manager',
@@ -37,7 +37,10 @@ $(function(){
 			if(saveing)
 				return;
 			saveing = true;
-			editor1.sync();
+			
+			for(var i = 0; i < editors.length; i++)
+				editors[i].sync();
+			
 			$(form).ajaxSubmit(function(data){
 				if(data.success){
 					alert('保存门票成功');

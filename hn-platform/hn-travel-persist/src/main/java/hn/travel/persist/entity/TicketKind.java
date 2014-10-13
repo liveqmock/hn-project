@@ -1,50 +1,58 @@
 package hn.travel.persist.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * The persistent class for the ticket_kind database table.
  * 
  */
 @Entity
-@Table(name="ticket_kind")
+@Table(name = "ticket_kind")
 public class TicketKind implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="create_time")
+	@Column(name = "create_time")
 	private Date createTime;
 
 	private String desciption;
 
-	@Column(name="market_price")
+	@Column(name = "market_price")
 	private double marketPrice;
 
 	private String name;
 
-	@Column(name="now_price")
+	@Column(name = "now_price")
 	private double nowPrice;
 
 	private int status;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="update_time")
+	@Column(name = "update_time")
 	private Date updateTime;
 
-	//bi-directional many-to-one association to DatePrice
-	@OneToMany(mappedBy="ticketKind")
-	private List<DatePrice> datePrices;
+	@Column(name = "ticket_id")
+	private Long ticketId;
 
-	//bi-directional many-to-one association to Ticket
-	@ManyToOne
+	/**
+	 * 非表字段
+	 */
+	@Transient
 	private Ticket ticket;
 
 	public TicketKind() {
@@ -114,26 +122,12 @@ public class TicketKind implements Serializable {
 		this.updateTime = updateTime;
 	}
 
-	public List<DatePrice> getDatePrices() {
-		return this.datePrices;
+	public Long getTicketId() {
+		return ticketId;
 	}
 
-	public void setDatePrices(List<DatePrice> datePrices) {
-		this.datePrices = datePrices;
-	}
-
-	public DatePrice addDatePrice(DatePrice datePrice) {
-		getDatePrices().add(datePrice);
-		datePrice.setTicketKind(this);
-
-		return datePrice;
-	}
-
-	public DatePrice removeDatePrice(DatePrice datePrice) {
-		getDatePrices().remove(datePrice);
-		datePrice.setTicketKind(null);
-
-		return datePrice;
+	public void setTicketId(Long ticketId) {
+		this.ticketId = ticketId;
 	}
 
 	public Ticket getTicket() {
