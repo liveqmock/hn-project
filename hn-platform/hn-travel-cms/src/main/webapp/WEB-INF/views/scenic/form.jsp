@@ -11,7 +11,7 @@
 <script src="${ctx}/static/jquery-validation/1.13.0/jquery.validate.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/scripts/validate.ext.js" type="text/javascript"></script>
 <script src="${ctx}/static/jquery-validation/1.13.0/messages_zh.js" type="text/javascript"></script>
-<title>景点管理 - 新增</title>
+<title>景点管理 - 景点新增</title>
 <style type="text/css">
 th{width:80px; text-align:right;}
 input.error { border: 1px dotted red; }
@@ -39,7 +39,7 @@ $(function(){
 </head>
 
 <body>
-<div class="pageTitle">您所在的位置：景点管理 - 景点新增</div>	
+<div class="pageTitle">您所在的位置：<a href="<c:url value="/scenic"/>">景点管理</a> - 景点新增</div>	
 
 <%@ include file="/common/messages.jsp"%>
 

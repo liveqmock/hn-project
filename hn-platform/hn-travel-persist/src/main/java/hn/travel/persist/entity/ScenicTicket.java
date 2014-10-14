@@ -38,6 +38,8 @@ public class ScenicTicket implements Serializable {
 	private String agreement;
 	@Transient
 	private Ticket ticket;
+	@Transient
+	private Scenic scenic;
 
 	public ScenicTicket() {
 	}
@@ -112,5 +114,13 @@ public class ScenicTicket implements Serializable {
 
 	public void setTicket(Ticket ticket) {
 		this.ticket = ticket;
+	}
+
+	public Scenic getScenic() {
+		return scenic;
+	}
+
+	public void setScenic(Scenic scenic) {
+		this.scenic = scenic;
 	}
 }

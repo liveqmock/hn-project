@@ -1,41 +1,46 @@
 package hn.travel.persist.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
 
+import javax.persistence.*;
+
+import java.util.Date;
 
 /**
  * The persistent class for the date_price database table.
  * 
  */
 @Entity
-@Table(name="date_price")
+@Table(name = "date_price")
 public class DatePrice implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="market_price")
-	private double marketPrice;
+	@Column(name = "market_price")
+	private Double marketPrice;
 
-	@Column(name="now_price")
-	private double nowPrice;
+	@Column(name = "now_price")
+	private Double nowPrice;
 
 	@Temporal(TemporalType.DATE)
 	private Date pdate;
 
-	@Column(name="remain_num")
-	private int remainNum;
+	@Column(name = "remain_num")
+	private Integer remainNum;
 
-	@Column(name="total_num")
-	private int totalNum;
+	@Column(name = "total_num")
+	private Integer totalNum;
 
-	//bi-directional many-to-one association to TicketKind
-	@ManyToOne
-	@JoinColumn(name="kind_id")
+	@Column(name = "kind_id")
+	private String kindId;
+
+	/**
+	 * 非表字段
+	 */
+	@Transient
 	private TicketKind ticketKind;
 
 	public DatePrice() {
@@ -49,19 +54,19 @@ public class DatePrice implements Serializable {
 		this.id = id;
 	}
 
-	public double getMarketPrice() {
+	public Double getMarketPrice() {
 		return this.marketPrice;
 	}
 
-	public void setMarketPrice(double marketPrice) {
+	public void setMarketPrice(Double marketPrice) {
 		this.marketPrice = marketPrice;
 	}
 
-	public double getNowPrice() {
+	public Double getNowPrice() {
 		return this.nowPrice;
 	}
 
-	public void setNowPrice(double nowPrice) {
+	public void setNowPrice(Double nowPrice) {
 		this.nowPrice = nowPrice;
 	}
 
@@ -73,20 +78,28 @@ public class DatePrice implements Serializable {
 		this.pdate = pdate;
 	}
 
-	public int getRemainNum() {
+	public Integer getRemainNum() {
 		return this.remainNum;
 	}
 
-	public void setRemainNum(int remainNum) {
+	public void setRemainNum(Integer remainNum) {
 		this.remainNum = remainNum;
 	}
 
-	public int getTotalNum() {
+	public Integer getTotalNum() {
 		return this.totalNum;
 	}
 
-	public void setTotalNum(int totalNum) {
+	public void setTotalNum(Integer totalNum) {
 		this.totalNum = totalNum;
+	}
+
+	public String getKindId() {
+		return kindId;
+	}
+
+	public void setKindId(String kindId) {
+		this.kindId = kindId;
 	}
 
 	public TicketKind getTicketKind() {

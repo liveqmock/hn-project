@@ -33,12 +33,12 @@ public class TicketKind implements Serializable {
 	private String desciption;
 
 	@Column(name = "market_price")
-	private double marketPrice;
+	private Double marketPrice;
 
 	private String name;
 
 	@Column(name = "now_price")
-	private double nowPrice;
+	private Double nowPrice;
 
 	private int status;
 
@@ -82,11 +82,11 @@ public class TicketKind implements Serializable {
 		this.desciption = desciption;
 	}
 
-	public double getMarketPrice() {
+	public Double getMarketPrice() {
 		return this.marketPrice;
 	}
 
-	public void setMarketPrice(double marketPrice) {
+	public void setMarketPrice(Double marketPrice) {
 		this.marketPrice = marketPrice;
 	}
 
@@ -98,11 +98,11 @@ public class TicketKind implements Serializable {
 		this.name = name;
 	}
 
-	public double getNowPrice() {
+	public Double getNowPrice() {
 		return this.nowPrice;
 	}
 
-	public void setNowPrice(double nowPrice) {
+	public void setNowPrice(Double nowPrice) {
 		this.nowPrice = nowPrice;
 	}
 

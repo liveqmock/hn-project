@@ -6,7 +6,7 @@
 <meta http-equiv="MSThemeCompatible" content="no" />
 <%@ include file="/common/meta.jsp" %>
 <link href="${ctx}/static/scripts/widgets/extremecomponents/extremecomponents.css" type="text/css" rel="stylesheet">
-<title>景点管理 - 列表</title>
+<title>景点管理 - 景点列表</title>
 <script type="text/javascript">
 $.ajaxSetup({
 	traditional: true
@@ -27,13 +27,13 @@ function del(id){
 					alert('执行删除成功');
 					location.href = '<c:url value="/scenic"/>';
 				}else if(data.error)
-					alert(data.error)
+					alert(data.error);
 				else
 					alert('执行删除出错');
 			});
 		}
 	}else{
-		alert('请至少选择一个景点')
+		alert('请至少选择一个景点');
 	}
 }
 </script>
@@ -46,7 +46,7 @@ function del(id){
 <%@ include file="/common/messages.jsp"%>
  <form action="/scenic" class="form" method="post" name="searchForm">
   景点名称: <input type="text" name="keyword" value="${param.keyword }"/>
-  <input type="image" src="<c:url value="/static/images/icon/16x16/search.gif"/>"  class="nullBorder" onclick="searchForm.submit();" align="middle" />
+  <input type="image" src="<c:url value="/static/images/icon/16x16/search.gif"/>"  class="nullBorder" onclick="searchForm.submit();" />
   
   <a href="<c:url value="/scenic/create"/>"><img src="<c:url value="/static/images/icon/16x16/new.gif"/>" align="middle"></a>
   <a href="javascript:void(0)" onclick="del()"><img src="<c:url value="/static/images/icon/16x16/delete.gif"/>" align="middle"></a>

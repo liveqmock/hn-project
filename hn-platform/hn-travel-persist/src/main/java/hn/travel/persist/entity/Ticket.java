@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * The persistent class for the ticket database table.
@@ -44,6 +45,14 @@ public class Ticket implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "notice_id")
 	private BlobData notice;
+
+	/**
+	 * 非表字段
+	 */
+	@Transient
+	private ScenicTicket scenicTicket;
+	@Transient
+	private Itinerary itinerary;
 
 	public Ticket() {
 	}
@@ -94,5 +103,21 @@ public class Ticket implements Serializable {
 
 	public void setNotice(BlobData notice) {
 		this.notice = notice;
+	}
+
+	public ScenicTicket getScenicTicket() {
+		return scenicTicket;
+	}
+
+	public void setScenicTicket(ScenicTicket scenicTicket) {
+		this.scenicTicket = scenicTicket;
+	}
+
+	public Itinerary getItinerary() {
+		return itinerary;
+	}
+
+	public void setItinerary(Itinerary itinerary) {
+		this.itinerary = itinerary;
 	}
 }

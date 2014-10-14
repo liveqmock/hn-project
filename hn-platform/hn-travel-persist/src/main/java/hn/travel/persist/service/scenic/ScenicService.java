@@ -39,6 +39,8 @@ public class ScenicService {
 	private BlobDataDao blobDataDao;
 	@Autowired
 	private TicketDao ticketDao;
+	@Autowired
+	private ScenicTicketService scenicTicketSrv;
 
 	public Page<Scenic> page(String keyword, Pageable pageable) {
 		if (StringUtils.hasText(keyword)) {
@@ -120,8 +122,7 @@ public class ScenicService {
 		List<Long> idList = Arrays.asList(ids);
 
 		List<ScenicTicket> scenicTickets = stDao.findByScenicIdIn(ids);
-		ScenicTicketService
-				.delete(scenicTickets, stDao, blobDataDao, ticketDao);
+		scenicTicketSrv.delete(scenicTickets);
 
 		Iterable<Scenic> scenics = scenicDao.findAll(idList);
 		scenicDao.delete(scenics);

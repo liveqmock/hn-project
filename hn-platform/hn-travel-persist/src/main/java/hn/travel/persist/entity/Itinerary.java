@@ -1,11 +1,18 @@
 package hn.travel.persist.entity;
 
 import java.io.Serializable;
-
-import javax.persistence.*;
-
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * The persistent class for the itinerary database table.
@@ -16,30 +23,30 @@ public class Itinerary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="end_place")
+	@Column(name = "end_place")
 	private String endPlace;
 
-	@Column(name="img_uri")
+	@Column(name = "img_uri")
 	private String imgUri;
 
-	@Column(name="issue_place")
+	@Column(name = "issue_place")
 	private String issuePlace;
 
-	@Column(name="market_price")
-	private double marketPrice;
+	@Column(name = "market_price")
+	private Double marketPrice;
 
 	private String name;
 
-	@Column(name="now_price")
-	private double nowPrice;
+	@Column(name = "now_price")
+	private Double nowPrice;
 
-	@Column(name="pay_type")
+	@Column(name = "pay_type")
 	private Integer payType;
 
-	@Column(name="price_instructio")
+	@Column(name = "price_instructio")
 	private String priceInstructio;
 
 	private String title;
@@ -48,42 +55,34 @@ public class Itinerary implements Serializable {
 
 	private Integer status;
 
-	//bi-directional one-to-one association to Ticket
+	// bi-directional one-to-one association to Ticket
 	@OneToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name = "id")
 	private Ticket ticket;
 
-	//bi-directional many-to-one association to BlobData
+	// bi-directional many-to-one association to BlobData
 	@ManyToOne
-	@JoinColumn(name="feature_id")
+	@JoinColumn(name = "feature_id")
 	private BlobData blobData1;
 
-	//bi-directional many-to-one association to BlobData
+	// bi-directional many-to-one association to BlobData
 	@ManyToOne
-	@JoinColumn(name="explain_id")
+	@JoinColumn(name = "explain_id")
 	private BlobData blobData2;
 
-	//bi-directional many-to-one association to BlobData
+	// bi-directional many-to-one association to BlobData
 	@ManyToOne
-	@JoinColumn(name="prompt_id")
+	@JoinColumn(name = "prompt_id")
 	private BlobData blobData3;
 
-	//bi-directional many-to-one association to BlobData
+	// bi-directional many-to-one association to BlobData
 	@ManyToOne
-	@JoinColumn(name="traffic_id")
+	@JoinColumn(name = "traffic_id")
 	private BlobData blobData4;
 
-	//bi-directional many-to-many association to Scenic
+	// bi-directional many-to-many association to Scenic
 	@ManyToMany
-	@JoinTable(
-		name="itinerary_scenic"
-		, joinColumns={
-			@JoinColumn(name="itinerary_id")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="id")
-			}
-		)
+	@JoinTable(name = "itinerary_scenic", joinColumns = { @JoinColumn(name = "itinerary_id") }, inverseJoinColumns = { @JoinColumn(name = "id") })
 	private List<Scenic> scenics;
 
 	public Itinerary() {
@@ -121,11 +120,11 @@ public class Itinerary implements Serializable {
 		this.issuePlace = issuePlace;
 	}
 
-	public double getMarketPrice() {
+	public Double getMarketPrice() {
 		return this.marketPrice;
 	}
 
-	public void setMarketPrice(double marketPrice) {
+	public void setMarketPrice(Double marketPrice) {
 		this.marketPrice = marketPrice;
 	}
 
@@ -137,11 +136,11 @@ public class Itinerary implements Serializable {
 		this.name = name;
 	}
 
-	public double getNowPrice() {
+	public Double getNowPrice() {
 		return this.nowPrice;
 	}
 
-	public void setNowPrice(double nowPrice) {
+	public void setNowPrice(Double nowPrice) {
 		this.nowPrice = nowPrice;
 	}
 

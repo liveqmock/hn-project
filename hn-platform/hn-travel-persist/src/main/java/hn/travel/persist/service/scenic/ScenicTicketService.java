@@ -9,10 +9,10 @@ import hn.travel.persist.entity.Ticket;
 import hn.travel.persist.repository.BlobDataDao;
 import hn.travel.persist.repository.ScenicTicketDao;
 import hn.travel.persist.repository.TicketDao;
+import hn.travel.persist.service.ticket.TicketService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +36,8 @@ public class ScenicTicketService {
 	private BlobDataDao blobDataDao;
 	@Autowired
 	private TicketDao ticketDao;
+	@Autowired
+	private TicketService ticketSrv;
 
 	public Page<ScenicTicket> page(Long scenicId, Pageable pageable) {
 		return stDao.findByScenicId(scenicId, pageable);
@@ -56,43 +58,8 @@ public class ScenicTicketService {
 
 	@Transactional
 	public ScenicTicket save(ScenicTicket st) {
-		Ticket ticket = st.getTicket();
-		if (ticket.getCreateTime() == null)
-			ticket.setCreateTime(new Date());
-		ticket.setUpdateTime(new Date());
+		Ticket ticket = ticketSrv.save(st.getTicket());
 
-		if (ticket.getCost() != null) {
-			BlobData bd = ticket.getCost();
-			ticket.setCost(null);
-			if (StringUtils.hasLength(bd.getData())) {
-				bd = blobDataDao.save(bd);
-				ticket.setCost(bd);
-			} else if (bd.getId() != null) {
-				blobDataDao.delete(bd.getId());
-			}
-		}
-		if (ticket.getNotice() != null) {
-			BlobData bd = ticket.getNotice();
-			ticket.setNotice(null);
-			if (StringUtils.hasLength(bd.getData())) {
-				bd = blobDataDao.save(bd);
-				ticket.setNotice(bd);
-			} else if (bd.getId() != null) {
-				blobDataDao.delete(bd.getId());
-			}
-		}
-		if (ticket.getRefund() != null) {
-			BlobData bd = ticket.getRefund();
-			ticket.setRefund(null);
-			if (StringUtils.hasLength(bd.getData())) {
-				bd = blobDataDao.save(bd);
-				ticket.setRefund(bd);
-			} else if (bd.getId() != null) {
-				blobDataDao.delete(bd.getId());
-			}
-		}
-
-		ticket = ticketDao.save(ticket);
 		st.setId(ticket.getId());
 		st.setTicket(ticket);
 
@@ -114,11 +81,11 @@ public class ScenicTicketService {
 		List<Long> idList = Arrays.asList(ids);
 
 		Iterable<ScenicTicket> scenicTickets = stDao.findAll(idList);
-		delete(scenicTickets, stDao, blobDataDao, ticketDao);
+		delete(scenicTickets);
 	}
 
-	static void delete(Iterable<? extends ScenicTicket> scenicTickets,
-			ScenicTicketDao stDao, BlobDataDao blobDataDao, TicketDao ticketDao) {
+	@Transactional
+	public void delete(Iterable<? extends ScenicTicket> scenicTickets) {
 		List<Long> idList = new ArrayList<Long>();
 		for (ScenicTicket st : scenicTickets) {
 			if (st.getAgreementId() != null)
@@ -127,16 +94,6 @@ public class ScenicTicketService {
 		}
 		stDao.delete(scenicTickets);
 
-		Iterable<Ticket> tickets = ticketDao.findAll(idList);
-		ticketDao.delete(tickets);
-
-		for (Ticket t : tickets) {
-			if (t.getCost() != null)
-				blobDataDao.delete(t.getCost());
-			if (t.getNotice() != null)
-				blobDataDao.delete(t.getNotice());
-			if (t.getRefund() != null)
-				blobDataDao.delete(t.getRefund());
-		}
+		ticketSrv.delete(idList);
 	}
 }
