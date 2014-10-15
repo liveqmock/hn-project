@@ -3,6 +3,7 @@
  */
 package hn.travel.cms.web.ticket;
 
+import hn.travel.cms.generic.web.GenericController;
 import hn.travel.persist.entity.Ticket;
 import hn.travel.persist.entity.TicketKind;
 import hn.travel.persist.service.ticket.TicketKindService;
@@ -32,7 +33,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @RequestMapping(value = "/ticketkind")
-public class TicketKindController {
+public class TicketKindController extends GenericController {
 
 	@Autowired
 	private TicketService tSrv;

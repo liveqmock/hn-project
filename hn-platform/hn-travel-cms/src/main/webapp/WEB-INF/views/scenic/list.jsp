@@ -6,35 +6,12 @@
 <meta http-equiv="MSThemeCompatible" content="no" />
 <%@ include file="/common/meta.jsp" %>
 <link href="${ctx}/static/scripts/widgets/extremecomponents/extremecomponents.css" type="text/css" rel="stylesheet">
+<script src="${ctx }/static/scripts/common.js" type="text/javascript"></script>
 <title>景点管理 - 景点列表</title>
 <script type="text/javascript">
-$.ajaxSetup({
-	traditional: true
-});
 function del(id){
-	var ids = [];
-	if(id){
-		ids.push(id);
-	}else{
-		$(':checkbox[name="selBox"]:checked').each(function(){
-			ids.push(this.value);
-		});
-	}
-	if(ids.length){
-		if(confirm('删除景点将同时删除该景点的门票，是否确定删除？')){
-			$.get('<c:url value="/scenic/delete"/>', {ids : ids}, function(data){
-				if(data.success){
-					alert('执行删除成功');
-					location.href = '<c:url value="/scenic"/>';
-				}else if(data.error)
-					alert(data.error);
-				else
-					alert('执行删除出错');
-			});
-		}
-	}else{
-		alert('请至少选择一个景点');
-	}
+	delConfirm(id, '<c:url value="/scenic/delete"/>', '请至少选择一个景点',
+			'<c:url value="/scenic"/>', '删除景点将同时删除该景点的门票，是否确定删除？');
 }
 </script>
 </head>
@@ -46,7 +23,7 @@ function del(id){
 <%@ include file="/common/messages.jsp"%>
  <form action="/scenic" class="form" method="post" name="searchForm">
   景点名称: <input type="text" name="keyword" value="${param.keyword }"/>
-  <input type="image" src="<c:url value="/static/images/icon/16x16/search.gif"/>"  class="nullBorder" onclick="searchForm.submit();" />
+  <input type="image" src="<c:url value="/static/images/icon/16x16/search.gif"/>"  class="nullBorder" onclick="searchForm.submit();" align="middle" />
   
   <a href="<c:url value="/scenic/create"/>"><img src="<c:url value="/static/images/icon/16x16/new.gif"/>" align="middle"></a>
   <a href="javascript:void(0)" onclick="del()"><img src="<c:url value="/static/images/icon/16x16/delete.gif"/>" align="middle"></a>

@@ -6,35 +6,12 @@
 <meta http-equiv="MSThemeCompatible" content="no" />
 <%@ include file="/common/meta.jsp" %>
 <link href="${ctx}/static/scripts/widgets/extremecomponents/extremecomponents.css" type="text/css" rel="stylesheet">
+<script src="${ctx }/static/scripts/common.js" type="text/javascript"></script>
 <title>门票管理 - 票种列表</title>
 <script type="text/javascript">
-$.ajaxSetup({
-	traditional: true
-});
 function del(id){
-	var ids = [];
-	if(id){
-		ids.push(id);
-	}else{
-		$(':checkbox[name="selBox"]:checked').each(function(){
-			ids.push(this.value);
-		});
-	}
-	if(ids.length){
-		if(confirm('是否确定删除？')){
-			$.get('<c:url value="/ticketkind/delete"/>', {ids : ids}, function(data){
-				if(data.success){
-					alert('执行删除成功');
-					location.href = '<c:url value="/ticketkind/${ticket.id}"/>';
-				}else if(data.error)
-					alert(data.error);
-				else
-					alert('执行删除出错');
-			});
-		}
-	}else{
-		alert('请至少选择一个票种');
-	}
+	delConfirm(id, '<c:url value="/ticketkind/delete"/>', '请至少选择一个票种',
+			'<c:url value="/ticketkind/${ticket.id}"/>');
 }
 </script>
 </head>

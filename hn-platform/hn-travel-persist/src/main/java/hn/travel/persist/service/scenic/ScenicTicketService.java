@@ -86,13 +86,14 @@ public class ScenicTicketService {
 
 	@Transactional
 	public void delete(Iterable<? extends ScenicTicket> scenicTickets) {
+		stDao.delete(scenicTickets);
+
 		List<Long> idList = new ArrayList<Long>();
 		for (ScenicTicket st : scenicTickets) {
 			if (st.getAgreementId() != null)
 				blobDataDao.delete(st.getAgreementId());
 			idList.add(st.getId());
 		}
-		stDao.delete(scenicTickets);
 
 		ticketSrv.delete(idList);
 	}

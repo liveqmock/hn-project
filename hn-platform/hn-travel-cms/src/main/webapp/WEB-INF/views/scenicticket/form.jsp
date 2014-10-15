@@ -12,6 +12,7 @@
 <script src="${ctx}/static/scripts/validate.ext.js" type="text/javascript"></script>
 <script src="${ctx}/static/jquery-validation/1.13.0/messages_zh.js" type="text/javascript"></script>
 <script src="${ctx }/static/scripts/jquery/jquery.form.js" type="text/javascript"></script>
+<script src="${ctx }/static/scripts/common.js" type="text/javascript"></script>
 <title>景点管理 - 门票新增</title>
 <style type="text/css">
 th{width:80px; text-align:right;}
@@ -31,26 +32,12 @@ KindEditor.ready(function(K) {
 	prettyPrint();
 });
 $(function(){
-	var saveing = false;
 	$('form[name="postForm"]').validate({
 		submitHandler : function(form) {
-			if(saveing)
-				return;
-			saveing = true;
-			
 			for(var i = 0; i < editors.length; i++)
 				editors[i].sync();
 			
-			$(form).ajaxSubmit(function(data){
-				if(data.success){
-					alert('保存门票成功');
-					location.href = '${ctx }/scenicticket/${scenic.id}';
-				}else if(data.error)
-					alert(data.error);
-				else
-					alert('保存门票出错');
-				saveing = false;
-			});
+			submitForm(form, '${ctx }/scenicticket/${scenic.id}', '保存门票成功', '保存门票失败');
 		}
 	});
 });

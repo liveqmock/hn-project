@@ -6,35 +6,12 @@
 <meta http-equiv="MSThemeCompatible" content="no" />
 <%@ include file="/common/meta.jsp" %>
 <link href="${ctx}/static/scripts/widgets/extremecomponents/extremecomponents.css" type="text/css" rel="stylesheet">
+<script src="${ctx }/static/scripts/common.js" type="text/javascript"></script>
 <title>景点管理 - 门票列表</title>
 <script type="text/javascript">
-$.ajaxSetup({
-	traditional: true
-});
 function del(id){
-	var ids = [];
-	if(id){
-		ids.push(id);
-	}else{
-		$(':checkbox[name="selBox"]:checked').each(function(){
-			ids.push(this.value);
-		});
-	}
-	if(ids.length){
-		if(confirm('是否确定删除？')){
-			$.get('<c:url value="/scenicticket/delete"/>', {ids : ids}, function(data){
-				if(data.success){
-					alert('执行删除成功');
-					location.href = '<c:url value="/scenicticket/${scenic.id}"/>';
-				}else if(data.error)
-					alert(data.error);
-				else
-					alert('执行删除出错');
-			});
-		}
-	}else{
-		alert('请至少选择一个门票');
-	}
+	delConfirm(id, '<c:url value="/scenicticket/delete"/>', '请至少选择一个门票',
+			'<c:url value="/scenicticket/${scenic.id}"/>', '删除门票将同时删除该门票的票种，是否确定删除？');
 }
 </script>
 </head>
@@ -74,13 +51,14 @@ function del(id){
      <c:otherwise>其它</c:otherwise>
     </c:choose>
    </ec:column>
-   <ec:column property="edit" title="操作" sortable="false" resizeColWidth="false" viewsAllowed="html" width="60px">
+   <ec:column property="edit" title="操作" sortable="false" resizeColWidth="false" viewsAllowed="html" width="120px">
     <a href="<c:url value="/scenicticket/update/${scenic.id}/${vo.id}"/>">
      <img src="<c:url value="/static/images/icon/16x16/modify.gif"/>" border="0"/>
     </a>
     <a href="javascript:void(0)" onclick="del('${vo.id}')">
      <img src="<c:url value="/static/images/icon/16x16/del.gif"/>" border="0"/>
     </a>
+    <a href="<c:url value="/ticketkind/${vo.id}"/>">票种</a>
    </ec:column>
   </ec:row>
  </ec:table>

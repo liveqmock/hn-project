@@ -35,7 +35,7 @@ public class DatePrice implements Serializable {
 	private Integer totalNum;
 
 	@Column(name = "kind_id")
-	private String kindId;
+	private Long kindId;
 
 	/**
 	 * 非表字段
@@ -94,11 +94,11 @@ public class DatePrice implements Serializable {
 		this.totalNum = totalNum;
 	}
 
-	public String getKindId() {
+	public Long getKindId() {
 		return kindId;
 	}
 
-	public void setKindId(String kindId) {
+	public void setKindId(Long kindId) {
 		this.kindId = kindId;
 	}
 

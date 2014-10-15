@@ -78,20 +78,22 @@ public class ScenicController extends GenericController {
 
 	@RequestMapping(value = "save", method = RequestMethod.POST)
 	public String save(@Valid Scenic scenic, MultipartFile imgUriFile,
-			HttpServletRequest request, RedirectAttributes redirectAttributes) {
+			HttpServletRequest request, Model model,
+			RedirectAttributes redirectAttributes) {
 		if (imgUriFile == null || imgUriFile.isEmpty()) {
 			if (scenic.getId() == null) {
-				redirectAttributes.addFlashAttribute("message", "主图不能为空");
-				return "redirect:/scenic/create";
+				model.addAttribute("message", "主图不能为空");
+				model.addAttribute("vo", scenic);
+				return "scenic/form";
 			}
 		} else {
 			String fileName = imgUriFile.getOriginalFilename();
 			String fileExt = fileName.substring(fileName.lastIndexOf(".") + 1)
 					.toLowerCase();
 			if (!imgExt.contains(fileExt)) {
-				redirectAttributes.addFlashAttribute("message",
-						"只允许上传图片类型（gif,jpg,jpeg,png,bmp）");
-				return "redirect:/scenic/create";
+				model.addAttribute("message", "只允许上传图片类型（gif,jpg,jpeg,png,bmp）");
+				model.addAttribute("vo", scenic);
+				return "scenic/form";
 			}
 
 			String realPath = PropertiesUtil.getProp("scenic.imgPath");
@@ -101,8 +103,9 @@ public class ScenicController extends GenericController {
 			try {
 				imgUriFile.transferTo(new File(realPath));
 			} catch (IllegalStateException | IOException e) {
-				redirectAttributes.addFlashAttribute("message", "主图上传错误");
-				return "redirect:/scenic/create";
+				model.addAttribute("message", "主图上传错误");
+				model.addAttribute("vo", scenic);
+				return "scenic/form";
 			}
 		}
 
