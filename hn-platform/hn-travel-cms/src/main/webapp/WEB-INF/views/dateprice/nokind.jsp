@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="MSThemeCompatible" content="no" />
 <%@ include file="/common/meta.jsp" %>
-<title>门票管理 - 票种列表</title>
+<title>票种管理 - 日期价格列表</title>
 <style type="text/css">
 div{text-align:center}
 </style>
@@ -28,7 +28,7 @@ function timeCount(){
 
 <body>
 <br/><br/><br/><br/>
-<div>门票不存在或已被删除！</div><br/><br/>
+<div>票种不存在或已被删除！</div><br/><br/>
 <div> <span id="TimeSp">5</span>秒后 <a href="${ctx}/scenic">返回景点列表</a> </div>
 </body>
 </html>

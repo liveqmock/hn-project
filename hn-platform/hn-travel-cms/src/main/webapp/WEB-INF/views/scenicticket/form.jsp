@@ -13,7 +13,7 @@
 <script src="${ctx}/static/jquery-validation/1.13.0/messages_zh.js" type="text/javascript"></script>
 <script src="${ctx }/static/scripts/jquery/jquery.form.js" type="text/javascript"></script>
 <script src="${ctx }/static/scripts/common.js" type="text/javascript"></script>
-<title>景点管理 - 门票新增</title>
+<title>景点管理 - 门票编辑</title>
 <style type="text/css">
 th{width:80px; text-align:right;}
 input.error { border: 1px dotted red; }
@@ -47,7 +47,7 @@ $(function(){
 <body>
 <div class="pageTitle">您所在的位置：<a href="<c:url value="/scenic"/>">景点管理</a> 
  - <a href="<c:url value="/scenicticket/${scenic.id}"/>">${scenic.name }</a>
- - 门票新增</div>	
+ - 门票${vo.id == null ? '新增' : '修改'}</div>	
 
 <form name="postForm" action="${ctx}/scenicticket/save/${scenic.id}" method="post" style="padding:5px">
  <table>

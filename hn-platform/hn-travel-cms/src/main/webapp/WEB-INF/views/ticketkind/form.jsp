@@ -11,7 +11,7 @@
 <script src="${ctx}/static/jquery-validation/1.13.0/messages_zh.js" type="text/javascript"></script>
 <script src="${ctx }/static/scripts/jquery/jquery.form.js" type="text/javascript"></script>
 <script src="${ctx }/static/scripts/common.js" type="text/javascript"></script>
-<title>门票管理 - 票种新增</title>
+<title>门票管理 - 票种编辑</title>
 <style type="text/css">
 th{width:80px; text-align:right;}
 input.error { border: 1px dotted red; }
@@ -35,13 +35,14 @@ $(function(){
  <div class="pageTitle">您所在的位置：<a href="<c:url value="/scenic"/>">景点管理</a> 
   - <a href="<c:url value="/scenicticket/${ticket.scenicTicket.scenic.id}"/>">${ticket.scenicTicket.scenic.name }</a> 
   - <a href="<c:url value="/ticketkind/${ticket.id}"/>">${ticket.scenicTicket.name }</a> 
-  - 票种新增
+  - 票种${vo.id == null ? '新增' : '修改'}
  </div>
  </c:when>
  <c:when test="${ticket.itinerary != null}">
  <div class="pageTitle">您所在的位置：<a href="<c:url value="/itinerary"/>">旅行线路管理</a>
   - <a href="<c:url value="/ticketkind/${ticket.id}"/>">${ticket.itinerary.name }</a> 
-  - 票种新增</div>
+  - 票种${vo.id == null ? '新增' : '修改'}
+ </div>
  </c:when>
 </c:choose>
 

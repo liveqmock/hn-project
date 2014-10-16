@@ -26,7 +26,8 @@ function del(id){
  </c:when>
  <c:when test="${ticket.itinerary != null}">
  <div class="pageTitle">您所在的位置：<a href="<c:url value="/itinerary"/>">旅行线路管理</a>
-  - ${ticket.itinerary.name } 票种列表</div>
+  - ${ticket.itinerary.name } 票种列表
+ </div>
  </c:when>
 </c:choose>
 	
@@ -58,13 +59,14 @@ function del(id){
      <c:otherwise>其它</c:otherwise>
     </c:choose>
    </ec:column>
-   <ec:column property="edit" title="操作" sortable="false" resizeColWidth="false" viewsAllowed="html" width="60px">
+   <ec:column property="edit" title="操作" sortable="false" resizeColWidth="false" viewsAllowed="html" width="140px">
     <a href="<c:url value="/ticketkind/update/${ticket.id}/${vo.id}"/>">
      <img src="<c:url value="/static/images/icon/16x16/modify.gif"/>" border="0"/>
     </a>
     <a href="javascript:void(0)" onclick="del('${vo.id}')">
      <img src="<c:url value="/static/images/icon/16x16/del.gif"/>" border="0"/>
     </a>
+    <a href="<c:url value="/dateprice/${vo.id}"/>">日期价格</a>
    </ec:column>
   </ec:row>
  </ec:table>

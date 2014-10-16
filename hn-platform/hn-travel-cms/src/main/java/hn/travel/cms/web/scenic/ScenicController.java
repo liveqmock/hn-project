@@ -131,6 +131,8 @@ public class ScenicController extends GenericController {
 
 	private synchronized String getUuid() {
 		long t = System.currentTimeMillis();
+		if (uuidIndex > 9999)
+			uuidIndex = 0;
 		return String.format("%d%04d", t, uuidIndex++);
 	}
 }

@@ -28,6 +28,8 @@ public class TicketKindService {
 	private TicketKindDao tkDao;
 	@Autowired
 	private DatePriceService datePriceSrv;
+	@Autowired
+	private TicketService tSrv;
 
 	public Page<TicketKind> page(Long ticketId, Pageable pageable) {
 		return tkDao.findByTicketId(ticketId, pageable);
@@ -35,6 +37,14 @@ public class TicketKindService {
 
 	public TicketKind get(Long id) {
 		return tkDao.findOne(id);
+	}
+
+	public TicketKind getDetail(Long id) {
+		TicketKind tk = get(id);
+		if (tk != null) {
+			tk.setTicket(tSrv.getSimpleTicket(tk.getTicketId()));
+		}
+		return tk;
 	}
 
 	@Transactional
@@ -71,5 +81,4 @@ public class TicketKindService {
 
 		tkDao.delete(ticketKinds);
 	}
-
 }
