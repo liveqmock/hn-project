@@ -42,6 +42,10 @@ public class ScenicTicketService {
 	public Page<ScenicTicket> page(Long scenicId, Pageable pageable) {
 		return stDao.findByScenicId(scenicId, pageable);
 	}
+	
+	public Page<Object[]> pageAllByScenicId(Long scenicId, Pageable pageable) {
+		return stDao.findAllByScenicId(scenicId, pageable);
+	}
 
 	public ScenicTicket getDetail(Long id) {
 		ScenicTicket st = stDao.findOne(id);

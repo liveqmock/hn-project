@@ -66,6 +66,7 @@ function del(id){
      <img src="<c:url value="/static/images/icon/16x16/del.gif"/>" border="0"/>
     </a>
     <a href="<c:url value="/scenicticket/${scenic.id}"/>">门票</a>
+    <a href="http://iwtour.com.cn/scenic/detail/${scenic.id}.htm" target="_blank">预览</a>
    </ec:column>
   </ec:row>
  </ec:table>

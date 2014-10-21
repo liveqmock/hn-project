@@ -21,6 +21,6 @@ public class IndexController {
 	public String index(Model m){
 		m.addAttribute("name", "chenbing");
 		System.out.println("==================");
-		return "index";
+		return "index/index";
 	}
 }

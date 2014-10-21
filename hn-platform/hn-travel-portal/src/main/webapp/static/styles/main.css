@@ -1,0 +1,377 @@
+/**
+ * 全局默认样式
+ */
+body, p, ul, ol, li, h1, dl, dt, dd, form{margin:0; padding:0}
+:focus{outline:none}
+img{border:0}
+li{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+table{border-collapse:collapse}
+body{color:#555; font-size:12px; font-family:\5b8b\4f53,Arial,sans-serif}
+a{color:#555}
+a:hover{color:#ff7200 !important}
+
+/**
+ * 全局通用样式
+ */
+.clearfix{clear:both}
+.ellipsis{overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+
+/**
+ * 通用页头
+ */
+.body-bg{background:url(../images/main-bg.png) no-repeat top center fixed}
+
+.headbox{width:100%; position:fixed; left:0; top:0; z-index:10}
+
+.headtop{width:100%; background:url(../images/hf-bg.png) repeat-x 0 -36px}
+.headtop .con{width:1200px; height:36px; line-height:34px; margin:0 auto}
+.headtop .con .wel{padding:0 5px; color:#ffb71c; float:left}
+.headtop .con a{display:block}
+.headtop .con a:hover{background:#313131; text-decoration:none}
+.headtop .con .login{width:114px; height:34px; border-left:1px solid #646464; border-right:1px solid #646464; float:left}
+.headtop .con .login .unlogin{padding:0 11px; color:#fff; text-decoration:none}
+.headtop .con .login .unlogin span{padding:0 5px; color:#e2a105}
+.headtop .con .login .unlogin i{width:20px; height:34px; float:left; background:url(../images/hf-bg.png) no-repeat 0 0}
+.headtop .con .login .name{height:34px; color:#e2a105; overflow:hidden}
+.headtop .con .login .over{background:#313131}
+.headtop .con .login .name img{width:28px; height:28px; margin:3px 6px 3px 3px; float:left}
+.headtop .con .login .lm{width:108px; margin-left:-1px; padding:0 3px; border:1px solid #646464; background:#464d4e; display:none}
+.headtop .con .login .lm li{line-height:32px; border-top:1px solid #414546}
+.headtop .con .login .lm li a{color:#fff; border-top:1px solid #4c5354}
+.headtop .con .login .lm .f{border:0}
+.headtop .con .login .lm .f a{border:0}
+.headtop .con .login .lm li a i{width:20px; height:32px; margin:0 5px; float:left; background:url(../images/hf-bg.png) no-repeat 0 -72px}
+.headtop .con .login .lm li a .i1{background-position:-20px -72px}
+.headtop .con .login .lm li a .i2{background-position:-40px -72px}
+.headtop .con .login .lm li a b{width:22px; height:32px; margin-right:8px; float:right; color:#e2a105; font-weight:normal; text-align:center; background:url(../images/hf-bg.png) no-repeat -60px -72px}
+ 
+.headtop .con .logo{width:128px; float:left; display:none}
+.headtop .con .logo a{text-indent:-9999px; background:url(../images/logo1.png) no-repeat}
+.headtop .con .menu{line-height:30px; font-size:14px; font-family:'Microsoft Yahei'; float:left; display:none}
+.headtop .con .menu li{height:34px; border-left:1px solid #646464; border-right:1px solid #363b3c; float:left}
+.headtop .con .menu .s{border-left:0}
+.headtop .con .menu .e{border-right:0}
+.headtop .con .menu a{margin:2px; padding:0 0 2px 14px; color:#ededed}
+.headtop .con .menu i{width:6px; height:6px; margin:4px; float:right; background:url(../images/hf-bg.png) no-repeat -90px 0; visibility:hidden}
+.headtop .con .menu a:hover{margin:0; color:#fff !important; border:2px solid #ff4e00}
+.headtop .con .menu a:hover i{visibility:visible}
+.headtop .con .index{float:right}
+.headtop .con .index a{padding:0 5px; color:#fff}
+.headtop .con .index i{width:22px; height:34px; float:left; background:url(../images/hf-bg.png) no-repeat -30px 0}
+.headtop .con .search{width:44px; height:34px; float:right; position:relative; display:none}
+.headtop .con .search .si{height:34px; margin:1px 1px 0; padding:0 11px}
+.headtop .con .search .si i{width:20px; height:34px; float:left; background:url(../images/hf-bg.png) no-repeat -60px 0}
+.headtop .con .search .over{margin:0; border:1px solid #ff4e00; border-bottom:0; background:#313131; position:absolute}
+.headtop .con .search .ss{width:238px; height:28px; margin-top:34px; padding:7px; float:right; border:1px solid #ff4e00; background:#313131; display:none}
+.headtop .con .search .ss .ssl{width:45px; line-height:28px; padding:0 4px; line-height:28px; float:left; background:#fff}
+.headtop .con .search .ss .ssl a{padding:0 3px; color:#919191; background:none}
+.headtop .con .search .ss .ssl .sslt i{width:10px; height:6px; margin-top:11px; float:right; background:url(../images/hf-bg.png) no-repeat -100px 0}
+.headtop .con .search .ss .ssl ul{display:none}
+.headtop .con .search .ss .ssl li{line-height:23px; border-top:1px solid #e5e5e5}
+.headtop .con .search .ss .ssr{width:158px; height:16px; padding:6px 10px; color:#838383; float:right; border:0}
+
+.scroll-body-bg{background-attachment:scroll}
+.scroll-body-bg .headtop{position:absolute; left:0; top:0; z-index:1}
+.scroll-body-bg .headtop .con .logo, .scroll-body-bg .headtop .con .menu, .scroll-body-bg .headtop .con .search{display:block}
+
+
+.headlogo{height:101px; padding-top:85px}
+.headlogo a{width:322px; height:77px; margin:0 auto; display:block; text-indent:-9999px; background:url(../images/logo.png) no-repeat}
+
+.headnav{margin:0 auto; text-align:center; font-size:18px; font-family:'Microsoft Yahei'; font-weight:bold}
+.headnav a{width:118px; line-height:38px; padding-top:6px; margin:0 5px; color:#fff !important; display:inline-block; background:url(../images/hf-bg.png) no-repeat 0 -467px; text-decoration:none}
+.headnav .n2{background-position:0 -511px}
+.headnav .n3{background-position:0 -555px}
+.headnav .n4{background-position:0 -599px}
+.headnav .n5{background-position:0 -643px}
+.headnav .n6{background-position:0 -687px}
+.headnav .n7{background-position:0 -731px}
+.headnav a:hover{background-position:0 -775px}
+.headnav .n2:hover{background-position:0 -819px}
+.headnav .n3:hover{background-position:0 -863px}
+.headnav .n4:hover{background-position:0 -907px}
+.headnav .n5:hover{background-position:0 -951px}
+.headnav .n6:hover{background-position:0 -995px}
+.headnav .n7:hover{background-position:0 -1039px}
+
+.headsearch{width:639px; margin:30px auto 0; padding-left:15px; background:url(../images/hf-bg.png) no-repeat 0 -114px}
+.headsearch .con{padding-right:15px; background:url(../images/hf-bg.png) no-repeat right -197px}
+.headsearch .con .ct{height:24px; line-height:24px; padding:16px 0 10px; background:url(../images/hf-bg.png) repeat-x 0 -280px}
+.headsearch .con .ct a{color:#fff; float:left; text-decoration:none}
+.headsearch .con .ct .sel{width:51px; margin-right:10px; padding-left:12px; background:url(../images/hf-bg.png) no-repeat 0 -363px}
+.headsearch .con .ct input{width:488px; height:24px; line-height:24px; color:#fff; font-size:16px; float:left; border:0; margin:0; padding:0; font-family:'Microsoft Yahei'; background:none}
+.headsearch .con .ct .bt{color:#fff !important; font-size:16px; font-weight:bold; font-family:'Microsoft Yahei'; padding-left:30px; background:url(../images/hf-bg.png) no-repeat -70px -363px}
+.headsearch .con .cb{line-height:33px; background:url(../images/hf-bg.png) repeat-x 0 -330px; overflow:hidden}
+.headsearch .con .cb a{color:#fff; margin-right:20px}
+
+/**
+ * 通用页脚
+ */
+.footservice{width:1200px; margin:0 auto; padding:46px 10px 0; background:#fff}
+.footservice ul{height:50px; padding:9px 0; border:1px solid #eee; background:#fbfbfb}
+.footservice li{width:283px; height:40px; margin-left:1px; padding:5px 0 5px 15px; color:#999; float:left; border-left:1px solid #eee}
+.footservice i{width:40px; height:40px; margin-right:15px; float:left; background:url(../images/hf-bg.png) no-repeat 0 -387px}
+.footservice .f1{margin:0; border:0}
+.footservice .f2 i{background-position:-40px -387px}
+.footservice .f3 i{background-position:0 -427px}
+.footservice .f4 i{background-position:-40px -427px}
+.footservice li p{font-size:18px; font-family:'Microsoft Yahei'}
+
+.footabout{width:1200px; margin:0 auto; padding:35px 10px 0; color:#999; text-align:center; background:#fff}
+.footabout a{color:#999}
+
+.footsafety{width:1200px; margin:0 auto; padding:35px 10px 46px; background:#fff}
+.footsafety div{width:1090px; height:39px; margin:0 auto; background:url(../images/safety.png) no-repeat}
+
+.foottip{width:43px; height:107px; margin-left:610px; padding:0 5px; position:fixed; left:50%; bottom:60px; display:none; background:#d6d6d6}
+.foottip:hover{background:#ff912e}
+.foottip a{width:43px; height:53px; display:block; background:url(../images/hf-bg.png) no-repeat 0 -1083px}
+.foottip .msg{border-top:1px solid #e3e3e3; background-position:-43px -1083px}
+
+/**
+ * 通用Box
+ */
+.mainbox{width:1200px; margin:0 auto; padding:0 10px; background:#fff}
+.mainbox:after{height:0; clear:both; content:' '; display:block; visibility:hidden; overflow:hidden}
+/** ----------------------------------- 通用部分结束 --------------------------------------------- */
+
+/** ## 以下是首页CSS ## */
+/**
+ * 幻灯片通栏
+ */
+.slide-bar{width:1220px; margin:419px auto 0; position:relative}
+.slide-bar .shade{padding-left:10px; background:url(../images/m-icon.png) no-repeat 0 -491px}
+.slide-bar .shade p{padding-right:10px; background:url(../images/m-icon.png) no-repeat right -510px}
+.slide-bar .shade i{height:19px; display:block; background:url(../images/m-repeat-x.png) repeat-x}
+.slide-bar .sl{width:218px; padding-top:15px; position:absolute; left:10px; top:3px; background:url(../images/m-nr-bg.png) no-repeat}
+.slide-bar .sl ul{padding:0 2px 0 1px; border-bottom:1px solid #f2f2f2; background:url(../images/m-repeat-y.png) repeat-y}
+.slide-bar .sl li{height:60px; position:relative}
+.slide-bar .sl li .mp{width:203px; margin-left:1px; padding:0 8px 0 3px}
+.slide-bar .sl li .mpt{height:48px; padding:5px; border-top:1px solid #fff; border-bottom:1px solid #e5e5e5; overflow:hidden}
+.slide-bar .sl .s .mpt{border-top-color:#f7f7f7}
+.slide-bar .sl .e .mpt{border-bottom-color:#f7f7f7}
+.slide-bar .sl li .mpt p{line-height:20px; padding:6px 0 0 30px; color:#ff4e00; font-size:16px; font-weight:bold; font-family:'Microsoft Yahei'; background:url(../images/m-icon.png) no-repeat}
+.slide-bar .sl .m2 .mpt p{background-position:0 -26px}
+.slide-bar .sl .m3 .mpt p{background-position:0 -52px}
+.slide-bar .sl .m4 .mpt p{background-position:0 -78px}
+.slide-bar .sl .m5 .mpt p{background-position:0 -104px}
+.slide-bar .sl .m6 .mpt p{background-position:0 -130px}
+.slide-bar .sl .m7 .mpt p{background-position:0 -156px}
+.slide-bar .sl li .mpt a{line-height:22px; color:#6a6a6a; margin-right:15px}
+.slide-bar .sl li i{width:14px; height:14px; position:absolute; top:22px; right:10px; background:url(../images/m-icon.png) no-repeat 0 -182px; cursor:pointer}
+.slide-bar .sl li .mc{width:636px; height:418px; padding:0 22px; border:1px solid #ff4e00; position:absolute; top:0; left:214px; z-index:1; background:#fff; overflow:hidden; display:none}
+.slide-bar .sl li .mc .item{line-height:22px; padding:5px 0; border-top:1px solid #e7e7e7}
+.slide-bar .sl li .mc .f{border:0}
+.slide-bar .sl li .mc .item:after{height:0; clear:both; content:' '; display:block; visibility:hidden; overflow:hidden}
+.slide-bar .sl li .mc .item h1{width:70px; float:left; text-align:center; font-size:14px; font-weight:bold; font-family:'Microsoft Yahei'}
+.slide-bar .sl li .mc .item h1 a{color:#626262}
+.slide-bar .sl li .mc .item dl{width:556px; margin-left:10px; float:left}
+.slide-bar .sl li .mc dd{margin-right:40px; float:left}
+.slide-bar .sl li .mc dd a{color:#636363}
+.slide-bar .sl li .mc dd .over{color:#fd783e}
+.slide-bar .sl .m2 .mc{top:-60px}
+.slide-bar .sl .m3 .mc{top:-120px}
+.slide-bar .sl .m4 .mc{top:-180px}
+.slide-bar .sl .m5 .mc{top:-240px}
+.slide-bar .sl .m6 .mc{top:-300px}
+.slide-bar .sl .m7 .mc{top:-360px}
+.slide-bar .sl .over .mp{margin:0; border:1px solid #ff4e00; border-right:0; background:#fff; position:absolute; z-index:2}
+.slide-bar .sl .over .mpt{border:0}
+
+.slide-bar .sc{width:674px; height:420px; margin-left:231px; float:left; position:relative; overflow:hidden}
+.slide-bar .sc li{float:left; overflow:hidden}
+.slide-bar .sc .list{float:left}
+.slide-bar .sc .list li{height:420px}
+.slide-bar .sc .list img{width:674px; height:420px}
+.slide-bar .sc .tab{height:39px; line-height:38px; position:absolute; left:0; bottom:0; overflow:hidden}
+.slide-bar .sc .tab li{width:134px; margin-left:1px; padding-top:1px; text-align:center; font-weight:bold}
+.slide-bar .sc .tab .f{margin-left:0}
+.slide-bar .sc .tab a{color:#fff !important; display:block; background:url(../images/m-repeat-x.png) repeat-x 0 -19px}
+.slide-bar .sc .tab a:hover, .slide-bar .sc .tab .over{background:url(../images/m-repeat-x.png) repeat-x 0 -58px}
+
+.slide-bar .sr{width:263px; float:right}
+.slide-bar .sr ul{height:191px; padding-top:18px}
+.slide-bar .sr li{float:left; border:0 solid #e2e2e2}
+.slide-bar .sr ul .l1{padding:0 8px 8px 0; border-width:0 1px 1px 0}
+.slide-bar .sr ul .l2{padding:0 0 8px 8px; border-width:0 0 1px}
+.slide-bar .sr ul .l3{padding:8px 8px 0 0; border-width:0 1px 0 0}
+.slide-bar .sr ul .l4{padding:8px 0 0 8px;}
+.slide-bar .sr li a{display:block}
+.slide-bar .sr li img{width:123px; height:87px}
+.slide-bar .sr dl{padding-top:17px;}
+.slide-bar .sr dt{line-height:24px; color:#ff7200; font-size:14px; font-weight:bold; border-bottom:2px solid #e4e4e4}
+.slide-bar .sr dt a{line-height:20px; padding-top:4px; color:#828282; float:right; font-size:12px; font-weight:normal}
+.slide-bar .sr dd{line-height:28px; padding-left:12px; background:url(../images/m-icon.png) no-repeat 0 -196px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+
+/**
+ * 热门线路,热门景点公用
+ */
+.mainhot .hotleft{width:905px; float:left}
+.mainhot .hotleft .h{height:46px; border-bottom:2px solid #868686; color:#989898; position:relative}
+.mainhot .hotleft .h p{line-height:28px; padding:10px 0 2px 62px; position:absolute; bottom:-2px; background:url(../images/m-icon.png) no-repeat}
+.mainhot .hotleft .h i{line-height:36px; font-size:20px; font-family:'Microsoft Yahei'; color:#505050; padding-right:10px; font-style:normal}
+
+.mainhot .hotright{width:263px; float:right}
+
+/**
+ * 热门线路
+ */
+.hotline-bar{padding-top:35px}
+.hotline-bar .hotleft .h p{background-position:0 -224px}
+.hotline-bar .l{width:222px; margin-top:16px; float:left}
+.hotline-bar .l .ai1{margin-bottom:15px; display:block; overflow:hidden}
+.hotline-bar .l .ai1 img{width:222px; height:92px}
+.hotline-bar .l dl{height:74px; padding:0 0 15px 10px; color:#666; overflow:hidden}
+.hotline-bar .l dt{line-height:26px; font-size:18px; font-family:'Microsoft Yahei'}
+.hotline-bar .l dd{line-height:24px; margin-right:15px; float:left}
+.hotline-bar .l dd .over{color:#ff3e2a}
+.hotline-bar .l .ai{margin-top:11px; display:block; overflow:hidden}
+.hotline-bar .l .ai img{width:222px; height:72px}
+
+.hotline-bar .m{width:675px; margin-top:16px; float:right}
+.hotline-bar .m dt{height:24px; line-height:20px; padding-left:14px}
+.hotline-bar .m dt .more{float:right; color:#ff811b}
+.hotline-bar .m ul{float:left}
+.hotline-bar .m li{width:51px; margin-right:4px; text-align:center; float:left}
+.hotline-bar .m li a{display:block; color:#777; font-size:14px; font-family:'Microsoft Yahei'}
+.hotline-bar .m li .over{color:#fff; background:url(../images/m-nr-bg.png) no-repeat 0 -87px}
+.hotline-bar .m .mm{width:20px; text-indent:-9999px; background:url(../images/m-nr-bg.png) no-repeat -55px -87px}
+.hotline-bar .m dd{width:211px; margin:14px 0 0 14px; float:left}
+.hotline-bar .m dd .at{width:211px; height:168px; display:block; border-bottom:2px solid #fffef5; overflow:hidden}
+.hotline-bar .m dd img{width:211px; height:168px}
+.hotline-bar .m dd div{height:67px; padding:4px 8px 0; background:url(../images/m-nr-bg.png) no-repeat 0 -16px}
+.hotline-bar .m dd p{height:20px; line-height:20px; color:#fff; overflow:hidden}
+.hotline-bar .m dd p a{color:#fff; font-weight:bold}
+.hotline-bar .m dd span{color:#ffea00; font-family:'Microsoft Yahei'}
+.hotline-bar .m dd span i{font-size:20px; font-style:normal}
+
+.hotline-bar .rt{height:16px; padding-top:32px}
+.hotline-bar .rt dt{margin-right:16px; float:left; color:#5d5d5d; font-size:14px; font-weight:bold}
+.hotline-bar .rt dd{width:26px; height:15px; float:left; border-bottom:1px solid #b0b0b0; position:relative}
+.hotline-bar .rt dd a{height:19px; color:#595858; position:absolute; bottom:-4px}
+.hotline-bar .rt .i{width:13px; background:url(../images/m-nr-bg.png) no-repeat -101px -87px}
+.hotline-bar .rt dd .over{color:#e36406; font-weight:bold; background:url(../images/m-nr-bg.png) no-repeat -75px -87px}
+.hotline-bar .rb{height:546px; padding-top:4px; overflow:hidden}
+.hotline-bar .rb li{height:67px; line-height:21px; margin-top:12px}
+.hotline-bar .rb li a{width:131px; height:21px; float:left; color:#4d4d4d; font-weight:bold; overflow:hidden}
+.hotline-bar .rb li .aimg{width:124px; height:67px; margin-right:8px}
+.hotline-bar .rb li img{width:124px; height:67px}
+.hotline-bar .rb li span{color:#626262}
+.hotline-bar .rb li span b{color:#292929}
+.hotline-bar .rb li p{color:#f75e01; font-size:14px; font-weight:bold}
+.hotline-bar .rb li p del{margin-left:5px; color:#898989; font-weight:normal}
+.hotline-bar .rb .f{height:210px; line-height:30px; padding-bottom:8px; position:relative}
+.hotline-bar .rb .f .aimg{width:263px; height:180px}
+.hotline-bar .rb .f img{width:263px; height:180px}
+.hotline-bar .rb .f .at{width:253px; height:22px; line-height:22px; padding:12px 5px 0; color:#fff; position:absolute; left:0; top:146px; background:url(../images/m-repeat-x.png) repeat-x 0 -97px}
+.hotline-bar .rb .f span{float:right}
+
+/**
+ * 热门景点
+ */
+.hotspot-bar{padding-top:43px}
+.hotspot-bar .hotleft .h p{background-position:0 -272px}
+.hotspot-bar .hotleft .page{width:15px; height:26px; margin-top:191px; padding:24px 4px; float:left; background:#f2f2f2}
+.hotspot-bar .hotleft .page i, .hotspot-bar .hotleft .page b{padding:26px 15px 0 0; display:block; background:url(../images/m-nr-bg.png) no-repeat 0 -107px}
+.hotspot-bar .hotleft .page b{background-position:-15px -107px}
+.hotspot-bar .hotleft .over{background:#37a3be; cursor:pointer}
+.hotspot-bar .hotleft .over i{background-position:-30px -107px}
+.hotspot-bar .hotleft .over b{background-position:-45px -107px}
+.hotspot-bar .hotleft .con{width:843px; height:440px; margin:8px 8px 0; float:left; overflow:hidden}
+.hotspot-bar .hotleft .con ul, .hotspot-bar .hotleft .con li{float:left}
+.hotspot-bar .hotleft .con li{width:843px}
+.hotspot-bar .hotleft .con .cc{width:422px; float:left}
+.hotspot-bar .hotleft .con .item{padding:2px; float:left}
+.hotspot-bar .hotleft .con .item a{line-height:22px; color:#fff; display:block; position:relative}
+.hotspot-bar .hotleft .con .item span{width:100%; height:22px; padding-top:12px; text-indent:5px; position:absolute; left:0; bottom:0; background:url(../images/m-repeat-x.png) repeat-x 0 -97px; overflow:hidden}
+
+.hotspot-bar .rt{height:16px; padding-top:32px; color:#5d5d5d; font-size:14px; font-weight:bold}
+.hotspot-bar .rb{padding:0 2px; margin-top:10px; border:1px solid #e5e4e0}
+.hotspot-bar .rb li{height:84px; padding:0 5px 3px}
+.hotspot-bar .rb .f{height:83px}
+.hotspot-bar .rb li div{width:247px; margin:0 auto; border-top:1px solid #e9e9e9}
+.hotspot-bar .rb li a{margin-top:3px; float:left}
+.hotspot-bar .rb li img{width:240px; height:80px}
+.hotspot-bar .rb li i{width:6px; height:80px; margin-top:3px; float:right; background:#ecb874}
+.hotspot-bar .rb li .bc2{background:#da9ca3}
+.hotspot-bar .rb li .bc3{background:#afc8c8}
+.hotspot-bar .rb li .bc4{background:#d4bba0}
+.hotspot-bar .rb li .bc5{background:#83c5de}
+
+/**
+ * 酒店推荐
+ */
+.hotelrecom-bar{padding-top:46px}
+.hotelrecom-bar .h{height:31px; padding:10px 0 0 46px; margin-bottom:3px; background:url(../images/m-icon.png) no-repeat 0 -320px}
+.hotelrecom-bar .h p{float:left; color:#989898}
+.hotelrecom-bar .h i{ font-size:20px; font-family:'Microsoft Yahei'; color:#505050; padding-right:10px; font-style:normal}
+.hotelrecom-bar .h ul{margin-right:234px; float:right}
+.hotelrecom-bar .h li{line-height:27px; margin-left:15px; float:left}
+.hotelrecom-bar .h li a{padding-right:13px; display:block; color:#4f4f4f; background:url(../images/m-icon.png) no-repeat right -361px}
+.hotelrecom-bar .h li .more{color:#b3b3b3; background-position:right -388px}
+.hotelrecom-bar .ad{width:224px; height:387px; float:left; border:1px solid #e3e3e3; overflow:hidden; position:relative}
+.hotelrecom-bar .ad img{width:224px; height:387px}
+.hotelrecom-bar .ad .adc{width:200px; line-height:24px; margin:0 12px; padding:6px 0; text-align:center; background:#fff; position:absolute; bottom:12px; left:0}
+.hotelrecom-bar .ad .adc p{color:#585858; font-size:14px; font-family:'Microsoft Yahei'}
+.hotelrecom-bar .ad .adc a{color:#dc6800; font-size:18px; font-family:'Microsoft Yahei'}
+.hotelrecom-bar .ad .adc div{color:#fd783e; font-weight:bold}
+.hotelrecom-bar .hm{width:729px; margin:0 9px; float:left; border-top:1px solid #e3e3e3; border-left:1px solid #e3e3e3}
+.hotelrecom-bar .hm li{padding:7px 7px 0; float:left; border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3}
+.hotelrecom-bar .hm li .aimg{width:228px; height:152px; display:block; overflow:hidden}
+.hotelrecom-bar .hm li img{width:228px; height:152px}
+.hotelrecom-bar .hm li p{line-height:34px; font-weight:bold}
+.hotelrecom-bar .hm li p a{color:#585858}
+.hotelrecom-bar .hm li p span{float:right; margin-right:20px; color:#fd783e}
+
+/**
+ * 城市印象
+ */
+.cityeffect-bar{padding-top:48px}
+.cityeffect-bar .cityleft{width:963px; float:left}
+.cityeffect-bar .cityleft .h{height:29px; padding:3px 0 0 40px; margin-bottom:13px; border-bottom:2px solid #a3a3a3; background:url(../images/m-icon.png) no-repeat 0 -415px}
+.cityeffect-bar .cityleft .h p{color:#828282}
+.cityeffect-bar .cityleft .h i{font-size:20px; font-family:'Microsoft Yahei'; color:#1f1f1f; padding-right:10px; font-style:normal}
+.cityeffect-bar .cityleft .cl{width:431px; margin-right:14px; float:left}
+.cityeffect-bar .cityleft .cl img{width:431px; height:361px}
+.cityeffect-bar .cityleft .cmt{width:518px; line-height:22px; padding:6px 0; float:left; border-bottom:1px dotted #858585}
+.cityeffect-bar .cityleft .cmt a{color:#424242; font-size:14px; font-weight:bold}
+.cityeffect-bar .cityleft .cmt p{color:#484848}
+.cityeffect-bar .cityleft .cmm{width:518px; line-height:28px; padding:7px 0; float:left; font-size:14px}
+.cityeffect-bar .cityleft .cmm li{padding-left:10px; background:url(../images/m-icon.png) no-repeat 0 -447px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+.cityeffect-bar .cityleft .cmm li a{color:#484848}
+.cityeffect-bar .cityleft .cmb{width:247px; margin-right:12px; float:left}
+.cityeffect-bar .cityleft .cmb img{width:247px; height:128px}
+.cityeffect-bar .cityleft .cmb p{height:28px; line-height:28px; text-align:center; overflow:hidden}
+
+.cityeffect-bar .cityright{width:228px; float:right}
+.cityeffect-bar .cityright .rt{height:16px; padding-top:18px; margin-bottom:13px; color:#777; font-size:14px; font-weight:bold}
+.cityeffect-bar .cityright .rt a{padding-left:20px; font-size:12px; font-weight:normal; background:url(../images/m-icon.png) no-repeat 0 -475px}
+.cityeffect-bar .cityright .rm{height:130px; position:relative}
+.cityeffect-bar .cityright .rm a{width:100%; line-height:26px; display:block; color:#fff; font-size:14px; overflow:hidden}
+.cityeffect-bar .cityright .rm img{width:228px; height:130px}
+.cityeffect-bar .cityright .rm .rmt{height:26px; text-indent:8px; position:absolute; left:0; bottom:0; background:url(../images/m-repeat-x.png) repeat-x 0 -131px}
+.cityeffect-bar .cityright ul{padding-top:7px; color:#b9b9b9; font-size:14px}
+.cityeffect-bar .cityright li{height:32px; line-height:32px; font-family:'Microsoft Yahei'; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+.cityeffect-bar .cityright li a{margin-left:10px}
+
+/**
+ * 聚合内容、广告通栏
+ */
+.polymer-bar{margin-top:20px}
+.polymer-bar ul{height:433px; float:left; overflow:hidden}
+.polymer-bar .f{margin-left:-1px}
+.polymer-bar li{margin:1px 0 0 1px; float:left; position:relative}
+.polymer-bar .nom{margin:0}
+.polymer-bar li a{display:block}
+.polymer-bar li .mk{width:100%; height:100%; position:absolute; left:0; top:0; background:#000; display:none}
+.polymer-bar li .mt{width:100%; height:26px; line-height:26px; margin-top:-13px; position:absolute; left:0; top:50%; overflow:hidden; display:none}
+.polymer-bar li .mt p{margin:0 5px; color:#fff; text-align:center; background:#b95925}
+
+/**
+ * 广告通栏
+ */
+.ad-bar{margin-top:20px}
+.ad-bar img{width:1200px}
+/** ## 首页CSS结束 ## */

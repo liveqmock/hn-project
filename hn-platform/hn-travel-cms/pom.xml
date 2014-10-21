@@ -22,24 +22,13 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
-		<!-- SPRING SECURITY begin 
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>3.1.4.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-acl</artifactId>
-			<version>3.1.4.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>3.1.4.RELEASE</version>
-		</dependency>
-
-		SPRING SECURITY end -->
+		<!-- SPRING SECURITY begin <dependency> <groupId>org.springframework.security</groupId> 
+			<artifactId>spring-security-core</artifactId> <version>3.1.4.RELEASE</version> 
+			</dependency> <dependency> <groupId>org.springframework.security</groupId> 
+			<artifactId>spring-security-acl</artifactId> <version>3.1.4.RELEASE</version> 
+			</dependency> <dependency> <groupId>org.springframework.security</groupId> 
+			<artifactId>spring-security-taglibs</artifactId> <version>3.1.4.RELEASE</version> 
+			</dependency> SPRING SECURITY end -->
 
 		<!-- WEB begin -->
 		<dependency>
@@ -84,6 +73,12 @@
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.5.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
 		<!-- WEB end -->
 
@@ -238,10 +233,10 @@
 					<target>${java.version}</target>
 					<showWarnings>true</showWarnings>
 					<encoding>UTF-8</encoding>
-                    <compilerArguments>
-                        <verbose />
-                        <bootclasspath>${java.home}\jre\lib\rt.jar;${java.home}\jre\lib\jce.jar</bootclasspath>
-                    </compilerArguments>
+					<compilerArguments>
+						<verbose />
+						<bootclasspath>${java.home}\jre\lib\rt.jar;${java.home}\jre\lib\jce.jar</bootclasspath>
+					</compilerArguments>
 				</configuration>
 			</plugin>
 
@@ -307,42 +302,15 @@
 				</configuration>
 			</plugin>
 
-			<!-- enforcer插件, 避免被依赖的依赖引入过期的jar�?
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>enforce-banned-dependencies</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<requireMavenVersion>
-									<version>3.0.3</version>
-								</requireMavenVersion>
-								<requireJavaVersion>
-									<version>1.6</version>
-								</requireJavaVersion>
-								<bannedDependencies>
-									<searchTransitive>true</searchTransitive>
-									<excludes>
-										<exclude>commons-logging</exclude>
-										<exclude>aspectj:aspectj*</exclude>
-										<exclude>org.springframework</exclude>
-									</excludes>
-									<includes>
-										<include>org.springframework:*:4.0.*</include>
-									</includes>
-								</bannedDependencies>
-							</rules>
-							<fail>true</fail>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
- -->
+			<!-- enforcer插件, 避免被依赖的依赖引入过期的jar�? <plugin> <groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-enforcer-plugin</artifactId> <executions> <execution> <id>enforce-banned-dependencies</id> 
+				<goals> <goal>enforce</goal> </goals> <configuration> <rules> <requireMavenVersion> 
+				<version>3.0.3</version> </requireMavenVersion> <requireJavaVersion> <version>1.6</version> 
+				</requireJavaVersion> <bannedDependencies> <searchTransitive>true</searchTransitive> 
+				<excludes> <exclude>commons-logging</exclude> <exclude>aspectj:aspectj*</exclude> 
+				<exclude>org.springframework</exclude> </excludes> <includes> <include>org.springframework:*:4.0.*</include> 
+				</includes> </bannedDependencies> </rules> <fail>true</fail> </configuration> 
+				</execution> </executions> </plugin> -->
 			<!-- jetty插件, 设定context path与spring profile -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>

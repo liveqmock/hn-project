@@ -1,0 +1,160 @@
+/**
+ * 面包屑导航
+ */
+.ticket-crumbs{margin-top:58px}
+.ticket-crumbs .crumbs{line-height:38px; color:#707070; border-bottom:2px solid #dadada}
+.ticket-crumbs .crumbs a{color:#707070}
+.ticket-crumbs .crumbs span{color:#adadad}
+
+
+/**
+ * 概要信息
+ */
+.ticket-general{padding:15px 10px}
+.ticket-general h1{line-height:42px; margin:0; font-weight:normal; font-family:'Microsoft Yahei'}
+.ticket-general h1 .tit{font-size:30px; color:#393939}
+.ticket-general h1 a{width:170px; float:right; text-align:center; color:#fff !important; text-decoration:none; background:url(../images/m-nr-bg.png) no-repeat 0 -133px}
+.ticket-general h1 .price{float:right; margin-right:30px; font-size:14px; color:#ff4e00}
+.ticket-general h1 .price b{font-size:30px; font-weight:normal}
+.ticket-general .con{padding-top:11px}
+.ticket-general .con .cl{width:709px; height:276px; float:left}
+.ticket-general .con .cl img{margin:7px 7px 0 0; float:left}
+.ticket-general .con .cr{width:479px; float:right}
+.ticket-general .con .cr .box{margin:7px 0 17px; padding:16px; border:1px solid #e4e4e4; position:relative}
+.ticket-general .con .cr .box .fav{width:36px; height:36px; color:#b7b7b7 !important; text-align:center; text-decoration:none; border:1px solid #e4e4e4; position:absolute; right:-1px; top:-2px; background:#fff}
+.ticket-general .con .cr .box .fav i{width:29px; height:18px; margin:0 auto; display:block; background:url(../images/scenic-bg.png) no-repeat 0 -328px}
+.ticket-general .con .cr .box ul{height:24px}
+.ticket-general .con .cr .box li{line-height:24px; margin-right:9px; float:left;}
+.ticket-general .con .cr .box li a{padding:0 13px; color:#5b5b5b; display:block; background:#e4e7e8; border-radius:3px; -moz-border-radius:3px}
+.ticket-general .con .cr .box .grade{padding:14px 0 7px}
+.ticket-general .con .cr .box .grade b{color:#474747}
+.ticket-general .con .cr .box .grade span{color:#31aeee; font-size:30px; font-family:'Microsoft Yahei'}
+.ticket-general .con .cr .box .grade a{color:#ff4e00; text-decoration:underline}
+.ticket-general .con .cr .box p{height:60px; line-height:21px; color:#959494; overflow:hidden}
+.ticket-general .con .cr .box p i{width:60px; height:60px; float:left}
+.ticket-general .con .cr .box p i b{width:34px; height:29px; margin:16px 0 0 8px; display:block; background:url(../images/ticket-icon.png) no-repeat}
+.ticket-general .con .cr .line{line-height:24px; color:#575757}
+.ticket-general .con .cr .srv{line-height:16px; padding:5px 0;}
+.ticket-general .con .cr .srv a{padding-left:18px; margin-right:10px; float:left; color:#999; background:url(../images/ticket-icon.png) no-repeat 0 -29px}
+.ticket-general .con .cr .srv .s2{background-position:0 -45px}
+.ticket-general .con .cr .srv .s3{background-position:0 -61px}
+
+
+/**
+ * Tab切换
+ */
+.ticket-tab{}
+.ticket-tab>div{width:1200px; height:48px; padding-top:13px; background:#fff}
+.ticket-tab ul{height:20px; padding:13px 0; border:1px solid #d8d8d8; background:#eaeaea}
+.ticket-tab ul li{width:143px; height:100%; line-height:46px; float:left; border-right:1px solid #d3d3d3; position:relative}
+.ticket-tab ul li a{width:115px; height:46px; padding-left:28px; text-align:center; text-decoration:none; font-size:14px; font-weight:bold; color:#4f4f4f; position:absolute; left:-1px; top:-13px; background:url(../images/ticket-icon.png) no-repeat 24px -77px}
+.ticket-tab ul li .t2{background-position:24px -123px}
+.ticket-tab ul li .t3{background-position:24px -169px}
+.ticket-tab ul li .t4{background-position:24px -215px}
+.ticket-tab ul li.pl{width:230px; border:0}
+.ticket-tab ul li.pl a{width:202px}
+.ticket-tab ul li a:hover, .ticket-tab ul .over a{border-top:6px solid #ff4e00; border-bottom:1px solid #ff4e00; font-size:16px; color:#fff !important; background-color:#ff4e00; top:-19px; background-position:24px -261px}
+.ticket-tab ul li .t2:hover, .ticket-tab ul li .over .t2{background-position:24px -307px}
+.ticket-tab ul li .t3:hover, .ticket-tab ul li .over .t3{background-position:24px -353px}
+.ticket-tab ul li .t4:hover, .ticket-tab ul li .over .t4{background-position:24px -399px}
+.ticket-tab ul li span{font-size:12px; font-weight:normal}
+.ticket-tab>.fixed{position:fixed; top:0; z-index:10}
+
+/**
+ * 门票预订
+ */
+.ticket-book{padding-top:19px}
+.ticket-book>.item{padding:0 10px 23px; border:1px solid #0e8dcf; border-bottom-width:5px}
+.ticket-book>.item>dl{padding-top:15px}
+.ticket-book>.item>dl>dt{color:#454545; font-weight:bold}
+.ticket-book>.item>dl>dd{padding:15px 0; border-bottom:1px dashed #dbdbdb}
+.ticket-book>.item>dl>dd>table{width:100%; color:#2f2e2e; border-collapse:collapse; border-spacing:0; border:0}
+.ticket-book>.item>dl>dd>table td{height:26px; padding:0}
+.ticket-book>.item>dl>dd>table .name{color:#018fd8}
+.ticket-book>.item>dl>dd>table .tip{padding:1px; color:#fff !important; background:#ff4e00}
+.ticket-book>.item>dl>dd>table b{color:#ff4e00}
+.ticket-book>.item>dl>dd>table span{color:#535353}
+.ticket-book>.item>dl>dd>table .book{width:64px; line-height:26px; float:right; text-align:center; color:#fff !important; font-size:14px; font-weight:bold; text-decoration:none; background:url(../images/m-nr-bg.png) no-repeat -60px -107px #fff;}
+.ticket-book>.item>dl>dd>.tip{margin-top:17px; padding:12px 15px; border-top:2px solid #387696; background:#438db3; display:none; position:relative}
+.ticket-book>.item>dl>dd>.tip>.tt{width:15px; height:8px; position:absolute; left:16px; top:-8px; background:url(../images/ticket-icon.png) no-repeat 0 -445px}
+.ticket-book>.item>dl>dd>.tip>.con{line-height:21px; color:#fff}
+
+
+/**
+ * 门票详情
+ */
+.ticket-dest{padding-top:30px}
+.ticket-dest>.left{width:922px; float:left; overflow:hidden}
+.ticket-dest>.left>.box>.tit{line-height:30px; padding-top:20px; font-size:16px; border-bottom:3px solid #d8d8d8}
+.ticket-dest>.left>.box>.con{padding:15px 0; line-height:21px; overflow:hidden}
+.ticket-dest>.left>.box>.con p{margin:10px 0}
+
+.ticket-dest>.left>.box>.review{padding-top:23px}
+.ticket-dest>.left>.box>.review .grade{height:98px; padding:20px 50px; border:1px solid #c3c3c3}
+.ticket-dest>.left>.box>.review .grade .gl{width:210px; height:100%; float:left; border-right:1px solid #d5d5d5}
+.ticket-dest>.left>.box>.review .grade .gl div{color:#565656}
+.ticket-dest>.left>.box>.review .grade .gl div span{margin-left:10px; color:#31aeee; font-size:30px; font-family:'Microsoft Yahei'}
+.ticket-dest>.left>.box>.review .grade .gl p{line-height:25px; color:#535353}
+.ticket-dest>.left>.box>.review .grade .gl p span{font-size:16px}
+.ticket-dest>.left>.box>.review .grade .gl p b{color:#ff4e00}
+.ticket-dest>.left>.box>.review .grade dl{padding:7px 0 0 40px; float:left}
+.ticket-dest>.left>.box>.review .grade dt{line-height:30px; color:#545454}
+.ticket-dest>.left>.box>.review .grade dd{line-height:24px; margin-right:9px; float:left;}
+.ticket-dest>.left>.box>.review .grade dd a{padding:0 13px; color:#5b5b5b; display:block; background:#e4e7e8; border-radius:3px; -moz-border-radius:3px}
+.ticket-dest>.left>.box>.review .grade .gr{padding-top:32px; float:right}
+.ticket-dest>.left>.box>.review .grade .gr a{width:98px; line-height:35px; padding-left:10px; display:block; text-align:center; text-decoration:none; color:#31aeee !important; background:url(../images/m-nr-bg.png) no-repeat 0 -175px}
+.ticket-dest>.left>.box>.review .grade .gr span{line-height:26px; color:#ff4e00}
+
+.ticket-dest>.left>.box>.review .tab{height:24px; line-height:24px; margin-top:15px; padding:3px 0 0 10px; border-bottom:1px solid #fe4e00}
+.ticket-dest>.left>.box>.review .tab li{width:102px; height:100%; margin-right:5px; float:left; position:relative}
+.ticket-dest>.left>.box>.review .tab a{width:100%; display:block; color:#3f3f3f !important; text-align:center; text-decoration:none; position:absolute; left:0; top:0}
+.ticket-dest>.left>.box>.review .tab a:hover, .ticket-dest>.left>.box>.review .tab .over{border:1px solid #fe4e00; border-top-width:3px; border-bottom-color:#fff; top:-3px}
+.ticket-dest>.left>.box>.review .tab a:hover span, .ticket-dest>.left>.box>.review .tab .over span{font-weight:bold}
+
+.ticket-dest>.left>.box>.review .comm{padding:10px 0 0 10px}
+.ticket-dest>.left>.box>.review .comm li{margin-top:15px}
+.ticket-dest>.left>.box>.review .comm li:after{height:0; clear:both; content:' '; display:block; visibility:hidden; overflow:hidden}
+.ticket-dest>.left>.box>.review .comm li .user{width:46px; float:left; text-align:center}
+.ticket-dest>.left>.box>.review .comm li .user img{width:46px; height:46px; border-radius:23px; -moz-border-radius:23px}
+.ticket-dest>.left>.box>.review .comm li .user span{line-height:16px; color:5e5e5e}
+.ticket-dest>.left>.box>.review .comm li .cr{width:819px; float:right; padding:0 15px 15px; border:1px solid #dedede; position:relative}
+.ticket-dest>.left>.box>.review .comm li .cr .crj{width:8px; height:15px; position:absolute; left:-8px; top:18px; background:url(../images/ticket-icon.png) no-repeat 0 -453px}
+.ticket-dest>.left>.box>.review .comm li .cr .crt{height:24px; line-height:24px; padding:7px 0; border-bottom:1px solid #ffae8a}
+.ticket-dest>.left>.box>.review .comm li .cr .crt dl{float:left;}
+.ticket-dest>.left>.box>.review .comm li .cr .crt dt{float:left; color:#c3c3c3}
+.ticket-dest>.left>.box>.review .comm li .cr .crt dd{margin-right:9px; float:left;}
+.ticket-dest>.left>.box>.review .comm li .cr .crt dd a{padding:0 13px; color:#5b5b5b; display:block; background:#e4e7e8; border-radius:3px; -moz-border-radius:3px}
+.ticket-dest>.left>.box>.review .comm li .cr .crt span{float:right}
+.ticket-dest>.left>.box>.review .comm li .cr .crc{line-height:24px; padding:6px 0; color:#5e5e5e}
+.ticket-dest>.left>.box>.review .comm li .cr .from{height:18px; margin-top:10px}
+.ticket-dest>.left>.box>.review .comm li .cr .from span{line-height:18px; color:#09a2fb}
+.ticket-dest>.left>.box>.review .comm li .cr .from a{line-height:16px; padding:0 5px; margin-left:5px; float:right; color:#5e5e5e; border:1px solid #d8d8d8}
+.ticket-dest>.left>.box>.review .comm li .cr form{margin-top:15px; padding:12px; border-top:2px solid #387696; background:#438db3; display:none; position:relative}
+.ticket-dest>.left>.box>.review .comm li .cr form .fj{width:15px; height:8px; position:absolute; right:15px; top:-8px; background:url(../images/ticket-icon.png) no-repeat 0 -445px}
+.ticket-dest>.left>.box>.review .comm li .cr form td{height:26px; padding:0; white-space:nowrap; background:#fff}
+.ticket-dest>.left>.box>.review .comm li .cr form .msg{width:100%; line-height:18px; padding:4px 0; margin:0; border:0}
+.ticket-dest>.left>.box>.review .comm li .cr form .bt{background:none}
+.ticket-dest>.left>.box>.review .comm li .cr form .bt input{width:60px; height:26px; margin:0 0 0 20px; padding:0; border:0; color:#fff; background:#fe4e00; cursor:pointer}
+
+.ticket-dest>.left>.box>.review .page{height:34px; margin-top:25px}
+.ticket-dest>.left>.box>.review .page .tag{float:right; font-size:14px}
+.ticket-dest>.left>.box>.review .page .tag div, .ticket-dest>.left>.box>.review .page .tag ul{float:left; border:1px solid #d9d9d9}
+.ticket-dest>.left>.box>.review .page .tag ul{margin:0 8px; border-left:0;}
+.ticket-dest>.left>.box>.review .page .tag li{float:left; border-left:1px solid #d9d9d9}
+.ticket-dest>.left>.box>.review .page .tag a{width:31px; line-height:32px; text-align:center; display:block; color:#494949; background:#fff; text-decoration:none}
+.ticket-dest>.left>.box>.review .page .tag a:hover, .ticket-dest>.left>.box>.review .page .tag .over{color:#fff !important; background:#ff4e00}
+
+
+.ticket-dest>.right{width:230px; padding-top:67px; float:right}
+.ticket-dest>.right .rela{border:1px solid #d1d1d1}
+.ticket-dest>.right .rela h4{line-height:32px; margin:0; padding:0 10px; color:#414141; border-bottom:1px solid #efefef; font-size:12px}
+.ticket-dest>.right .rela dl{padding:7px 9px}
+.ticket-dest>.right .rela dl dt img{width:210px; height:140px}
+.ticket-dest>.right .rela dl dd{line-height:21px; padding:5px; border-top:1px solid #e8e8e8}
+.ticket-dest>.right .rela dl dd div{width:145px; float:left}
+.ticket-dest>.right .rela dl dd div a{color:#686868}
+.ticket-dest>.right .rela dl dd span{width:55px; float:right; text-align:right; color:#686868}
+.ticket-dest>.right .rela dl dd b{color:#ff4e00}
+.ticket-dest>.right .rela dl dd p{color:#b5b5b5}
+.ticket-dest>.right .pub{margin-top:20px; display:block}
+.ticket-dest>.right .pub img{width:230px}

@@ -1,0 +1,288 @@
+/**
+ * 通用body和页脚
+ */
+.busr-foot{background:#f9f9f9}
+
+/**
+ * 通用页头
+ */
+.busr-head{width:1200px; height:40px; margin:108px auto 0}
+.busr-head h1{line-height:36px; margin-left:200px; color:#fff; font-size:18px; font-family:'Microsoft Yahei'}
+.busr-head h1 b{color:#ff8207; font-size:36px;}
+
+/**
+ * 通用Box
+ */
+.busr-mainbox{width:1200px; margin:0 auto; padding:0 10px 100px; background:#f9f9f9}
+.busr-mainbox:after{height:0; clear:both; content:' '; display:block; visibility:hidden; overflow:hidden}
+
+/**
+ * 用户中心左侧导航
+ */
+.busr-left{width:160px; height:400px; float:left; position:relative}
+.busr-left .con{width:150px; position:absolute; left:10px; top:-38px}
+.busr-left .con .photo{width:144px; height:144px; border:3px solid #e9e9e9; background:url(../images/no-photo.png) no-repeat center center #fff}
+.busr-left .con .photo img{width:144px; height:144px}
+.busr-left .con ul{line-height:46px; padding-top:15px}
+.busr-left .con li{border-bottom:1px solid #d1d1d1}
+.busr-left .con li a{padding-left:38px; color:#6d6d6d; display:block; background:url(../images/busr-icon.png) no-repeat}
+.busr-left .con li a:hover{color:#4c4c4c !important; text-decoration:none; background-position:0 -184px}
+.busr-left .con li .i2{background-position:0 -46px}
+.busr-left .con li .i2:hover{background-position:0 -230px}
+.busr-left .con li .i3{background-position:0 -92px}
+.busr-left .con li .i3:hover{background-position:0 -276px}
+.busr-left .con li .i4{background-position:0 -138px}
+.busr-left .con li .i4:hover{background-position:0 -322px}
+
+.busr-right{width:990px; margin-right:10px; float:right}
+.busr-right .bread{line-height:34px; color:#636363; border-bottom:1px solid #e5e5e5}
+.busr-right .bread a{color:#636363}
+
+/**
+ * 个人中心首页
+ */
+.busr-home{padding-top:5px; background:#f9f9f9}
+.busr-home .wel{line-height:30px; color:#9b9b9b}
+.busr-home .wel b{margin-right:10px; color:#3e3e3e; font-size:14px}
+.busr-home .bind{height:25px; line-height:25px}
+.busr-home .bind p{float:left; color:#6c6c6c}
+.busr-home .bind p span{color:#b0b0b0}
+.busr-home .bind a{width:65px; margin-left:12px; padding-left:20px; float:left; color:#fff !important; text-align:center; background:url(../images/busr-nr-bg.png) no-repeat; text-decoration:none}
+.busr-home .box{margin-top:14px; border:2px solid #eee}
+.busr-home .box h2{line-height:33px; margin:0; padding:0 10px; font-size:14px; color:#ff8207; background:url(../images/busr-repeat-x.png) repeat-x}
+.busr-home .box h2 div{float:right; color:#868686; font-weight:normal; font-size:12px}
+.busr-home .box h2 div input{margin:10px 5px 0 0; padding:0; float:left}
+.busr-home .box h2 div a{margin-left:10px; color:#868686}
+.busr-home .box ul{padding:0 10px 7px}
+.busr-home .box li{padding:4px 0 10px; border-bottom:1px solid #dfdfdf}
+.busr-home .box li .t{line-height:36px; color:#868686}
+.busr-home .box li .t input{margin:12px 10px 0 0; padding:0; float:left}
+.busr-home .box li table{width:100%; height:71px; color:#787878; text-align:center; border-collapse:collapse; border-spacing:0}
+.busr-home .box li table a{color:#787878}
+.busr-home .box li table .aimg{width:96px; padding-right:10px; overflow:hidden}
+.busr-home .box li table .aimg img{width:96px; height:71px}
+.busr-home .box li table .tt{width:140px; vertical-align:top; text-align:left}
+.busr-home .box li table .tt a{width:140px; height:32px; line-height:32px; display:block; font-weight:bold; color:#505050}
+.busr-home .box li table .tt p{height:36px; line-height:18px; overflow:hidden}
+.busr-home .box li table .hasuse{width:87px; height:36px; text-align:center; float:left; border:1px solid #e9e9e9; color:#a8a8a8; font-size:24px; font-weight:bold; font-family:'Microsoft Yahei'; background:#f7f7f7}
+.busr-home .box li table .red{color:#f00}
+
+/**
+ * 个人中心个人资料
+ */
+.busr-info{padding-top:10px; background:#f9f9f9}
+.busr-info .left{width:450px; margin:0; padding:0; float:left}
+.busr-info table{width:100%; line-height:28px; color:#787878; border-collapse:collapse; border-spacing:0}
+.busr-info table th{width:74px; height:50px; padding:0 6px 0 0; text-align:right; font-weight:normal}
+.busr-info table td, .busr-info table select{color:#4f4f4f}
+.busr-info table .tt{width:181px; line-height:16px; padding:6px; margin:0; color:#4f4f4f; border:1px solid #e8e8e8; font-size:14px}
+.busr-info table a{margin-left:5px; color:#09a2fb !important}
+.busr-info table .bind span{float:left; color:#929292}
+.busr-info table .bind a{width:65px; line-height:25px; margin:1px 5px 0 12px; padding-left:20px; float:left; color:#fff !important; text-align:center; background:url(../images/busr-nr-bg.png) no-repeat; text-decoration:none}
+.busr-info table .bt{height:70px; vertical-align:bottom}
+.busr-info table .bt a{width:106px; line-height:32px; margin:0; float:left; color:#fff !important; text-align:center; background:url(../images/busr-nr-bg.png) no-repeat 0 -25px}
+.busr-info .right{width:528px; padding-top:10px; float:right}
+.busr-info .right .rl{width:229px; float:left}
+.busr-info .right .rl .rlimg{height:223px; border:3px solid #e9e9e9; background:url(../images/no-photo.png) no-repeat center center #fff}
+.busr-info .right .rl a{width:24px; line-height:26px; display:block; margin:10px auto; padding-left:20px; color:#09a2fb !important; background:url(../images/busr-icon.png) no-repeat 0 -368px}
+.busr-info .right .rr{float:left; margin-left:16px}
+.busr-info .right .rr .t{line-height:36px; color:#a1a1a0}
+.busr-info .right .rr div{width:142px; height:142px; border:3px solid #e9e9e9; background:#fff}
+.busr-info .right .rr .b{width:148px; line-height:30px; text-align:center; color:#7e7e7e}
+
+/**
+ * 个人中心我的订单
+ */
+.busr-order{padding-top:26px; background:#f9f9f9}
+.busr-order .type{height:30px}
+.busr-order .type .tl{line-height:30px; float:left; font-size:14px}
+.busr-order .type .tl a{height:30px; float:left; text-align:center; color:#9f9f9f; font-weight:bold}
+.busr-order .type .tl .over{padding:0 20px; color:#fff !important; background:url(../images/busr-repeat-x.png) repeat-x 0 -62px}
+.busr-order .type .tl span{float:left; margin:0 20px}
+
+.busr-order .type .tr{width:158px; line-height:21px; margin-top:4px; float:right; position:relative}
+.busr-order .type .tr dl{width:41px; padding:0 5px; float:left; border:1px solid #dfdfdf; background:#fff; overflow:hidden; cursor:pointer; position:absolute; left:0; top:0; z-index:2}
+.busr-order .type .tr dl dt{padding-left:2px; color:#ff8207; background:url(../images/busr-nr-bg.png) no-repeat -6px -104px}
+.busr-order .type .tr dl dd{display:none}
+.busr-order .type .tr dl dd a{padding-left:2px; border-top:1px solid #d9d9d9; display:block}
+.busr-order .type .tr .over{border-color:#ff8207}
+.busr-order .type .tr .over dd{display:block}
+.busr-order .type .tr .search{width:24px; height:24px; padding-top:4px; position:absolute; right:73px; top:-4px}
+.busr-order .type .tr .search:hover form{display:block}
+.busr-order .type .tr .search .ss{height:24px; background:url(../images/busr-nr-bg.png) no-repeat -51px -104px; display:block}
+.busr-order .type .tr .search form{width:105px; height:23px; padding-left:5px; margin-top:-50px; float:right; background:url(../images/busr-nr-bg.png) no-repeat 0 -74px; display:none}
+.busr-order .type .tr .search form input{width:85px; height:17px; line-height:17px; margin:0; padding:2px 0; float:left; border:0; border-top:1px solid #ff9124; border-bottom:1px solid #ff9124}
+.busr-order .type .tr .search form a{width:20px; height:23px; float:left; background:url(../images/busr-nr-bg.png) no-repeat -5px -74px}
+.busr-order .type .tr .spage{width:63px; line-height:24px; float:right; background:url(../images/busr-nr-bg.png) no-repeat -75px -104px}
+.busr-order .type .tr .spage a{width:17px; float:left; color:#ff8207 !important; text-decoration:none}
+.busr-order .type .tr .spage .n{width:40px; float:right}
+.busr-order .opt{line-height:31px; margin-top:12px; padding-left:10px; color:#868686; border:1px solid #c8c8c8}
+.busr-order .opt label{margin-right:10px}
+.busr-order .opt input{margin:8px 10px 0 0; padding:0; float:left}
+.busr-order .opt a{color:#868686}
+.busr-order .opt span{color:#dedede}
+.busr-order .box{padding-top:2px}
+.busr-order .box li{margin-top:10px; border:2px solid #eee}
+.busr-order .box li .t{line-height:33px; color:#474747; background:url(../images/busr-repeat-x.png) repeat-x}
+.busr-order .box li .t input{margin:10px 9px 0; padding:0; float:left}
+.busr-order .box li .con{padding:10px 9px; background:#fff}
+.busr-order .box li table{width:100%; height:71px; color:#787878; text-align:center; border-collapse:collapse; border-spacing:0}
+.busr-order .box li table a{color:#787878}
+.busr-order .box li table .aimg{width:96px; padding-right:10px; overflow:hidden}
+.busr-order .box li table .aimg img{width:96px; height:71px}
+.busr-order .box li table .tt{width:140px; vertical-align:top; text-align:left}
+.busr-order .box li table .tt a{width:140px; height:32px; line-height:32px; display:block; font-weight:bold; color:#5a5a5a; text-decoration:none}
+.busr-order .box li table .tt a:hover{color:#ff8207 !important}
+.busr-order .box li table .tt p{height:36px; line-height:18px; overflow:hidden}
+.busr-order .box li table .red{color:#f00}
+.busr-order .page{height:34px; padding-top:27px;}
+.busr-order .page .tag{float:right; font-size:14px}
+.busr-order .page .tag div, .busr-order .page .tag ul{float:left; border:1px solid #d9d9d9}
+.busr-order .page .tag ul{margin:0 8px; border-left:0;}
+.busr-order .page .tag li{float:left; border-left:1px solid #d9d9d9}
+.busr-order .page .tag a{width:31px; line-height:32px; text-align:center; display:block; color:#494949; background:#fff; text-decoration:none}
+.busr-order .page .tag a:hover, .busr-order .page .tag .over{color:#fff !important; background:#e6892e}
+.busr-order .page p{line-height:34px; margin:0 15px; float:right; color:#606060}
+.busr-order .page p input{width:38px; line-height:17px; padding:2px 0; text-align:center; border:1px solid #ededed}
+.busr-order .page .jump{width:41px; line-height:24px; margin:5px 0; float:right; text-align:center; color:#fff !important; background:url(../images/busr-nr-bg.png) no-repeat -85px 0}
+
+/**
+ * 个人中心我的购物车
+ */
+.busr-cart{padding-top:22px; background:#f9f9f9}
+.busr-cart .pft{height:32px; line-height:32px}
+.busr-cart .pft a{width:82px; float:right; text-align:center; color:#fff !important; font-size:14px; font-weight:bold; background:url(../images/busr-nr-bg.png) no-repeat 0 -128px}
+.busr-cart .pft p{margin-right:18px; float:right; color:#505050}
+.busr-cart .pft p span{color:#ff8207; font-size:14px; font-weight:bold}
+.busr-cart .tit{line-height:31px; margin-top:14px; padding:0 10px; color:#868686; border:1px solid #c8c8c8}
+.busr-cart table{width:100%; text-align:center; border-collapse:collapse; border-spacing:0}
+.busr-cart table td{padding:0}
+.busr-cart .tit input{margin:8px 9px 0 0; padding:0; float:left}
+.busr-cart .box{padding-top:2px}
+.busr-cart .box li{margin-top:10px; border:2px solid #eee}
+.busr-cart .box li .t{line-height:33px; color:#474747; background:url(../images/busr-repeat-x.png) repeat-x}
+.busr-cart .box li .t input{margin:10px 9px 0; padding:0; float:left}
+.busr-cart .box li .con{padding:10px 9px; background:#fff}
+.busr-cart .box li table{width:100%; height:71px; color:#787878; text-align:center; border-collapse:collapse; border-spacing:0}
+.busr-cart .box li table a{color:#787878}
+.busr-cart .box li table .aimg{width:96px; padding-right:10px; overflow:hidden}
+.busr-cart .box li table .aimg img{width:96px; height:71px}
+.busr-cart .box li table .tt{width:140px; vertical-align:top; text-align:left}
+.busr-cart .box li table .tt a{width:140px; height:32px; line-height:32px; display:block; font-weight:bold; color:#5a5a5a; text-decoration:none}
+.busr-cart .box li table .tt a:hover{color:#ff8207 !important}
+.busr-cart .box li table .tt p{height:36px; line-height:18px; overflow:hidden}
+.busr-cart .box li table .arg{position:relative}
+.busr-cart .box li table .arg ul{width:59px; height:20px; line-height:20px; margin-left:-29px; text-align:left; border:1px solid #fff; overflow:hidden; position:absolute; top:24px; left:50%}
+.busr-cart .box li table .arg ul li{margin:0; padding:0 3px; border:0; border-bottom:1px solid #d8d8d8; background:#fff}
+.busr-cart .box li table .arg ul li a{display:block; color:#787878 !important; text-decoration:none; cursor:default}
+.busr-cart .box li table .arg .over{height:62px; border-color:#ff8207}
+.busr-cart .box li table .arg .over li a{cursor:pointer}
+.busr-cart .box li table .arg .over li a:hover{color:#ff7200 !important; text-decoration:underline}
+.busr-cart .box li table .arg .over .f{background:url(../images/busr-nr-bg.png) no-repeat 0 -200px #fff}
+.busr-cart .box li table .arg .edit{width:17px; height:17px; position:absolute; top:0; right:30px; background:url(../images/busr-nr-bg.png) no-repeat -68px -57px}
+.busr-cart .box li table .num{}
+.busr-cart .box li table .num div{width:64px; height:22px; margin:0 auto;}
+.busr-cart .box li table .num input{width:20px; line-height:16px; margin:0 4px; padding:2px 0; float:left; text-align:center; color:#787878; border:1px solid #aeaeae}
+.busr-cart .box li table .num a{width:17px; height:17px; margin-top:3px; float:left; background:url(../images/busr-nr-bg.png) no-repeat -34px -57px}
+.busr-cart .box li table .num .add{background-position:-51px -57px}
+.busr-cart .box li table .ap{color:#ff8207; font-size:14px; font-weight:bold}
+.busr-cart .box li table .op a{color:#525252}
+.busr-cart .pfb{height:40px; line-height:40px; margin-top:17px; padding:6px 7px 7px 11px; background:#e4f1ff}
+.busr-cart .pfb .pl{float:left}
+.busr-cart .pfb .pl label{margin-right:25px}
+.busr-cart .pfb .pl input{margin:13px 9px 0 0; padding:0; float:left}
+.busr-cart .pfb .pl a{color:#5c5c5c}
+.busr-cart .pfb .pl span{color:#bdbdbd}
+.busr-cart .pfb .pft{height:40px; line-height:40px; float:right}
+.busr-cart .pfb .pft a{width:101px; font-size:16px; background:url(../images/busr-nr-bg.png) no-repeat 0 -160px}
+.busr-cart .pfb .pft p{margin-right:58px;}
+
+/**
+ * 个人中心我的收藏
+ */
+.busr-favorite{padding-top:26px; background:#f9f9f9}
+.busr-favorite .type{height:30px}
+.busr-favorite .type .tl{line-height:30px; float:left; font-size:14px}
+.busr-favorite .type .tl a{height:30px; float:left; text-align:center; color:#9f9f9f; font-weight:bold}
+.busr-favorite .type .tl .over{padding:0 20px; color:#fff !important; background:url(../images/busr-repeat-x.png) repeat-x 0 -62px}
+.busr-favorite .type .tl span{float:left; margin:0 20px}
+.busr-favorite .type .tr{width:85px; line-height:21px; margin-top:4px; float:right; position:relative}
+.busr-favorite .type .tr dl{width:41px; padding:0 5px; float:left; border:1px solid #dfdfdf; background:#fff; overflow:hidden; cursor:pointer; position:absolute; left:0; top:0; z-index:2}
+.busr-favorite .type .tr dl dt{padding-left:2px; color:#ff8207; background:url(../images/busr-nr-bg.png) no-repeat -6px -104px}
+.busr-favorite .type .tr dl dd{display:none}
+.busr-favorite .type .tr dl dd a{padding-left:2px; border-top:1px solid #d9d9d9; display:block}
+.busr-favorite .type .tr .over{border-color:#ff8207}
+.busr-favorite .type .tr .over dd{display:block}
+.busr-favorite .type .tr .search{width:24px; height:24px; padding-top:4px; position:absolute; right:0; top:-4px}
+.busr-favorite .type .tr .search:hover form{display:block}
+.busr-favorite .type .tr .search .ss{height:24px; background:url(../images/busr-nr-bg.png) no-repeat -51px -104px; display:block}
+.busr-favorite .type .tr .search form{width:105px; height:23px; padding-left:5px; margin-top:-50px; float:right; background:url(../images/busr-nr-bg.png) no-repeat 0 -74px; display:none}
+.busr-favorite .type .tr .search form input{width:85px; height:17px; line-height:17px; margin:0; padding:2px 0; float:left; border:0; border-top:1px solid #ff9124; border-bottom:1px solid #ff9124}
+.busr-favorite .type .tr .search form a{width:20px; height:23px; float:left; background:url(../images/busr-nr-bg.png) no-repeat -5px -74px}
+.busr-favorite .opt{line-height:31px; margin-top:12px; padding-left:10px; color:#868686; border:1px solid #c8c8c8}
+.busr-favorite .opt label{margin-right:10px}
+.busr-favorite .opt input{margin:8px 10px 0 0; padding:0; float:left}
+.busr-favorite .opt a{color:#868686}
+.busr-favorite .opt span{color:#dedede}
+.busr-favorite .box{margin-left:-10px; padding-top:10px}
+.busr-favorite .box li{width:230px; margin:10px 0 0 10px; padding:4px; float:left; border:1px solid #e0e0e0; background:#f4f4f4; position:relative}
+.busr-favorite .box li .im{height:132px; overflow:hidden}
+.busr-favorite .box li .im img{width:230px; height:132px}
+.busr-favorite .box li p{height:36px; line-height:36px}
+.busr-favorite .box li p a{color:#686868}
+.busr-favorite .box li .ic{height:18px; padding:5px 0;}
+.busr-favorite .box li .ic a{width:32px; height:18px; float:left; border-right:1px solid #e6e6e6; background:url(../images/busr-nr-bg.png) no-repeat -82px -128px}
+.busr-favorite .box li .ic .del{margin-right:8px; background-position:-114px -128px}
+.busr-favorite .box li .ic a:hover{background-position:-101px -160px}
+.busr-favorite .box li .ic .del:hover{background-position:-101px -178px}
+.busr-favorite .box li .ic span{float:right; margin-right:8px; color:#fd8917; font-size:14px; font-weight:bold}
+.busr-favorite .box li .rem{line-height:24px; padding:0 9px; color:#fff; background:#f80000; position:absolute; right:4px; top:112px}
+.busr-favorite .box li .confim{display:block}
+.busr-favorite .confim{width:122px; height:56px; margin-left:-61px; border:1px solid #f70403; position:absolute; top:43px; left:50%; display:none; border-radius:3px; -moz-border-radius:3px}
+.busr-favorite .confim .t{line-height:28px; padding-left:6px; color:#fff; background:#f00}
+.busr-favorite .confim .b{height:17px; padding:6px 0 5px; background:url(../images/busr-repeat-x.png) repeat-x 0 -92px}
+.busr-favorite .confim .b a{width:60px; line-height:17px; float:left; text-align:center; color:#6d6d6d !important}
+.busr-favorite .confim .b .ok{color:#f00 !important; border-right:1px solid #d9d9d9}
+
+
+/**
+ * 弹窗
+ */
+.win-wrap{display:none}
+.win-mask{width:100%; height:100%; position:fixed; left:0; top:0; background:#fff; opacity:0.4; filter:alpha(opacity=40); z-index:20}
+ 
+.win-bind{width:272px; height:116px; margin:-58px 0 0 -136px; position:fixed; top:50%; left:50%; background:#f9f9f9; border:1px solid #09a2fb; border-radius:5px; -moz-border-radius:5px; z-index:21; display:none}
+.win-bind .close{width:17px; height:17px; position:absolute; right:3px; top:3px; background:url(../images/busr-nr-bg.png) no-repeat 0 -57px}
+.win-bind .close:hover{background-position:-17px -57px}
+.win-bind .form input{width:147px; line-height:16px; padding:6px; margin:0; color:#09a2fb; font-weight:bold; border:1px solid #cacaca; background:none}
+.win-bind .form .t{padding:17px 10px;}
+.win-bind .form .t .ga{margin-left:13px; color:#09a2fb !important}
+.win-bind .form .t span{color:#6d6d6d; display:none}
+.win-bind .form .t span i{font-style:normal}
+.win-bind .form .t font{color:#f00}
+.win-bind .form .b{height:30px; padding:11px 10px; background:#09a2fb}
+.win-bind .form .b input{border-color:#fff; color:#fff; float:left}
+.win-bind .form .b a{width:88px; line-height:30px; float:left; margin-left:3px; text-align:center; color:#fff !important; background:#003f64}
+.win-bind .suc{line-height:116px; color:#09a2fb; text-align:center; font-size:24px; font-weight:bold; font-family:'Microsoft Yahei'; display:none}
+.win-bind .fail{padding-top:30px; text-align:center; display:none}
+.win-bind .fail p{line-height:36px; color:#9c9c9c; font-size:24px; font-weight:bold; font-family:'Microsoft Yahei'}
+.win-bind .fail a{line-height:24px; color:#fb0909 !important; font-size:14px}
+
+.win-psw{width:272px; height:180px; margin:-90px 0 0 -136px; position:fixed; top:50%; left:50%; background:#fff; border:1px solid #f00; border-radius:5px; -moz-border-radius:5px; z-index:21; display:none}
+.win-psw table{width:100%; line-height:20px; margin-top:15px; color:#f00; border-collapse:collapse; border-spacing:0}
+.win-psw table th, .win-psw table td{height:45px; padding:0; vertical-align:top}
+.win-psw table th{width:76px; line-height:25px; padding-right:6px; text-align:right; color:#6b6b6b; font-weight:normal}
+.win-psw table input{width:157px; line-height:17px; padding:3px 5px; margin:0 15px 0 0; color:#6b6b6b; border:1px solid #d9d9d9}
+.win-psw table .bt{height:29px; vertical-align:middle; border-top:1px solid #efefef; background:url(../images/busr-repeat-x.png) repeat-x 0 -33px}
+.win-psw table .bt a{width:135px; line-height:17px; float:left; text-align:center; color:#6d6d6d !important}
+.win-psw table .bt .ok{color:#f00 !important; border-right:1px solid #d9d9d9}
+.win-psw .suc{line-height:180px; color:#ff7e00; text-align:center; font-size:24px; font-weight:bold; font-family:'Microsoft Yahei'; display:none}
+.win-psw .fail{padding-top:60px; text-align:center; display:none}
+.win-psw .fail p{line-height:36px; color:#b9b9b9; font-size:24px; font-weight:bold; font-family:'Microsoft Yahei'}
+.win-psw .fail a{line-height:24px; color:#fb0909 !important; font-size:14px}
+
+.win-delconfim{width:200px; height:72px; margin:-36px 0 0 -100px; position:fixed; top:50%; left:50%; border:1px solid #f00; border-radius:3px; -moz-border-radius:3px; z-index:21; display:none}
+.win-delconfim .t{line-height:42px; padding-left:11px; color:#fff; background:#f00; font-size:14px}
+.win-delconfim .b{height:17px; padding:6px 0 7px; background:url(../images/busr-repeat-x.png) repeat-x 0 -120px}
+.win-delconfim .b a{width:99px; line-height:17px; float:left; text-align:center; color:#6d6d6d !important}
+.win-delconfim .b .ok{color:#f00 !important; border-right:1px solid #d9d9d9}
