@@ -1,9 +1,6 @@
 /**
  * 通用body和页脚
  */
-.busr-body{background-attachment:scroll}
-.busr-headtop{position:absolute; left:0; top:0; z-index:1}
-.busr-headtop .con .logo, .busr-headtop .con .menu, .busr-headtop .con .search{display:block}
 .busr-foot{background:#f9f9f9}
 
 /**

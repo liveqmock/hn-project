@@ -1,12 +1,4 @@
 /**
- * 通用body和页脚
- */
-.scenic-body{background-attachment:scroll}
-.scenic-headtop{position:absolute; left:0; top:0; z-index:1}
-.scenic-headtop .con .logo, .scenic-headtop .con .menu, .scenic-headtop .con .search{display:block}
-
-
-/**
  * 幻灯片
  */
 .slide-scenic{margin-top:58px}

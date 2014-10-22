@@ -39,9 +39,11 @@ public class FileController extends GenericController {
 	@RequestMapping(value = "uploadJson")
 	public String uploadJson(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		//文件保存目录路径PropertiesUtil.getProp("tennis.rootPath") TennisConstants.TENNIS_ATTACHED  PropertiesUtil.getProp("tennis.project")
-		String savePath = StringTools.joinWithSeparator(new String[] {PropertiesUtil.getProp("common.rootPath"), TravelConstants.ATTACHED}) + File.separator;
+		String savePath = StringTools.joinWithSeparator(new String[] {PropertiesUtil.getProp("common.rootPath"), TravelConstants.ATTACHED});
+		savePath = request.getServletContext().getRealPath(savePath) + "/";
 		//文件保存目录URL
-		String saveUrl  = StringTools.joinWithSeparator(new String[] {PropertiesUtil.getProp("common.imgDomain"), TravelConstants.ATTACHED}) + File.separator;
+		String saveUrl  = StringTools.joinWithSeparator(new String[] {PropertiesUtil.getProp("common.imgDomain"), TravelConstants.ATTACHED}) + "/";
+		saveUrl =  request.getContextPath() + saveUrl;
 		//定义允许上传的文件扩展名
 		HashMap<String, String> extMap = new HashMap<String, String>();
 		extMap.put("image", "gif,jpg,jpeg,png,bmp");
