@@ -1,0 +1,192 @@
+/**
+ * 订单步骤
+ */
+.order-step{margin-top:58px}
+.order-step .mainbox{width:1180px; padding:30px 20px}
+.order-step table{width:100%; color:#707070; font-weight:bold}
+.order-step table p{line-height:20px; padding-left:25px; color:#a8a8a8; background:url(images/ticket-icon.png) no-repeat 0 -468px}
+.order-step table .step{width:148px; line-height:56px; padding:0 0 0 32px}
+.order-step table b{width:56px; height:56px; float:left; margin-right:8px; color:#fff; text-align:center; font-size:36px; font-family:'Microsoft Yahei'; background:url(images/m-nr-bg.png) no-repeat 0 -210px}
+.order-step table .step.over{color:#24a9ed}
+.order-step table .step.over b{background-position:-56px -210px}
+.order-step table div{border-top:2px solid #dadada}
+
+
+/**
+ * 订单信息
+ */
+.order-main{width:1180px; padding:0 20px}
+.order-main .left{width:888px; float:left; border:1px solid #ddd}
+.order-main .left input{margin:0}
+.order-main .left .tit{line-height:44px; padding-left:36px; color:#1f2020; font-size:16px}
+.order-main .left .tit a{color:#777; text-decoration:underline; font-size:12px; font-weight:normal}
+.order-main .left .info{margin-left:36px}
+.order-main .left .info th{width:70px; line-height:46px; padding:0 15px 0 0; vertical-align:top; color:#7e7e7e; text-align:right; font-weight:normal}
+.order-main .left .info td{padding:0}
+.order-main .left .info b{color:#24a9ed}
+.order-main .left .info .time{width:228px; line-height:22px; padding:6px 34px 6px 6px; color:#646464; font-size:14px; border:1px solid #ccc; background:url(images/ticket-icon.png) no-repeat right -488px}
+.order-main .left .info ul{padding:7px 0}
+.order-main .left .info li{margin-bottom:12px}
+.order-main .left .info .tk{line-height:32px}
+.order-main .left .info .tk>b{float:left; cursor:pointer}
+.order-main .left .info .tk>b i{width:18px; height:18px; margin:7px 2px; float:right; background:url(images/ticket-icon.png) no-repeat 0 -522px}
+.order-main .left .info .tk div{float:left; margin:0 20px; border:1px solid #e2e2e2}
+.order-main .left .info .tk div i{width:32px; height:32px; float:left; background:url(images/ticket-icon.png) no-repeat 0 -540px #8fd9ff; cursor:pointer}
+.order-main .left .info .tk div i.o{background-position:0 -572px}
+.order-main .left .info .tk div i:hover{background-color:#3baee8}
+.order-main .left .info .tk div input{width:105px; line-height:20px; padding:6px 0; float:left; color:#393939; text-align:center; border:0 solid #e2e2e2; border-width:0 1px; font-size:14px}
+.order-main .left .info .tk span{color:#fe4e00}
+.order-main .left .info .tk span b{color:#fe4e00; font-size:16px}
+.order-main .left .info .person{margin-top:18px; padding:6px 15px; border-top:2px solid #d4d4d4; background:#e1e1e1; display:none; position:relative}
+.order-main .left .info .person>.jt{width:25px; height:13px; position:absolute; left:16px; top:-13px; background:url(images/ticket-icon.png) no-repeat 0 -623px}
+.order-main .left .info .person .link{height:28px; line-height:28px; color:#838383; border-bottom:1px solid #d0d0d0}
+.order-main .left .info .person .link span{float:left}
+.order-main .left .info .person .link label{margin-left:10px; float:left; color:#4f4f4f}
+.order-main .left .info .person .link label input{margin:7px 3px 0 0; padding:0; float:left}
+.order-main .left .info .person table{margin-top:6px; color:#393939}
+.order-main .left .info .person table td{height:36px; padding:0 8px 0 0}
+.order-main .left .info .person table span{color:#fe0000}
+.order-main .left .info .person table input{line-height:18px; padding:4px; border:1px solid #cacaca}
+
+.order-main .left .block{border-top:1px solid #e2e2e2}
+.order-main .left .box{border:3px solid #fe4e00}
+.order-main .left .box table{margin-bottom:5px}
+.order-main .left .box table{margin-left:26px}
+.order-main .left .box table th{width:80px; height:46px; padding:0 15px 0 0; color:#7e7e7e; text-align:right; font-weight:normal}
+.order-main .left .box table td{padding:0}
+.order-main .left .box table input{width:148px; line-height:22px; padding:6px; color:#646464; font-size:14px; border:1px solid #ccc}
+.order-main .left .box table span{color:#626262}
+.order-main .left .box table a{width:60px; line-height:25px; display:block; color:#fff !important; text-decoration:none; text-align:center; background:url(images/m-nr-bg.png) no-repeat -124px -107px}
+
+.order-main .left .apd{line-height:26px; padding-left:80px}
+.order-main .left .apd dt{color:#505050; font-weight:bold}
+.order-main .left .apd dd{padding-left:10px}
+.order-main .left .apd dd span{line-height:23px; color:#fe4e00}
+.order-main .left .apd dd span b{font-size:16px}
+.order-main .left .apd label{color:#414141}
+.order-main .left .apd label input{margin:6px 3px 0 0; padding:0; float:left}
+.order-main .left .itip{width:390px; line-height:21px; margin:10px 90px; padding:8px 12px; color:#313131; border:1px solid #8fd9ff; background:#d3f0ff}
+
+.order-main .left .ftip{line-height:20px; padding:5px 7px 5px 16px; margin:0 36px 23px; color:#4a4a49; border:1px solid #fe4e00}
+.order-main .left .ftip b{color:#fe4e00}
+.order-main .left .ftip .close{width:19px; height:19px; float:right; background:url(images/ticket-icon.png) no-repeat 0 -604px}
+.order-main .left .coupon{width:190px; line-height:30px; margin:0 0 40px 36px; color:#6f6f6f; text-align:center; border:1px solid #adadad}
+
+.order-main .left .titl{margin-left:36px; padding:3px; color:#fff; background:#3f3f3f}
+.order-main .left .con{line-height:20px; margin:10px 36px; color:#1f2020}
+
+
+/**
+ * 结算
+ */
+.order-main .right{width:272px; float:right}
+.order-main .right .tit{line-height:38px; color:#fe4e00; font-size:16px; border-bottom:1px solid #d1d1d1}
+.order-main .right dl{line-height:28px; padding:10px 0; border-bottom:1px solid #d1d1d1}
+.order-main .right dt{color:#5d5d5d; font-weight:bold}
+.order-main .right dd{color:#4d4d4d}
+.order-main .right dd p{float:right; color:#fe4e00}
+.order-main .right dd p b{font-size:14px}
+.order-main .right dd p span{color:#5c5c5c}
+.order-main .right dd p.lose{color:#4bc508}
+.order-main .right dd p.lose b{font-size:16px}
+.order-main .right .total{line-height:48px; color:#fe4e00; font-size:16px; border-top:1px solid #d1d1d1}
+.order-main .right .total span{float:right; font-size:12px}
+.order-main .right .total span b{font-size:16px}
+.order-main .right label{width:100px; margin:30px auto 20px; display:block;}
+.order-main .right label input{margin:0 3px 0 0; padding:0; float:left}
+.order-main .right label a{color:#5c5b5b; text-decoration:underline}
+.order-main .right .bt{width:271px; line-height:42px; display:block; color:#fff !important; text-decoration:none; text-align:center; font-size:14px; font-weight:bold; background:#fe4e00; border-radius:3px; -moz-border-radius:3px}
+
+
+/** ## 以下是支付页面CSS ## */
+/**
+ * 支付页面
+ */
+.pay-main{width:1180px; padding:0 20px}
+.pay-main .msg{height:48px; padding:26px; border:1px solid #a0d3ec; background:#e5faff}
+.pay-main .msg i{width:40px; height:40px; margin-right:10px; float:left; background:url(images/m-nr-bg.png) no-repeat -114px -226px}
+.pay-main .msg p{width:850px; float:left; line-height:22px; color:#f00}
+.pay-main .msg p b{line-height:26px; color:#40d000; font-size:16px}
+.pay-main .msg div{margin-top:15px; float:right; color:#383838; font-weight:bold}
+.pay-main .msg div span{color:#fe4e00}
+.pay-main .msg div span em{font-size:14px; font-style:normal}
+.pay-main .msg div span b{font-size:16px}
+
+.pay-main .list{margin-top:17px; padding-bottom:10px; border:1px solid #e2e2e1; position:relative}
+.pay-main .list table{width:100%}
+.pay-main .list .hide{display:none}
+.pay-main .list th{height:32px; padding:0; color:#939393; font-weight:normal; border-bottom:1px solid #e9e9e9}
+.pay-main .list td{line-height:20px; padding:5px 0; text-align:center; font-size:14px; color:#6f6f6f}
+.pay-main .list .num{color:#484848; vertical-align:top}
+.pay-main .list span{color:#24a9ed}
+.pay-main .list .open{width:58px; line-height:18px; padding:0 6px; margin-left:-35px; border:1px solid #ececec; position:absolute; bottom:-3px; left:50%; background:url(images/ticket-icon.png) no-repeat right -636px #f0f0f0}
+.pay-main .list .open.c{background-position:right -654px}
+
+.pay-main .pay{margin-top:17px; padding:15px 25px; border:2px solid #fe4e00}
+.pay-main .pay dl{padding-bottom:25px}
+.pay-main .pay dl:after{height:0; clear:both; content:' '; display:block; visibility:hidden; overflow:hidden}
+.pay-main .pay dt{line-height:32px; color:#4f4f4f; font-size:14px; font-weight:bold; border-bottom:1px solid #cecece}
+.pay-main .pay dd{margin:10px 22px 0 0; float:left}
+.pay-main .pay dd input{margin:8px 6px 0; float:left}
+.pay-main .pay dd span{width:125px; height:32px; float:left; background:url(images/bank.png) no-repeat}
+.pay-main .pay dd .icbc{background-position:0 0}
+.pay-main .pay dd .cmb{background-position:-125px 0}
+.pay-main .pay dd .ccb{background-position:-250px 0}
+.pay-main .pay dd .boc{background-position:-375px 0}
+.pay-main .pay dd .abc{background-position:-500px 0}
+.pay-main .pay dd .bankcomm{background-position:0 -32px}
+.pay-main .pay dd .ceb{background-position:-125px -32px}
+.pay-main .pay dd .spdb{background-position:-250px -32px}
+.pay-main .pay dd .cgbc{background-position:-375px -32px}
+.pay-main .pay dd .ecitic{background-position:-500px -32px}
+.pay-main .pay dd .cib{background-position:0 -64px}
+.pay-main .pay dd .cmbc{background-position:-125px -64px}
+.pay-main .pay dd .bobj{background-position:-250px -64px}
+.pay-main .pay dd .hzb{background-position:-375px -64px}
+.pay-main .pay dd .bosh{background-position:-500px -64px}
+
+.pay-main .pay dd .cft{background-position:0 -96px}
+.pay-main .pay dd .zfbsm{background-position:-125px -96px}
+.pay-main .pay dd .ylzx{background-position:-250px -96px}
+.pay-main .pay dd .wxzf{background-position:-375px -96px}
+.pay-main .pay dd .zfbkj{background-position:-500px -96px}
+.pay-main .pay dd .cftkj{background-position:0 -128px}
+.pay-main .pay dd .bdqb{background-position:-125px -128px}
+.pay-main .pay dd .sjzf{background-position:-250px -128px}
+.pay-main .pay dd .zfb{background-position:-375px -128px}
+
+.pay-main .nextbt{width:271px; line-height:42px; margin:42px auto 0; display:block; color:#fff !important; text-decoration:none; text-align:center; font-size:14px; font-weight:bold; background:#fe4e00; border-radius:3px; -moz-border-radius:3px}
+
+
+/**
+ * 弹窗
+ */
+.win-wrap{display:none}
+.win-mask{width:100%; height:100%; position:fixed; left:0; top:0; background:#fff; opacity:0.4; filter:alpha(opacity=40); z-index:20}
+
+.pay-wait{width:662px; height:336px; margin:-171px 0 0 -334px; border:3px solid #0caaf6; text-align:center; background:#fff; position:fixed; top:50%; left:50%; z-index:21}
+.pay-wait h1{line-height:48px; margin-top:38px; font-size:24px; color:#0caaf6; font-family:'Microsoft Yahei'}
+.pay-wait ul{width:120px; height:20px; margin:0 auto; padding:22px 0}
+.pay-wait li{width:16px; height:16px; margin:0 2px; float:left; background:url(images/ticket-icon.png) no-repeat 0 -715px}
+.pay-wait li.over{background-position:-16px -715px}
+.pay-wait div{width:406px; height:43px; margin:34px auto 10px}
+.pay-wait div a{width:193px; line-height:43px; float:left; margin:0 5px; font-size:14px; color:#3d3d3d !important; text-decoration:none; font-weight:bold; background:#c2c2c2}
+.pay-wait div a.ok{width:163px; padding-left:30px; color:#fff !important; background:url(images/ticket-icon.png) no-repeat 40px -672px #0caaf6}
+.pay-wait p{width:396px; line-height:21px; margin:0 auto; color:#505050}
+.pay-wait p span{color:#e57700}
+
+
+
+/** ## 以下是支付完成页面CSS ## */
+/**
+ * 支付完成页面
+ */
+.pay-over{padding-bottom:30px}
+.pay-over .msg{height:75px; padding:15px 26px}
+.pay-over .msg p{width:170px; margin-top:17px; float:right}
+.pay-over .msg p b{line-height:40px}
+.pay-over .msg div{width:850px; line-height:28px; margin-top:0; float:left;}
+.pay-over .msg>span{width:850px; line-height:21px; float:left; color:#383838}
+
+.pay-over .nav{padding:20px}
+.pay-over .nav a{color:#fe4e00}

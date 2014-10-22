@@ -1,0 +1,73 @@
+/**
+ * 幻灯片
+ */
+.slide-hotel{margin-top:58px}
+.slide-hotel .mainbox{width:1180px; padding:27px 20px 0}
+.slide-hotel .left{width:366px; height:288px; float:left; border:3px solid #ff4e00; position:relative}
+.slide-hotel .left .tit{width:115px; line-height:20px; padding:7px 0 0 70px; color:#ff4e00; font-size:14px; background:url(images/hotel-bg.png) no-repeat 0 -80px #fff; position:absolute; top:-22px; left:90px}
+.slide-hotel .left table{width:100%; margin-top:14px}
+.slide-hotel .left table th{width:78px; height:65px; padding:0 10px 0 0; text-align:right; color:#959595; font-weight:normal; font-size:14px}
+.slide-hotel .left table input{width:203px; line-height:20px; padding:10px 40px 10px 10px; border:1px solid #d5d4d4; color:#404040; box-shadow:inset 3px 5px 8px #f4f4f4; -webkit-box-shadow:inset 3px 5px 8px #f4f4f4; -moz-box-shadow:inset 3px 5px 8px #f4f4f4; background:url(images/hotel-bg.png) no-repeat right -40px}
+.slide-hotel .left table input.dest{background-position:right 0}
+.slide-hotel .left table .bt{width:186px; line-height:41px; margin:12px auto 0; display:block; font-size:16px; color:#fff !important; text-decoration:none; text-align:center; font-weight:bold; background:url(images/m-nr-bg.png) no-repeat 0 -266px}
+.slide-hotel .left>i{width:3px; height:3px; position:absolute; left:-3px; top:-3px; background:url(images/m-nr-bg.png) no-repeat #fff}
+.slide-hotel .left>i.rt{left:auto; right:-3px; background-position:0 0}
+.slide-hotel .left>i.lb{top:auto; bottom:-3px; background-position:0 0}
+.slide-hotel .left>i.rb{left:auto; top:auto; right:-3px; bottom:-3px; background-position:0 0}
+
+.slide-hotel .right{width:789px; height:294px; float:right; position:relative; overflow:hidden}
+.slide-hotel .right li{float:left; overflow:hidden}
+.slide-hotel .right .list{float:left}
+.slide-hotel .right .list li{height:294px}
+.slide-hotel .right .list img{width:789px; height:294px}
+.slide-hotel .right .tab{width:100px; height:10px; margin-left:-50px; position:absolute; left:50%; bottom:14px}
+.slide-hotel .right .tab li{width:10px; height:10px; margin:0 5px; background:url(images/m-nr-bg.png) no-repeat -108px -200px; cursor:pointer}
+.slide-hotel .right .tab li.over{background-position:-118px -200px}
+.slide-hotel .right .prev, .slide-hotel .right .next{width:41px; height:41px; position:absolute; left:30px; top:126px; display:none; background:url(images/m-nr-bg.png) no-repeat 0 -307px}
+.slide-hotel .right>.over{display:block}
+.slide-hotel .right .next{left:auto; right:30px; background-position:-41px -307px}
+
+
+/**
+ * 酒店推荐
+ */
+.rechotel-bar{width:1180px; padding:50px 20px 0}
+.rechotel-bar .tit{height:23px; line-height:23px; padding-left:10px}
+.rechotel-bar .tit p{ float:left; color:#282727; font-size:14px; font-weight:bold}
+.rechotel-bar .tit ul{float:left}
+.rechotel-bar .tit ul li{width:62px; margin-right:4px; text-align:center; float:left}
+.rechotel-bar .tit ul li a{display:block; color:#5b5b5b}
+.rechotel-bar .tit ul li .over, .rechotel-bar .tit ul li a:hover{color:#fff !important; background:url(images/m-nr-bg.png) no-repeat -108px -175px}
+
+.rechotel-bar .con{padding-top:16px}
+.rechotel-bar .con ul{width:888px; float:left}
+.rechotel-bar .con li{margin:0 12px 24px 0; float:left}
+.rechotel-bar .con .am{width:210px; height:157px; display:block; position:relative}
+.rechotel-bar .con .am img{width:210px; height:157px}
+.rechotel-bar .con .am .rea{width:100%; height:100%; position:absolute; left:0; top:0; display:none}
+.rechotel-bar .con .am .rea .m{height:100%; background:#fff; opacity:0.9; filter:alpha(opacity=90)}
+.rechotel-bar .con .am .rea p{width:146px; height:40px; line-height:20px; padding:0 32px; color:#373636; overflow:hidden; position:absolute; left:0; top:28px}
+.rechotel-bar .con .am .rea .b{width:146px; line-height:34px; color:#adadad; font-size:34px; text-align:center; position:absolute; left:32px; bottom:28px}
+.rechotel-bar .con .am .rea .b a{width:34px; height:34px; float:left; background:url(images/m-nr-bg.png) no-repeat -154px -198px}
+.rechotel-bar .con .am .rea .b a.add{float:right; background-position: -154px -232px}
+.rechotel-bar .con .tb{height:38px; line-height:38px; padding:0 5px; overflow:hidden}
+.rechotel-bar .con .tb p{width:145px; float:left}
+.rechotel-bar .con .tb a{color:#000 !important}
+.rechotel-bar .con .tb b{float:right; color:#ff5a11}
+.rechotel-bar .con .cr{width:292px; float:right}
+.rechotel-bar .con .cr img{width:292px; height:400px}
+
+
+/**
+ * 合作商家
+ */
+.merchant-bar{width:1180px; padding:20px 20px 0}
+.merchant-bar h1{line-height:26px; color:#5a5a5a; font-size:14px; border-bottom:2px solid #eaeaea}
+.merchant-bar .con{position:relative}
+.merchant-bar .con .cc{width:1144px; height:100px; margin:0 auto; overflow:hidden}
+.merchant-bar li{width:104px; height:100px; float:left; text-align:center}
+.merchant-bar li img{width:104px; height:70px}
+.merchant-bar li a{line-height:30px; color:#404040}
+.merchant-bar .con .prev, .merchant-bar .con .next{width:18px; height:15px; position:absolute; left:0; top:42px; display:none; background:url(images/m-nr-bg.png) no-repeat -114px -210px}
+.merchant-bar .con>.over{display:block}
+.merchant-bar .con .next{left:auto; right:0; background-position:-128px -210px}
