@@ -10,6 +10,13 @@
 .search-criteria .crumbs form{float:right; padding-left:15px; background:url(images/scenic-bg.png) no-repeat 0 -41px}
 .search-criteria .crumbs form input{width:174px; height:17px; line-height:17px; float:left; padding:6px 0; border:0; border-top:1px solid #ff4e00; border-bottom:1px solid #ff4e00}
 .search-criteria .crumbs form a{width:31px; height:31px; float:left; background:url(images/scenic-bg.png) no-repeat 0 -72px}
+.search-criteria .crumbs.noicon{padding-left:10px; background:none}
+.search-criteria .crumbs.noicon p{margin-left:0}
+
+.search-criteria .form{height:33px; line-height:33px; padding:10px; color:#ff4e00; border:1px solid #d3ebf7; border-top:0; background:#f0faff}
+.search-criteria .form input{line-height:19px; margin:0; padding:6px; border:1px solid #c5d8e2}
+.search-criteria .form label{margin-right:30px; float:left}
+.search-criteria .form a{width:74px; float:left; text-align:center; color:#fff !important; font-size:16px; font-weight:bold; text-decoration:none; background:url(images/m-nr-bg.png) no-repeat -82px -307px}
 
 .search-criteria .criteria{line-height:20px; padding:8px 0 17px}
 .search-criteria .criteria li{padding:18px 10px 20px; border-bottom:1px solid #d8d8d8}
@@ -19,6 +26,10 @@
 .search-criteria .criteria li dl dd{margin:2px 6px 0 0; float:left}
 .search-criteria .criteria li dl a{padding:0 12px; color:#525252; display:block}
 .search-criteria .criteria li dl .over, .search-criteria .criteria li dl a:hover{color:#fff !important; text-decoration:none; background:#31aeee}
+.search-criteria .criteria li dl dd.custm{margin-left:30px}
+.search-criteria .criteria li dl dd.custm input{width:43px; line-height:18px; padding:0 5px; margin:0; border:1px solid #939393}
+.search-criteria .criteria li dl dd.custm span{color:#9ebbc9}
+.search-criteria .criteria li dl dd.custm input.bt{width:40px; padding:0; color:#fff; border-color:#e6e9ea; background:#5dc4f9}
 
 
 /**
@@ -68,6 +79,20 @@
 .search-result .left .item:hover .con{border-color:#0e8dcf}
 .search-result .left .item:hover .top .fav{display:block}
 .search-result .left .item:hover dl{opacity:1; filter:alpha(opacity=100)}
+
+.search-result .left.htres .item{padding-bottom:0; border-color:#0e8dcf; background:none}
+.search-result .left.htres .item .con{padding-bottom:0; border-bottom:0}
+.search-result .left.htres .item .top .fav{display:block}
+.search-result .left.htres .item .top .tc .tt{line-height:34px}
+.search-result .left.htres .item .top .pin{margin-left:5px; padding:3px 0; text-decoration:none; background:url(images/hotel-bg.png) no-repeat 0 -107px}
+.search-result .left.htres .item .top .park, .search-result .left.htres .item .top .wifi{width:22px; height:22px; margin-right:5px; float:left; background:url(images/hotel-bg.png) no-repeat 0 -124px}
+.search-result .left.htres .item .top .wifi{background-position:0 -146px}
+.search-result .left.htres .item dl{padding-top:0}
+.search-result .left.htres .item .hide{display:none}
+.search-result .left.htres .item .open{height:14px; padding-top:7px; border-bottom:4px solid #0e8dcf; text-align:center; display:none}
+.search-result .left.htres .item .open a{width:95px; line-height:18px; margin:0 auto; display:block; color:#fff !important; background:url(images/m-nr-bg.png) no-repeat -116px -87px}
+.search-result .left.htres .item:hover .open{display:block}
+
 .search-result .left .page{height:34px}
 .search-result .left .page .tag{float:right; font-size:14px}
 .search-result .left .page .tag div, .search-result .left .page .tag ul{float:left; border:1px solid #d9d9d9}
@@ -83,3 +108,4 @@
 .search-result .right .review .con li{padding:10px 3px; border-bottom:2px solid #ededed}
 .search-result .right .pub{margin-top:20px; display:block}
 .search-result .right .pub img{width:230px}
+.search-result .right .pub.f{margin-top:0}

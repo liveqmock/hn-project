@@ -20,27 +20,7 @@ $(function(){
 		else
 			$(this).text('展开所有');
 	});
-	
-	//支付等待弹窗
-	$('#NextBt').click(function(){
-		$('#WinWrap').show();
-		waitAm()
-	});
-	$('#WinWrap a.ok').click(function(){
-		$('#WinWrap').hide();
-		if(timObj)
-			clearTimeout(timObj);
-	});
 });
-var timObj;
-function waitAm(){
-	var cur = $('#WinWrap ul>.over').length + 1;
-	if(cur > $('#WinWrap ul>li').length)
-		$('#WinWrap ul>li').removeClass('over');
-	else
-		$('#WinWrap ul>li:lt(' + cur +')').addClass('over');
-	timObj = setTimeout(waitAm, 1000);
-}
 </script>
 </head>
 
