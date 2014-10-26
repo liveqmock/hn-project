@@ -64,7 +64,7 @@ public class ScenicService {
 			if (scenic.getIntroduceId() != null)
 				ids.add(scenic.getIntroduceId());
 			if (scenic.getTrafficId() != null)
-				ids.add(scenic.getIntroduceId());
+				ids.add(scenic.getTrafficId());
 
 			if (ids.size() > 0) {
 				for (BlobData bd : blobDataDao.findAll(ids)) {
@@ -119,6 +119,9 @@ public class ScenicService {
 
 	@Transactional
 	public void delete(Long... ids) {
+		if (ids == null || ids.length == 0)
+			return;
+
 		List<Long> idList = Arrays.asList(ids);
 
 		List<ScenicTicket> scenicTickets = stDao.findByScenicIdIn(ids);

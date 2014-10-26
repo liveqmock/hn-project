@@ -40,8 +40,11 @@ public class DatePriceService {
 	}
 
 	@Transactional
-	public void deleteByKindId(Long... kindId) {
-		Iterable<DatePrice> tks = dpDao.findByKindIdIn(kindId);
+	public void deleteByKindId(Long... kindIds) {
+		if (kindIds == null || kindIds.length == 0)
+			return;
+
+		Iterable<DatePrice> tks = dpDao.findByKindIdIn(kindIds);
 
 		delete(tks);
 	}

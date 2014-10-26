@@ -66,6 +66,9 @@ public class TicketKindService {
 
 	@Transactional
 	public void deleteByTicketId(Long... ticketId) {
+		if (ticketId == null || ticketId.length == 0)
+			return;
+
 		List<TicketKind> tks = tkDao.findByTicketIdIn(ticketId);
 		List<Long> idList = new ArrayList<Long>();
 		for (TicketKind tk : tks) {

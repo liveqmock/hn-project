@@ -1,11 +1,11 @@
 /**
  * 
  */
-package hn.travel.cms.web.scenic;
+package hn.travel.cms.web.hotel;
 
 import hn.travel.cms.generic.web.GenericController;
-import hn.travel.persist.entity.Scenic;
-import hn.travel.persist.service.scenic.ScenicService;
+import hn.travel.persist.entity.Hotel;
+import hn.travel.persist.service.hotel.HotelService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,14 +29,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author XFZP
- * @date 2014年10月8日
+ * @date 2014年10月26日
  */
 @Controller
-@RequestMapping(value = "/scenic")
-public class ScenicController extends GenericController {
+@RequestMapping(value = "/hotel")
+public class HotelController extends GenericController {
 
 	@Autowired
-	private ScenicService scenicService;
+	private HotelService srv;
 
 	@RequestMapping
 	public String list(String keyword, HttpServletRequest request, Model model) {
@@ -44,36 +44,35 @@ public class ScenicController extends GenericController {
 		pageNo = pageNo < 0 ? 0 : pageNo;
 		int size = RequestUtil.getCurrentRowsDisplayed(request);
 		size = size < 1 ? 15 : size;
-		Page<Scenic> page = scenicService.page(keyword, new PageRequest(pageNo,
-				size));
+		Page<Hotel> page = srv.page(keyword, new PageRequest(pageNo, size));
 
 		model.addAttribute("list", page.getContent());
 		model.addAttribute("totalRows", Long.valueOf(page.getTotalElements())
 				.intValue());
-		return "scenic/list";
+		return "hotel/list";
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String createForm(Model model) {
-		model.addAttribute("vo", new Scenic());
-		return "scenic/form";
+		model.addAttribute("vo", new Hotel());
+		return "hotel/form";
 	}
 
 	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") Long id, Model model) {
-		Scenic scenic = scenicService.get(id);
-		if (scenic == null)
-			scenic = new Scenic();
-		model.addAttribute("vo", scenic);
-		return "scenic/form";
+		Hotel vo = srv.get(id);
+		if (vo == null)
+			vo = new Hotel();
+		model.addAttribute("vo", vo);
+		return "hotel/form";
 	}
 
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public void save(@Valid Scenic scenic, MultipartFile imgUriFile,
+	public void save(@Valid Hotel hotel, MultipartFile imgUriFile,
 			HttpServletRequest request, HttpServletResponse resp) {
 		Map<String, Object> re = new HashMap<String, Object>();
 		if (imgUriFile == null || imgUriFile.isEmpty()) {
-			if (scenic.getId() == null) {
+			if (hotel.getId() == null) {
 				re.put("error", "主图不能为空");
 				writeUploadJson(resp, re);
 				return;
@@ -84,10 +83,10 @@ public class ScenicController extends GenericController {
 				writeUploadJson(resp, re);
 				return;
 			}
-			scenic.setImgUri(saveUrl);
+			hotel.setImgUri(saveUrl);
 		}
 
-		scenicService.save(scenic);
+		srv.save(hotel);
 		re.put("success", true);
 		writeUploadJson(resp, re);
 	}
@@ -97,10 +96,10 @@ public class ScenicController extends GenericController {
 	public Map<String, ?> delete(@RequestParam Long[] ids) {
 		Map<String, Object> re = new HashMap<String, Object>();
 		if (ids == null || ids.length == 0) {
-			re.put("error", "请至少选择一个门票");
+			re.put("error", "请至少选择一个酒店");
 			return re;
 		}
-		scenicService.delete(ids);
+		srv.delete(ids);
 		re.put("success", true);
 		return re;
 	}
