@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2014/10/16 23:24:16                          */
+/* Created on:     2014/10/26 12:55:05                          */
 /*==============================================================*/
 
 
@@ -8,11 +8,17 @@ drop table if exists blob_data;
 
 drop table if exists date_price;
 
+drop table if exists hotel;
+
+drop table if exists hotel_room;
+
 drop table if exists itinerary;
 
 drop table if exists itinerary_scenic;
 
 drop table if exists picture;
+
+drop table if exists room_kind;
 
 drop table if exists scenic;
 
@@ -50,6 +56,51 @@ create table date_price
 alter table date_price comment '票种日期价格';
 
 /*==============================================================*/
+/* Table: hotel                                                 */
+/*==============================================================*/
+create table hotel
+(
+   id                   bigint not null auto_increment comment '主键',
+   name                 varchar(50) not null comment '名称',
+   title                varchar(100) comment '小标题',
+   img_uri              varchar(200) not null comment '主图地址',
+   area_code            varchar(50) not null comment '所在区县的编码',
+   address              varchar(200) not null comment '详细地址',
+   longitude            double comment '在地图上的经度',
+   latitude             double comment '在地图上的纬度',
+   services             varchar(20) comment '支持的服务。1，有停车场；2，有WIFI。多个用逗号分隔',
+   facility_id          bigint comment '设施服务',
+   position_id          bigint comment '交通位置',
+   low_price            double comment '最低价格',
+   good_rate            numeric(5,2) default '100.00' comment '好评率(%)',
+   create_time          datetime not null comment '创建时间',
+   update_time          datetime not null comment '更新时间',
+   status               int not null default 0 comment '状态。0，正常；1，下架',
+   primary key (id)
+);
+
+alter table hotel comment '酒店';
+
+/*==============================================================*/
+/* Table: hotel_room                                            */
+/*==============================================================*/
+create table hotel_room
+(
+   id                   bigint not null auto_increment comment '主键',
+   hotel_id             bigint not null comment '酒店ID',
+   name                 varchar(50) not null comment '名称',
+   info_id              bigint comment '房间信息',
+   cost_id              bigint comment '费用说明',
+   notice_id            bigint comment '预订须知',
+   create_time          datetime not null comment '创建时间',
+   update_time          datetime not null comment '更新时间',
+   status               int not null default 0 comment '状态。0，正常；1，下架',
+   primary key (id)
+);
+
+alter table hotel_room comment '酒店房间';
+
+/*==============================================================*/
 /* Table: itinerary                                             */
 /*==============================================================*/
 create table itinerary
@@ -85,7 +136,7 @@ create table itinerary_scenic
    primary key (id, itinerary_id)
 );
 
-alter table itinerary_scenic comment '线程关联的景点';
+alter table itinerary_scenic comment '线路关联的景点';
 
 /*==============================================================*/
 /* Table: picture                                               */
@@ -106,6 +157,28 @@ create table picture
    status               int not null default 0 comment '状态。0，正常；1，未引用',
    primary key (id)
 );
+
+/*==============================================================*/
+/* Table: room_kind                                             */
+/*==============================================================*/
+create table room_kind
+(
+   id                   bigint not null auto_increment comment '主键',
+   room_id              bigint not null comment '房间ID',
+   name                 varchar(50) not null comment '名称',
+   bed                  varchar(100) not null comment '床型',
+   breakfast            int not null default 0 comment '早餐。0，无早；1，有早',
+   broadband            int not null default 0 comment '宽带。0，免费；1，无；2，付费',
+   market_price         double not null comment '市场价',
+   now_price            double not null comment '现价',
+   room_count           int not null comment '每天可预订数量',
+   create_time          datetime not null comment '创建时间',
+   update_time          datetime not null comment '更新时间',
+   status               int not null default 0 comment '状态。0，正常；1，下架',
+   primary key (id)
+);
+
+alter table room_kind comment '房间种类';
 
 /*==============================================================*/
 /* Table: scenic                                                */
@@ -188,6 +261,24 @@ alter table ticket_kind comment '票种';
 alter table date_price add constraint FK_Reference_10 foreign key (kind_id)
       references ticket_kind (id) on delete restrict on update restrict;
 
+alter table hotel add constraint FK_Reference_19 foreign key (facility_id)
+      references blob_data (id) on delete restrict on update restrict;
+
+alter table hotel add constraint FK_Reference_20 foreign key (position_id)
+      references blob_data (id) on delete restrict on update restrict;
+
+alter table hotel_room add constraint FK_Reference_24 foreign key (hotel_id)
+      references hotel (id) on delete restrict on update restrict;
+
+alter table hotel_room add constraint FK_Reference_25 foreign key (info_id)
+      references blob_data (id) on delete restrict on update restrict;
+
+alter table hotel_room add constraint FK_Reference_26 foreign key (cost_id)
+      references blob_data (id) on delete restrict on update restrict;
+
+alter table hotel_room add constraint FK_Reference_27 foreign key (notice_id)
+      references blob_data (id) on delete restrict on update restrict;
+
 alter table itinerary add constraint FK_Reference_14 foreign key (feature_id)
       references blob_data (id) on delete restrict on update restrict;
 
@@ -208,6 +299,9 @@ alter table itinerary_scenic add constraint FK_Reference_11 foreign key (id)
 
 alter table itinerary_scenic add constraint FK_Reference_12 foreign key (itinerary_id)
       references itinerary (id) on delete restrict on update restrict;
+
+alter table room_kind add constraint FK_Reference_28 foreign key (room_id)
+      references hotel_room (id) on delete restrict on update restrict;
 
 alter table scenic add constraint FK_Reference_1 foreign key (notice_id)
       references blob_data (id) on delete restrict on update restrict;
