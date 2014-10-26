@@ -106,7 +106,7 @@ public class FileController extends GenericController {
 
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		Iterator<String> fileNames = multipartRequest.getFileNames();
-		if (fileNames.hasNext()) {
+		while (fileNames.hasNext()) {
 		    String filedentify = (String) fileNames.next();
 		    MultipartFile file = multipartRequest.getFile(filedentify);
 		    String fileName = file.getOriginalFilename();
