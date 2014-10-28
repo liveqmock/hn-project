@@ -43,10 +43,10 @@ public class HotelService {
 		return dao.findAll(pageable);
 	}
 
-	public Hotel get(Long id) {
+	public Hotel getDetail(Long id) {
 		Hotel hotel = dao.findOne(id);
 		if (hotel != null) {
-			List<Long> ids = new ArrayList<Long>(3);
+			List<Long> ids = new ArrayList<Long>(2);
 			if (hotel.getFacilityId() != null)
 				ids.add(hotel.getFacilityId());
 			if (hotel.getPositionId() != null)
@@ -107,6 +107,10 @@ public class HotelService {
 
 		hotel.setUpdateTime(new Date());
 		return dao.save(hotel);
+	}
+
+	public Hotel get(Long id) {
+		return dao.findOne(id);
 	}
 
 }

@@ -7,6 +7,8 @@ import java.util.List;
 
 import hn.travel.persist.entity.HotelRoom;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -18,5 +20,7 @@ public interface HotelRoomDao extends PagingAndSortingRepository<HotelRoom, Long
 		JpaSpecificationExecutor<HotelRoom> {
 
 	List<HotelRoom> findByHotelIdIn(Long[] hotelIds);
+
+	Page<HotelRoom> findByHotelId(Long hotelId, Pageable pageable);
 
 }

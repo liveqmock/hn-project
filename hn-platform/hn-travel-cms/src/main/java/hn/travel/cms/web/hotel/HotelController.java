@@ -60,7 +60,7 @@ public class HotelController extends GenericController {
 
 	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") Long id, Model model) {
-		Hotel vo = srv.get(id);
+		Hotel vo = srv.getDetail(id);
 		if (vo == null)
 			vo = new Hotel();
 		model.addAttribute("vo", vo);

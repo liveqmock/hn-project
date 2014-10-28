@@ -54,6 +54,12 @@ public class HotelRoom implements Serializable {
 	 * 非表字段
 	 */
 	@Transient
+	private String info;
+	@Transient
+	private String cost;
+	@Transient
+	private String notice;
+	@Transient
 	private Hotel hotel;
 
 	public HotelRoom() {
@@ -129,6 +135,30 @@ public class HotelRoom implements Serializable {
 
 	public void setHotelId(Long hotelId) {
 		this.hotelId = hotelId;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+	public String getCost() {
+		return cost;
+	}
+
+	public void setCost(String cost) {
+		this.cost = cost;
+	}
+
+	public String getNotice() {
+		return notice;
+	}
+
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}
 
 	public Hotel getHotel() {
