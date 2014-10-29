@@ -11,6 +11,8 @@
 <script src="${ctx}/static/jquery-validation/1.13.0/jquery.validate.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/scripts/validate.ext.js" type="text/javascript"></script>
 <script src="${ctx}/static/jquery-validation/1.13.0/messages_zh.js" type="text/javascript"></script>
+<script src="${ctx }/static/scripts/jquery/jquery.form.js" type="text/javascript"></script>
+<script src="${ctx }/static/scripts/common.js" type="text/javascript"></script>
 <title>景点管理 - 景点编辑</title>
 <style type="text/css">
 th{width:80px; text-align:right;}
@@ -19,8 +21,9 @@ label.error { color: red }
 .red{color:red}
 </style>
 <script type="text/javascript">
+var editors;
 KindEditor.ready(function(K) {
-	var editor1 = K.create('textarea[name="notice"],textarea[name="introduce"],textarea[name="traffic"]', {
+	editors = K.createMult('textarea', {
 		cssPath : '${ctx }/static/scripts/kindeditor/plugins/code/prettify.css',
 		uploadJson : '${ctx }/file/uploadJson',
 		fileManagerJson : '${ctx }/file/manager',
@@ -32,6 +35,12 @@ $(function(){
 	$('form[name="postForm"]').validate({
 		rules: {
 			goodRate: {numeric: [3,2]}
+		},
+		submitHandler : function(form) {
+			for(var i = 0; i < editors.length; i++)
+				editors[i].sync();
+			
+			submitForm(form, '${ctx }/scenic', '保存景点成功', '保存景点失败');
 		}
 	});
 });

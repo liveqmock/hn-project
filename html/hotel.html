@@ -12,10 +12,7 @@
 $(function(){
 	headShow();
 	
-	pageAnimate('#SlidePage>.prev', '#SlidePage>.next', '#SlidePage>.list', 'li', function(ind){
-		var lis = $('#SlidePage>.tab>li').removeClass('over');
-		$(lis[ind]).addClass('over');
-	});
+	pageAnimate('#SlidePage>.prev', '#SlidePage>.next', '#SlidePage>.list', 'li', '#SlidePage>.tab>li');
 	recHotelEffect();
 	
 	//合作商家翻页

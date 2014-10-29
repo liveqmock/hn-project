@@ -54,6 +54,18 @@ function pageAnimate(prevBt, nextBt, scrollCon, scrollChild, overFn){
 	ul.width(ulw);
 	ulw = -ulw + liw;
 	
+	if(overFn && !$.isFunction(overFn)){
+		var relSel = overFn;
+		overFn = function(ind){
+			var lis = $(relSel).removeClass('over');
+			$(lis[ind]).addClass('over');
+		}
+		$(relSel).click(function(){
+			var ind = $(relSel).index(this);
+			amFn(-ind * liw);
+		});
+	}
+	
 	var checkOver = function(){
 		prev.addClass('over');
 		next.addClass('over');
@@ -71,19 +83,18 @@ function pageAnimate(prevBt, nextBt, scrollCon, scrollChild, overFn){
 	};
 	checkOver();
 	
-	var am = function(b){
-		if(!$(this).hasClass('over'))
-			return;
-		ul.animate({
-			marginLeft: (b ? '+=' : '-=') + liw
-		}, function(){
+	var amFn = function(ml){
+		ul.animate({marginLeft: ml}, function(){
 			checkOver();
 		});
 	};
+	
 	prev.click(function(){
-		am.call(this, true);
+		if($(this).hasClass('over'))
+			amFn('+=' + liw);
 	});
 	next.click(function(){
-		am.call(this, false);
+		if($(this).hasClass('over'))
+			amFn('-=' + liw);
 	});
 }

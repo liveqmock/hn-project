@@ -21,7 +21,7 @@ function del(id){
 
 <div style="text-align: left;" class="queryForm">
 <%@ include file="/common/messages.jsp"%>
- <form action="/scenic" class="form" method="post" name="searchForm">
+ <form action="<c:url value="/scenic"/>" class="form" method="post" name="searchForm">
   景点名称: <input type="text" name="keyword" value="${param.keyword }"/>
   <input type="image" src="<c:url value="/static/images/icon/16x16/search.gif"/>"  class="nullBorder" onclick="searchForm.submit();" align="middle" />
   
@@ -49,8 +49,8 @@ function del(id){
    ${scenic.areaCode} ${scenic.address}
    </ec:column>
    <ec:column property="inTime" title="入园时间" width="80px" />
-   <ec:column property="lowPrice" title="起价(元)" width="60px" />
-   <ec:column property="goodRate" title="好评率(%)" width="60px" />
+   <ec:column property="lowPrice" title="起价(元)" width="70px" />
+   <ec:column property="goodRate" title="好评率(%)" width="80px" />
    <ec:column property="status" title="状态" width="60px" sortable="false">
     <c:choose>
      <c:when test="${scenic.status == 0}">上架</c:when>

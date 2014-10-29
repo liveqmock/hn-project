@@ -103,6 +103,9 @@ public class TicketService {
 
 	@Transactional
 	public void delete(Iterable<Long> ids) {
+		if (ids == null)
+			return;
+
 		Iterable<Ticket> tickets = ticketDao.findAll(ids);
 		deleteAll(tickets);
 	}

@@ -10,10 +10,10 @@
 .slide-hotel .left table input{width:203px; line-height:20px; padding:10px 40px 10px 10px; border:1px solid #d5d4d4; color:#404040; box-shadow:inset 3px 5px 8px #f4f4f4; -webkit-box-shadow:inset 3px 5px 8px #f4f4f4; -moz-box-shadow:inset 3px 5px 8px #f4f4f4; background:url(images/hotel-bg.png) no-repeat right -40px}
 .slide-hotel .left table input.dest{background-position:right 0}
 .slide-hotel .left table .bt{width:186px; line-height:41px; margin:12px auto 0; display:block; font-size:16px; color:#fff !important; text-decoration:none; text-align:center; font-weight:bold; background:url(images/m-nr-bg.png) no-repeat 0 -266px}
-.slide-hotel .left>i{width:3px; height:3px; position:absolute; left:-3px; top:-3px; background:url(images/m-nr-bg.png) no-repeat #fff}
-.slide-hotel .left>i.rt{left:auto; right:-3px; background-position:0 0}
-.slide-hotel .left>i.lb{top:auto; bottom:-3px; background-position:0 0}
-.slide-hotel .left>i.rb{left:auto; top:auto; right:-3px; bottom:-3px; background-position:0 0}
+.slide-hotel .left>i{width:3px; height:3px; position:absolute; left:-3px; top:-3px; background:url(images/m-nr-bg.png) no-repeat -128px -204px #fff}
+.slide-hotel .left>i.rt{left:auto; right:-3px; background-position:-131px -204px}
+.slide-hotel .left>i.lb{top:auto; bottom:-3px; background-position:-128px -207px}
+.slide-hotel .left>i.rb{left:auto; top:auto; right:-3px; bottom:-3px; background-position:-131px -207px}
 
 .slide-hotel .right{width:789px; height:294px; float:right; position:relative; overflow:hidden}
 .slide-hotel .right li{float:left; overflow:hidden}
@@ -65,6 +65,7 @@
 .merchant-bar h1{line-height:26px; color:#5a5a5a; font-size:14px; border-bottom:2px solid #eaeaea}
 .merchant-bar .con{position:relative}
 .merchant-bar .con .cc{width:1144px; height:100px; margin:0 auto; overflow:hidden}
+.merchant-bar ul{float:left}
 .merchant-bar li{width:104px; height:100px; float:left; text-align:center}
 .merchant-bar li img{width:104px; height:70px}
 .merchant-bar li a{line-height:30px; color:#404040}

@@ -6,16 +6,12 @@ package hn.travel.cms.web.scenic;
 import hn.travel.cms.generic.web.GenericController;
 import hn.travel.persist.entity.Scenic;
 import hn.travel.persist.service.scenic.ScenicService;
-import hn.travel.persist.utils.PropertiesUtil;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.ecside.util.RequestUtil;
@@ -30,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author XFZP
@@ -73,45 +68,28 @@ public class ScenicController extends GenericController {
 		return "scenic/form";
 	}
 
-	private List<String> imgExt = Arrays.<String> asList(new String[] { "gif",
-			"jpg", "jpeg", "png", "bmp" });
-
 	@RequestMapping(value = "save", method = RequestMethod.POST)
-	public String save(@Valid Scenic scenic, MultipartFile imgUriFile,
-			HttpServletRequest request, Model model,
-			RedirectAttributes redirectAttributes) {
+	public void save(@Valid Scenic scenic, MultipartFile imgUriFile,
+			HttpServletRequest request, HttpServletResponse resp) {
+		Map<String, Object> re = new HashMap<String, Object>();
 		if (imgUriFile == null || imgUriFile.isEmpty()) {
 			if (scenic.getId() == null) {
-				model.addAttribute("message", "主图不能为空");
-				model.addAttribute("vo", scenic);
-				return "scenic/form";
+				re.put("error", "主图不能为空");
+				writeUploadJson(resp, re);
+				return;
 			}
 		} else {
-			String fileName = imgUriFile.getOriginalFilename();
-			String fileExt = fileName.substring(fileName.lastIndexOf(".") + 1)
-					.toLowerCase();
-			if (!imgExt.contains(fileExt)) {
-				model.addAttribute("message", "只允许上传图片类型（gif,jpg,jpeg,png,bmp）");
-				model.addAttribute("vo", scenic);
-				return "scenic/form";
+			String saveUrl = uploadImg(re, imgUriFile, request);
+			if (saveUrl == null) {
+				writeUploadJson(resp, re);
+				return;
 			}
-
-			String realPath = PropertiesUtil.getProp("scenic.imgPath");
-			scenic.setImgUri(realPath + getUuid() + "." + fileExt);
-			realPath = request.getServletContext().getRealPath(
-					scenic.getImgUri());
-			try {
-				imgUriFile.transferTo(new File(realPath));
-			} catch (IllegalStateException | IOException e) {
-				model.addAttribute("message", "主图上传错误");
-				model.addAttribute("vo", scenic);
-				return "scenic/form";
-			}
+			scenic.setImgUri(saveUrl);
 		}
 
 		scenicService.save(scenic);
-		redirectAttributes.addFlashAttribute("message", "保存景点成功");
-		return "redirect:/scenic/";
+		re.put("success", true);
+		writeUploadJson(resp, re);
 	}
 
 	@RequestMapping(value = "delete")
@@ -127,12 +105,4 @@ public class ScenicController extends GenericController {
 		return re;
 	}
 
-	private int uuidIndex = 0;
-
-	private synchronized String getUuid() {
-		long t = System.currentTimeMillis();
-		if (uuidIndex > 9999)
-			uuidIndex = 0;
-		return String.format("%d%04d", t, uuidIndex++);
-	}
 }

@@ -13,10 +13,7 @@ $(function(){
 	headShow();
 	
 	slideAnimate('#SlideDiv>.mainbox>.left>.menubox>.box', '.child', '#SlideDiv>.mainbox>.right');
-	pageAnimate('#HotseasonPage>.sc>.prev', '#HotseasonPage>.sc>.next', '#HotseasonPage>.sc>.scc', 'ul', function(ind){
-		var lis = $('#HotseasonPage>.st>ul>li').removeClass('over');
-		$(lis[ind]).addClass('over');
-	});
+	pageAnimate('#HotseasonPage>.sc>.prev', '#HotseasonPage>.sc>.next', '#HotseasonPage>.sc>.scc', 'ul', '#HotseasonPage>.st>ul>li');
 	recScenicEffect();
 });
 

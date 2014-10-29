@@ -11,8 +11,8 @@
  * 概要信息
  */
 .ticket-general{padding:15px 10px}
-.ticket-general h1{line-height:42px; margin:0; font-weight:normal; font-family:'Microsoft Yahei'}
-.ticket-general h1 .tit{font-size:30px; color:#393939}
+.ticket-general h1{height:42px; line-height:42px; margin:0; font-weight:normal; font-family:'Microsoft Yahei'}
+.ticket-general h1 .tit{float:left; font-size:30px; color:#393939}
 .ticket-general h1 a{width:170px; float:right; text-align:center; color:#fff !important; text-decoration:none; background:url(images/m-nr-bg.png) no-repeat 0 -133px}
 .ticket-general h1 .price{float:right; margin-right:30px; font-size:14px; color:#ff4e00}
 .ticket-general h1 .price b{font-size:30px; font-weight:normal}
@@ -39,11 +39,22 @@
 .ticket-general .con .cr .srv .s2{background-position:0 -45px}
 .ticket-general .con .cr .srv .s3{background-position:0 -61px}
 
+/* 酒店详情中用 */
+.ticket-general h1 .fav{width:36px; height:36px; line-height:normal; margin:2px 10px 0; float:left; font-size:12px; font-family:\5b8b\4f53; color:#b7b7b7 !important; border:1px solid #e4e4e4; background:#fff}
+.ticket-general h1 .fav i{width:29px; height:18px; margin:0 auto; display:block; background:url(images/scenic-bg.png) no-repeat 0 -328px}
+.ticket-general h1 .park, .ticket-general h1 .wifi{width:22px; height:22px; margin:10px 2px 0; float:left; background:url(images/hotel-bg.png) no-repeat 0 -124px}
+.ticket-general h1 .wifi{background-position:0 -146px}
+.ticket-general .address{line-height:22px; padding:15px 0 10px; color:#686868}
+.ticket-general .address a{color:#189add}
+.ticket-general .con .cr .box.ht{margin:7px 0 12px; padding:11px; border:1px solid #e4e4e4; position:relative}
+.ticket-general .con .cr .box.ht .grade{padding:7px 0; text-align:center}
+.ticket-general .con .cr .box.ht .grade a{color:#8a8a8a}
+.ticket-general .con .cr .map{width:477px; height:178px; border:1px solid #e4e4e4}
+
 
 /**
  * Tab切换
  */
-.ticket-tab{}
 .ticket-tab>div{width:1200px; height:48px; padding-top:13px; background:#fff}
 .ticket-tab ul{height:20px; padding:13px 0; border:1px solid #d8d8d8; background:#eaeaea}
 .ticket-tab ul li{width:143px; height:100%; line-height:46px; float:left; border-right:1px solid #d3d3d3; position:relative}
@@ -74,11 +85,25 @@
 .ticket-book>.item>dl>dd>table .tip{padding:1px; color:#fff !important; background:#ff4e00}
 .ticket-book>.item>dl>dd>table b{color:#ff4e00}
 .ticket-book>.item>dl>dd>table span{color:#535353}
-.ticket-book>.item>dl>dd>table .book{width:64px; line-height:26px; float:right; text-align:center; color:#fff !important; font-size:14px; font-weight:bold; text-decoration:none; background:url(images/m-nr-bg.png) no-repeat -60px -107px #fff;}
+.ticket-book>.item>dl>dd>table .book{width:64px; line-height:26px; float:right; text-align:center; color:#fff !important; font-size:14px; font-weight:bold; text-decoration:none; background:url(images/m-nr-bg.png) no-repeat -60px -107px;}
 .ticket-book>.item>dl>dd>.tip{margin-top:17px; padding:12px 15px; border-top:2px solid #387696; background:#438db3; display:none; position:relative}
 .ticket-book>.item>dl>dd>.tip>.tt{width:15px; height:8px; position:absolute; left:16px; top:-8px; background:url(images/ticket-icon.png) no-repeat 0 -445px}
 .ticket-book>.item>dl>dd>.tip>.con{line-height:21px; color:#fff}
 
+/* 酒店详情中用 */
+.ticket-book>.item.ht>dl>dt{font-weight:normal}
+.ticket-book>.item.ht>dl>dt>p>.name{color:#0390d9; font-weight:bold}
+.ticket-book>.item.ht>dl>dt>p>.tip{padding:1px; color:#fff !important; background:#ff4e00}
+.ticket-book>.item.ht>dl>dt>.tip{margin-top:17px; padding:12px 15px; border-top:2px solid #387696; background:#438db3; display:none; position:relative}
+.ticket-book>.item.ht>dl>dt>.tip>.tt{width:15px; height:8px; position:absolute; left:16px; top:-8px; background:url(images/ticket-icon.png) no-repeat 0 -445px}
+.ticket-book>.item.ht>dl>dt>.tip>.con{line-height:21px; color:#e8e8e8}
+.ticket-book>.item.ht>dl>dd{padding:8px 0}
+.ticket-book>.item.ht>dl>dd>table{color:#b7b7b7}
+.ticket-book>.item.ht>dl>dd>table td{height:40px}
+.ticket-book>.item.ht>dl>dd>table .name{color:#696969}
+.ticket-book>.item.ht>dl>dd:hover>table{color:#fff; background:#438db3}
+.ticket-book>.item.ht>dl>dd:hover>table .name{margin-left:10px; color:#fff}
+.ticket-book>.item.ht>dl>dd:hover>table .book{margin-right:10px}
 
 /**
  * 门票详情
@@ -101,6 +126,7 @@
 .ticket-dest>.left>.box>.review .grade dt{line-height:30px; color:#545454}
 .ticket-dest>.left>.box>.review .grade dd{line-height:24px; margin-right:9px; float:left;}
 .ticket-dest>.left>.box>.review .grade dd a{padding:0 13px; color:#5b5b5b; display:block; background:#e4e7e8; border-radius:3px; -moz-border-radius:3px}
+.ticket-dest>.left>.box>.review .grade dl.ht dd a{color:#fff; background:#2ea0db}
 .ticket-dest>.left>.box>.review .grade .gr{padding-top:32px; float:right}
 .ticket-dest>.left>.box>.review .grade .gr a{width:98px; line-height:35px; padding-left:10px; display:block; text-align:center; text-decoration:none; color:#31aeee !important; background:url(images/m-nr-bg.png) no-repeat 0 -175px}
 .ticket-dest>.left>.box>.review .grade .gr span{line-height:26px; color:#ff4e00}
@@ -144,6 +170,15 @@
 .ticket-dest>.left>.box>.review .page .tag a{width:31px; line-height:32px; text-align:center; display:block; color:#494949; background:#fff; text-decoration:none}
 .ticket-dest>.left>.box>.review .page .tag a:hover, .ticket-dest>.left>.box>.review .page .tag .over{color:#fff !important; background:#ff4e00}
 
+.ticket-dest>.left>.box>.imgshow{height:405px; padding:15px 0}
+.ticket-dest>.left>.box>.imgshow .isl{width:640px; float:left; position:relative; overflow:hidden}
+.ticket-dest>.left>.box>.imgshow .isl img{width:640px; height:405px; float:left}
+.ticket-dest>.left>.box>.imgshow .isl .prev, .ticket-dest>.left>.box>.imgshow .isl .next{width:32px; height:44px; position:absolute; left:0; top:180px; display:none; background:url(images/hotel-bg.png) no-repeat 0 -168px}
+.ticket-dest>.left>.box>.imgshow .isl .next{left:auto; right:0; background-position:0 -212px}
+.ticket-dest>.left>.box>.imgshow .isl .over{display:block}
+.ticket-dest>.left>.box>.imgshow .isr{width:271px; height:401px; margin-left:6px; padding:1px; float:left; border:1px solid #dedede; overflow:auto}
+.ticket-dest>.left>.box>.imgshow .isr img{width:124px; height:78px; float:left; margin:2px 0 0 2px; cursor:pointer}
+.ticket-dest>.left>.box>.imgshow .isr img:hover, .ticket-dest>.left>.box>.imgshow .isr img.over{width:118px; height:72px; border:3px solid #ff4e00}
 
 .ticket-dest>.right{width:230px; padding-top:67px; float:right}
 .ticket-dest>.right .rela{border:1px solid #d1d1d1}

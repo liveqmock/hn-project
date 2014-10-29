@@ -13,25 +13,27 @@ import java.util.List;
 public class ResourceUtils {
 
 	private static List<Resource> rs;
-	/** 根节点ID[我还原222sccsffffff*/
+	/** 根节点ID[我还原222sccsffffff */
 	public static final Long ROOT_ID = 0L;
 
 	static {
 		rs = new ArrayList<Resource>();
 		rs.add(new Resource(1L, "系统管理", "", 1, 1, ROOT_ID));
 		rs.add(new Resource(2L, "会员管理", "", 1, 1, ROOT_ID));
+		rs.add(new Resource(11L, "系统管理_用户管理", "/admin/user", 1, 1, 1L));
+		rs.add(new Resource(21L, "会员管理_会员列表", "/mem", 1, 1, 2L));
+		rs.add(new Resource(22L, "会员管理_密码找回", "/mem/pwd", 1, 1, 2L));
+		rs.add(new Resource(23L, "会员管理_我的成交", "/mem/deal", 1, 1, 2L));
+		rs.add(new Resource(24L, "会员管理_我的订单", "/mem/orders", 1, 1, 2L));
+		rs.add(new Resource(25L, "会员管理_我的收藏", "/mem/favorites", 1, 1, 2L));
+		rs.add(new Resource(26L, "会员管理_我的购物车", "/mem/shopping", 1, 1, 2L));
+
 		rs.add(new Resource(3L, "酒店管理", "", 1, 1, ROOT_ID));
-		rs.add(new Resource(4L, "系统管理_用户管理", "/admin/user", 1, 1, 1L));
-		rs.add(new Resource(5L, "会员管理_会员列表", "/mem", 1, 1, 2L));
-		rs.add(new Resource(6L, "酒店管理_酒店列表", "/hotel", 1, 1, 3L));
-		rs.add(new Resource(7L, "会员管理_密码找回", "/mem/pwd", 1, 1, 2L));
-		rs.add(new Resource(8L, "会员管理_我的成交", "/mem/deal", 1, 1, 2L));
-		rs.add(new Resource(9L, "会员管理_我的订单", "/mem/orders", 1, 1, 2L));
-		rs.add(new Resource(10L, "会员管理_我的收藏", "/mem/favorites", 1, 1, 2L));
-		rs.add(new Resource(11L, "会员管理_我的购物车", "/mem/shopping", 1, 1, 2L));
-		rs.add(new Resource(100L, "景点管理", "", 1, 1, ROOT_ID));
-		rs.add(new Resource(101L, "景点管理_景点列表", "/scenic", 1, 1, 100L));
-		rs.add(new Resource(102L, "景点管理_景点新增", "/scenic/create", 1, 1, 100L));
+		rs.add(new Resource(31L, "酒店管理_酒店列表", "/hotel", 1, 1, 3L));
+		rs.add(new Resource(32L, "酒店管理_酒店新增", "/hotel/create", 1, 1, 3L));
+		rs.add(new Resource(4L, "景点管理", "", 1, 1, ROOT_ID));
+		rs.add(new Resource(41L, "景点管理_景点列表", "/scenic", 1, 1, 4L));
+		rs.add(new Resource(42L, "景点管理_景点新增", "/scenic/create", 1, 1, 4L));
 	}
 
 	public static List<Resource> getByParentId(Long pid) {

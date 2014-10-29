@@ -48,6 +48,17 @@
 .order-main .left .info .person table span{color:#fe0000}
 .order-main .left .info .person table input{line-height:18px; padding:4px; border:1px solid #cacaca}
 
+/* 酒店预订中使用 */
+.order-main .left .ht th{color:#494949}
+.order-main .left .ht .wen{line-height:18px; float:left; cursor:pointer}
+.order-main .left .ht .wen i{width:18px; height:18px; margin:0 2px; float:right; background:url(images/ticket-icon.png) no-repeat 0 -522px}
+.order-main .left .ht .time.s{width:105px}
+.order-main .left .ht .z{color:#8c8d8d; font-size:16px}
+.order-main .left .ht .tot{font-weight:bold; color:#8c8d8d}
+.order-main .left .ht .tk div{margin-left:0}
+.order-main .left .ht .person{display:block}
+
+
 .order-main .left .block{border-top:1px solid #e2e2e2}
 .order-main .left .box{border:3px solid #fe4e00}
 .order-main .left .box table{margin-bottom:5px}
@@ -57,6 +68,16 @@
 .order-main .left .box table input{width:148px; line-height:22px; padding:6px; color:#646464; font-size:14px; border:1px solid #ccc}
 .order-main .left .box table span{color:#626262}
 .order-main .left .box table a{width:60px; line-height:25px; display:block; color:#fff !important; text-decoration:none; text-align:center; background:url(images/m-nr-bg.png) no-repeat -124px -107px}
+
+/* 酒店预订中使用 */
+.order-main .left .htbox table th{width:90px; line-height:46px; color:#494949; vertical-align:top}
+.order-main .left .htbox table input{margin:5px 0}
+.order-main .left .htbox table .error{line-height:20px; margin-bottom:5px; color:#ec0202}
+.order-main .left .htbox table .error i{width:20px; height:20px; float:left; background:url(images/hotel-bg.png) no-repeat 0 -256px}
+.order-main .left .htbox table .timetd input{float:left; background:url(images/hotel-bg.png) no-repeat right -276px}
+.order-main .left .htbox table .timetd p{width:375px; line-height:18px; float:left; margin:5px 10px; color:#767676}
+.order-main .left .htbox table .timetd p span{color:#ff4e00}
+
 
 .order-main .left .apd{line-height:26px; padding-left:80px}
 .order-main .left .apd dt{color:#505050; font-weight:bold}
@@ -82,20 +103,23 @@
 .order-main .right{width:272px; float:right}
 .order-main .right .tit{line-height:38px; color:#fe4e00; font-size:16px; border-bottom:1px solid #d1d1d1}
 .order-main .right dl{line-height:28px; padding:10px 0; border-bottom:1px solid #d1d1d1}
-.order-main .right dt{color:#5d5d5d; font-weight:bold}
-.order-main .right dd{color:#4d4d4d}
-.order-main .right dd p{float:right; color:#fe4e00}
+.order-main .right dt{color:#5d5d5d; font-size:14px; font-weight:bold}
+.order-main .right dd{line-height:20px; padding:4px 90px 4px 0; color:#4d4d4d; position:relative}
+.order-main .right dd p{width:90px; float:right; text-align:right; color:#fe4e00; position:absolute; right:0; top:4px}
 .order-main .right dd p b{font-size:14px}
 .order-main .right dd p span{color:#5c5c5c}
 .order-main .right dd p.lose{color:#4bc508}
 .order-main .right dd p.lose b{font-size:16px}
-.order-main .right .total{line-height:48px; color:#fe4e00; font-size:16px; border-top:1px solid #d1d1d1}
-.order-main .right .total span{float:right; font-size:12px}
+.order-main .right .total{line-height:48px; color:#fe4e00; font-size:16px; font-weight:bold; border-top:1px solid #d1d1d1}
+.order-main .right .total span{float:right; font-size:12px; font-weight:normal}
 .order-main .right .total span b{font-size:16px}
 .order-main .right label{width:100px; margin:30px auto 20px; display:block;}
 .order-main .right label input{margin:0 3px 0 0; padding:0; float:left}
 .order-main .right label a{color:#5c5b5b; text-decoration:underline}
 .order-main .right .bt{width:271px; line-height:42px; display:block; color:#fff !important; text-decoration:none; text-align:center; font-size:14px; font-weight:bold; background:#fe4e00; border-radius:3px; -moz-border-radius:3px}
+
+/* 酒店预订中使用 */
+.order-main .right .ht dd{min-height:40px}
 
 
 /** ## 以下是支付页面CSS ## */
@@ -119,6 +143,7 @@
 .pay-main .list td{line-height:20px; padding:5px 0; text-align:center; font-size:14px; color:#6f6f6f}
 .pay-main .list .num{color:#484848; vertical-align:top}
 .pay-main .list span{color:#24a9ed}
+.pay-main .list .sm{color:#6f6f6f; font-size:12px}
 .pay-main .list .open{width:58px; line-height:18px; padding:0 6px; margin-left:-35px; border:1px solid #ececec; position:absolute; bottom:-3px; left:50%; background:url(images/ticket-icon.png) no-repeat right -636px #f0f0f0}
 .pay-main .list .open.c{background-position:right -654px}
 
