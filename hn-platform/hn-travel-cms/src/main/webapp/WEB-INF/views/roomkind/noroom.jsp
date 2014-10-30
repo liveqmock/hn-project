@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="MSThemeCompatible" content="no" />
 <%@ include file="/common/meta.jsp" %>
-<title>酒店管理 - 房间列表</title>
+<title>房间管理 - 房型列表</title>
 <style type="text/css">
 div{text-align:center}
 </style>
@@ -28,7 +28,7 @@ function timeCount(){
 
 <body>
 <br/><br/><br/><br/>
-<div>酒店不存在或已被删除！</div><br/><br/>
+<div>房间不存在或已被删除！</div><br/><br/>
 <div> <span id="TimeSp">5</span>秒后 <a href="${ctx}/hotel">返回酒店列表</a> </div>
 </body>
 </html>

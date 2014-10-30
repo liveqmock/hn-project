@@ -6,6 +6,7 @@ package hn.travel.persist.service.hotel;
 import hn.travel.persist.entity.BlobData;
 import hn.travel.persist.entity.HotelRoom;
 import hn.travel.persist.repository.BlobDataDao;
+import hn.travel.persist.repository.HotelDao;
 import hn.travel.persist.repository.HotelRoomDao;
 
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class HotelRoomService {
 	private BlobDataDao blobDataDao;
 	@Autowired
 	private RoomKindService roomKindSrv;
+	@Autowired
+	private HotelDao hotelDao;
 
 	@Transactional
 	public void delete(Long... ids) {
@@ -144,8 +147,16 @@ public class HotelRoomService {
 			hr.setCreateTime(new Date());
 		hr.setUpdateTime(new Date());
 
-		dao.save(hr);
-		return hr;
+		return dao.save(hr);
+	}
+
+	public HotelRoom getWithHotel(Long id) {
+		HotelRoom room = dao.findOne(id);
+		if (room != null) {
+			room.setHotel(hotelDao.findOne(room.getHotelId()));
+		}
+
+		return room;
 	}
 
 }

@@ -4,10 +4,10 @@
 package hn.travel.cms.web.hotel;
 
 import hn.travel.cms.generic.web.GenericController;
-import hn.travel.persist.entity.Hotel;
 import hn.travel.persist.entity.HotelRoom;
+import hn.travel.persist.entity.RoomKind;
 import hn.travel.persist.service.hotel.HotelRoomService;
-import hn.travel.persist.service.hotel.HotelService;
+import hn.travel.persist.service.hotel.RoomKindService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,74 +29,74 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author XFZP
- * @date 2014年10月26日
+ * @date 2014年10月30日
  */
 @Controller
-@RequestMapping(value = "/hotelroom")
-public class HotelRoomController extends GenericController {
+@RequestMapping(value = "/roomkind")
+public class RoomKindController extends GenericController {
 
 	@Autowired
-	private HotelRoomService srv;
+	private RoomKindService srv;
 	@Autowired
-	private HotelService hotelSrv;
+	private HotelRoomService hotelRoomSrv;
 
-	@RequestMapping(value = "{hotelId}")
-	public String list(@PathVariable("hotelId") Long hotelId,
+	@RequestMapping(value = "{roomId}")
+	public String list(@PathVariable("roomId") Long roomId,
 			HttpServletRequest request, Model model) {
-		Hotel hotel = hotelSrv.get(hotelId);
-		if (hotel == null)
-			return "hotelroom/nohotel";
+		HotelRoom hotelRoom = hotelRoomSrv.getWithHotel(roomId);
+		if (hotelRoom == null)
+			return "roomkind/noroom";
 
-		model.addAttribute("hotel", hotel);
+		model.addAttribute("room", hotelRoom);
 
 		int pageNo = RequestUtil.getPageNo(request) - 1;
 		pageNo = pageNo < 0 ? 0 : pageNo;
 		int size = RequestUtil.getCurrentRowsDisplayed(request);
 		size = size < 1 ? 15 : size;
-		Page<HotelRoom> page = srv.page(hotelId, new PageRequest(pageNo, size));
+		Page<RoomKind> page = srv.page(roomId, new PageRequest(pageNo, size));
 
 		model.addAttribute("list", page.getContent());
 		model.addAttribute("totalRows", Long.valueOf(page.getTotalElements())
 				.intValue());
-		return "hotelroom/list";
+		return "roomkind/list";
 	}
 
-	@RequestMapping(value = "create/{hotelId}", method = RequestMethod.GET)
-	public String createForm(@PathVariable("hotelId") Long hotelId, Model model) {
-		Hotel hotel = hotelSrv.get(hotelId);
-		if (hotel == null)
-			return "hotelroom/nohotel";
+	@RequestMapping(value = "create/{roomId}", method = RequestMethod.GET)
+	public String createForm(@PathVariable("roomId") Long roomId, Model model) {
+		HotelRoom hotelRoom = hotelRoomSrv.getWithHotel(roomId);
+		if (hotelRoom == null)
+			return "roomkind/noroom";
 
-		model.addAttribute("hotel", hotel);
+		model.addAttribute("room", hotelRoom);
 
-		model.addAttribute("vo", new HotelRoom());
-		return "hotelroom/form";
+		model.addAttribute("vo", new RoomKind());
+		return "roomkind/form";
 	}
 
-	@RequestMapping(value = "update/{hotelId}/{id}", method = RequestMethod.GET)
-	public String updateForm(@PathVariable("hotelId") Long hotelId,
+	@RequestMapping(value = "update/{roomId}/{id}", method = RequestMethod.GET)
+	public String updateForm(@PathVariable("roomId") Long roomId,
 			@PathVariable("id") Long id, Model model) {
-		Hotel hotel = hotelSrv.get(hotelId);
-		if (hotel == null)
-			return "hotelroom/nohotel";
+		HotelRoom hotelRoom = hotelRoomSrv.getWithHotel(roomId);
+		if (hotelRoom == null)
+			return "roomkind/noroom";
 
-		model.addAttribute("hotel", hotel);
+		model.addAttribute("room", hotelRoom);
 
-		HotelRoom hr = srv.getDetail(id);
-		if (hr == null)
-			hr = new HotelRoom();
-		model.addAttribute("vo", hr);
-		return "hotelroom/form";
+		RoomKind rk = srv.get(id);
+		if (rk == null)
+			rk = new RoomKind();
+		model.addAttribute("vo", rk);
+		return "roomkind/form";
 	}
 
-	@RequestMapping(value = "save/{hotelId}", method = RequestMethod.POST)
+	@RequestMapping(value = "save/{roomId}", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, ?> save(@PathVariable("hotelId") Long hotelId,
-			@Valid HotelRoom hr, HttpServletRequest request) {
+	public Map<String, ?> save(@PathVariable("roomId") Long roomId,
+			@Valid RoomKind rk, HttpServletRequest request) {
 		Map<String, Object> re = new HashMap<String, Object>();
 
-		hr.setHotelId(hotelId);
-		hr = srv.save(hr);
+		rk.setRoomId(roomId);
+		rk = srv.save(rk);
 
 		re.put("success", true);
 		return re;
@@ -107,7 +107,7 @@ public class HotelRoomController extends GenericController {
 	public Map<String, ?> delete(@RequestParam Long[] ids) {
 		Map<String, Object> re = new HashMap<String, Object>();
 		if (ids == null || ids.length == 0) {
-			re.put("error", "请至少选择一个房间");
+			re.put("error", "请至少选择一个房型");
 			return re;
 		}
 		srv.delete(ids);

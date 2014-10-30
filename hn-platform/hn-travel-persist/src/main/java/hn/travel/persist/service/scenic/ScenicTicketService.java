@@ -76,8 +76,7 @@ public class ScenicTicketService {
 			st.setAgreementId(null);
 		}
 
-		stDao.save(st);
-		return st;
+		return stDao.save(st);
 	}
 
 	@Transactional

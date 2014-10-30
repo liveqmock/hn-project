@@ -5,6 +5,8 @@ package hn.travel.persist.repository;
 
 import hn.travel.persist.entity.RoomKind;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -17,5 +19,7 @@ public interface RoomKindDao extends
 		JpaSpecificationExecutor<RoomKind> {
 
 	Iterable<RoomKind> findByRoomIdIn(Long[] roomIds);
+
+	Page<RoomKind> findByRoomId(Long roomId, Pageable pageable);
 
 }

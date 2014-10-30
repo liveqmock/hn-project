@@ -7,9 +7,12 @@ import hn.travel.persist.entity.RoomKind;
 import hn.travel.persist.repository.RoomKindDao;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,5 +48,22 @@ public class RoomKindService {
 	@Transactional
 	public void delete(Iterable<? extends RoomKind> roomKinds) {
 		dao.delete(roomKinds);
+	}
+
+	public Page<RoomKind> page(Long roomId, Pageable pageable) {
+		return dao.findByRoomId(roomId, pageable);
+	}
+
+	public RoomKind get(Long id) {
+		return dao.findOne(id);
+	}
+
+	@Transactional
+	public RoomKind save(RoomKind rk) {
+		if (rk.getCreateTime() == null)
+			rk.setCreateTime(new Date());
+		rk.setUpdateTime(new Date());
+
+		return dao.save(rk);
 	}
 }
